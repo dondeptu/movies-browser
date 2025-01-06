@@ -23,7 +23,7 @@ This is a group design of the film search engine combined with a public API base
    |                   |   GRID            |  Immutability Concept |
    |                   |   FlexBox         |  REACT            |
    |                   |   MediaQueries    |  JSX              |
-   |                   |   Styled components| Styled componets                  |
+   |                   |   Styled components| Styled components                  |
    |                   |                   |  React Hooks      |
    |                   |                   |  Redux Toolkit    |
    |                   |                   |  Immer library    |
