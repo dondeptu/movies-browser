@@ -4,7 +4,7 @@ This is a group design of the film search engine combined with a public API base
 ## The project in this repository is built by:
 ### Angelina Kutuzova
 ### Donata Deptuła
-### Rafł Olewicz
+### Rafał Olewicz
 
 
 
