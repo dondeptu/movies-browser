@@ -4,7 +4,7 @@ export const Production = styled.ul`
     list-style: none;
     margin: 24px 0px 0px;
     padding-left: 0px;
-    font-size: 14px;
+    font-size: 18px;
 `;
 
 export const ProductionItem = styled.li`

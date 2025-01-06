@@ -1,15 +1,16 @@
-import { TileContent, TileImage, TileTags, TileTag, Tile, TileTitle, TileSubTitle, TileDescription } from './styled.js';
+import { TileImage, TileTags, TileTag, TileWrapper, TileSubTitle, TileDescription } from './styled.js';
+import { TileContent, TileTitle } from '../commonStyle/styled.js';
 import { ContentItem, NameItem, Production, ProductionItem } from '../ProductionInfo/styled.js';
 import { Rating, RatingContainer, VoteEvaluation, RatingStar, MaxRating, NumbersOfVotes } from '../Rating/styled.js';
-import poster from '../../images/poster.png'
-import shapeStar from '../../images/Shapes/shapeStar.svg'
+import posterMulan from '../../images/posterMulan.png';
+import shapeStar from '../../images/Shapes/shapeStar.svg';
 
 
 export const MovieTile = () => {
 
   return (
-    <Tile>
-      <TileImage src={poster} alt="" />
+    <TileWrapper>
+      <TileImage src={posterMulan} alt="" />
 
       <TileContent>
         <TileTitle>
@@ -72,6 +73,6 @@ export const MovieTile = () => {
         </TileDescription>
 
       </TileContent>
-    </Tile>
+    </TileWrapper>
   )
 };

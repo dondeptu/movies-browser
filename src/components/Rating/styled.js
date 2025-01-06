@@ -26,9 +26,7 @@ export const VoteEvaluation = styled.div`
 `;
 
 export const MaxRating = styled.div`
-    font-size: 14px;
-    /* width: 24px;
-    height: 17px; */
+    font-size: 14px;   
     margin-right: 8px;
 `;
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Tile = styled.article`
+export const TileWrapper = styled.article`
     background:  ${({ theme }) => theme.color.white};
     padding: 40px;
     box-shadow: 0px 4px 12px 0px #BAC7D580;
@@ -10,21 +10,13 @@ export const Tile = styled.article`
 `;
 
 export const TileImage = styled.img`
-    width: 312;
-    height: 464;
-`;
-
-export const TileContent = styled.div``;
-
-export const TileTitle = styled.header`
-    font-weight: 600;
-    font-size: 36px;
-    margin-bottom: 24px;
+    width: 312px;
+    height: 464px;
+    border-radius: 5px;
 `;
 
 export const TileSubTitle = styled.div`    
-    font-size: 22px;
-    /* line-height: 2.6; */
+    font-size: 22px;    
 `;
 
 export const TileTags = styled.ul`
