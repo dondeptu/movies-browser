@@ -1,7 +1,7 @@
 # Movies Browser - group project
 
 This is a group design of the film search engine combined with a public API based on the YouCode Academy project <br/>
-The project in this repository is built by:
+## The project in this repository is built by:
 ### Angelina Kutuzova
 ### Donata Deptuła
 ### Rafł Olewicz
