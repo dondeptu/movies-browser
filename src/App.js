@@ -1,12 +1,7 @@
-import { MovieTile } from './components/MovieTile';
-import { Container } from './components/PageContentContainer/styled';
-
+import MoviePage from './features/MoviePage';
 
 export const App = () => (
 
-  <Container>
-    <MovieTile />
-  </Container>
-
-)
+  <MoviePage />
+);
 
