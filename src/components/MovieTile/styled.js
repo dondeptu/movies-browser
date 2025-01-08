@@ -6,13 +6,14 @@ export const TileWrapper = styled.article`
     box-shadow: 0px 4px 12px 0px #BAC7D580;
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-gap: 40px;
+    column-gap: 40px;
 `;
 
 export const TileImage = styled.img`
     width: 312px;
     height: 464px;
     border-radius: 5px;
+    grid-row-end: span 2;    
 `;
 
 export const TileSubTitle = styled.div`    
@@ -41,4 +42,11 @@ export const TileDescription = styled.p`
     font-size: 20px;
     line-height: 1.6;
     margin: 8px 0px;
+
+       
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        display: grid;
+        grid-column-start: 1;
+        grid-column-end: span 2;
+    }
 `;
