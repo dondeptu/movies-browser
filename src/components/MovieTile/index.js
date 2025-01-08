@@ -66,13 +66,13 @@ export const MovieTile = () => {
             335 vote
           </NumbersOfVotes>
         </RatingContainer>
-
-        <TileDescription>
-          A young Chinese maiden disguises herself as a male warrior in order to save her father.
-          Disguises herself as a male warrior in order to save her father.  A young Chinese maiden disguises herself as a male warrior in order to save her father.
-        </TileDescription>
-
       </TileContent>
+
+      <TileDescription>
+        A young Chinese maiden disguises herself as a male warrior in order to save her father.
+        Disguises herself as a male warrior in order to save her father.  A young Chinese maiden disguises herself as a male warrior in order to save her father.
+      </TileDescription>
+
     </TileWrapper>
   )
 };
