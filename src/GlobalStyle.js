@@ -13,8 +13,7 @@ export const GlobalStyles = createGlobalStyle`
         body {
             background-color: ${({ theme }) => theme.color.whisper};
             color: ${({ theme }) => theme.color.black};
-            font-family: 'Poppins', sans-serif;            
-            padding: 16px;
+            font-family: 'Poppins', sans-serif;             
         } 
 `;
 
