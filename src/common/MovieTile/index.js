@@ -11,7 +11,7 @@ export const MovieTile = () => (
                 <Details>
                     <Title>Mulan</Title>
                     <ReleaseDate>2020</ReleaseDate>
-                    <Genre genres={[{ tag: 'Action' }, { tag: 'Adventure' }]} />
+                    <Genre genres={[{ tag: 'Action' }, { tag: 'Adventure' }, { tag: 'Drama' }]} />
                 </Details>
                 <Ratings>
                     <StyledStar />
