@@ -1,9 +1,9 @@
 import { TileImage, TileTags, TileTag, TileWrapper, TileTitle, TileSubTitle, TileDescription } from './styled.js';
-import { TileContent} from '../commonStyle/styled.js';
-import { ContentItem, NameItem, Production, ProductionItem } from '../ProductionInfo/styled.js';
+import { TileContent } from '../commonStyle/styled.js';
 import { Rating, RatingContainer, VoteEvaluation, RatingStar, MaxRating, NumbersOfVotes } from '../Rating/styled.js';
 import posterMulan from '../../images/posterMulan.png';
 import shapeStar from '../../images/Shapes/shapeStar.svg';
+import { ProductionInfo } from '../ProductionInfo/index.js';
 
 
 export const MovieTile = () => {
@@ -21,24 +21,7 @@ export const MovieTile = () => {
           2020
         </TileSubTitle>
 
-        <Production>
-          <ProductionItem>
-            <NameItem>
-              Production:
-            </NameItem>
-            <ContentItem>
-              China, United States of America
-            </ContentItem>
-          </ProductionItem>
-          <ProductionItem>
-            <NameItem>
-              Release date:
-            </NameItem>
-            <ContentItem>
-              24.10.2020
-            </ContentItem>
-          </ProductionItem>
-        </Production>
+        <ProductionInfo />
 
         <TileTags>
           <TileTag>
@@ -66,7 +49,7 @@ export const MovieTile = () => {
             335 vote
           </NumbersOfVotes>
         </RatingContainer>
-        
+
       </TileContent>
 
       <TileDescription>
