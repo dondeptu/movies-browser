@@ -1,7 +1,11 @@
-import MoviePage from './features/MoviePage';
 
 export const App = () => (
 
-  <MoviePage />
+  <>
+    <div style={{ textAlign: 'center', marginTop: '20%' }}>
+      <h1>Service under construction</h1>
+    </div>
+  </>
+
 );
 
