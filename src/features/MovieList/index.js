@@ -1,8 +1,7 @@
 import { Section } from "../../common/Section";
-import { TestContent } from "../../common/Section/styled";
 import { Wrapper } from "../../Wrapper";
-import posterMulan from "../../images/posterMulan.png";
 import { Content } from "./styled";
+import { MovieTile } from "../../common/MovieTile";
 
 function MovieList() {
     return (
@@ -10,14 +9,16 @@ function MovieList() {
             <Section
                 sectionHeader="Popular movies"
                 body={
-                    <Content>
-                        <TestContent src={posterMulan} alt="" />
-                        <TestContent src={posterMulan} alt="" />
-                        <TestContent src={posterMulan} alt="" />
-                        <TestContent src={posterMulan} alt="" />
-                        <TestContent src={posterMulan} alt="" />
-                        <TestContent src={posterMulan} alt="" />
-                    </Content>
+                    <>
+                        <Content>
+                            <MovieTile/>
+                            <MovieTile/>
+                            <MovieTile/>
+                            <MovieTile/>
+                            <MovieTile/>
+                            <MovieTile/>
+                        </Content>
+                    </>
                 }
             />
         </Wrapper>

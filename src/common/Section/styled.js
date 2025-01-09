@@ -18,10 +18,3 @@ export const Header = styled.h1`
         font-size: 18px;
     }
 `;
-
-export const TestContent = styled.img`
-    max-width: 324px;
-    height: auto;
-    width: 100%;
-    fit-content: ;
-`;
