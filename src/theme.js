@@ -6,6 +6,16 @@ export const theme = {
         candlelight: '#FCD420',
         stormGray: '#74788B',
         waterloo: '#7E839A',
-        black: '#000000',
+        black: '#18181B',
     },
+    fontWeight: {
+        regular: 400,
+        medium: 500,
+        semiBold: 600,
+        bold: 700
+    },
+
+    breakpoint: {
+        mobileMax: 767,
+      },
 };
