@@ -45,11 +45,10 @@ export const TileSubTitle = styled.div`
     }
 `;
 
-export const TileTags = styled.ul`
+export const  TileTagGroup = styled.ul`
     list-style: none;    
     padding-left: 0px;
-    /* margin: 16px -8px; */
-    margin: 0px 0px 8px -16px;
+    margin: 0px 0px 8px -8px;
     width: fit-content;
     display: flex;
     flex-wrap:wrap;
