@@ -10,16 +10,14 @@ function MovieList() {
             <Section
                 sectionHeader="Popular movies"
                 body={
-                    <>
-                        <Content>
-                            <TestContent src={posterMulan} alt="" />
-                            <TestContent src={posterMulan} alt="" />
-                            <TestContent src={posterMulan} alt="" />
-                            <TestContent src={posterMulan} alt="" />
-                            <TestContent src={posterMulan} alt="" />
-                            <TestContent src={posterMulan} alt="" />
-                        </Content>
-                    </>
+                    <Content>
+                        <TestContent src={posterMulan} alt="" />
+                        <TestContent src={posterMulan} alt="" />
+                        <TestContent src={posterMulan} alt="" />
+                        <TestContent src={posterMulan} alt="" />
+                        <TestContent src={posterMulan} alt="" />
+                        <TestContent src={posterMulan} alt="" />
+                    </Content>
                 }
             />
         </Wrapper>
