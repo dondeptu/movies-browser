@@ -35,7 +35,6 @@ export const Navigation = () => {
             </li>
           </ListStyled>
         </NavGroup>
-
         <SearchBarStyled>
           <SearchBarIcon />
           <Input type="text" placeholder="Search for movies..." />
