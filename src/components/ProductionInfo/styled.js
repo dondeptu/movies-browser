@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Production = styled.ul`
+export const Wrapper = styled.ul`
     list-style: none;
     margin: 24px 0px 0px;
     padding-left: 0px;

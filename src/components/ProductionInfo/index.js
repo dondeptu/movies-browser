@@ -1,9 +1,9 @@
-import { ContentItem, NameItem, Production, ProductionItem } from "./styled";
+import { ContentItem, NameItem, Wrapper, ProductionItem } from "./styled";
 
 export const ProductionInfo = () => {
 
     return (
-        <Production>
+        <Wrapper>
             <ProductionItem>
                 <NameItem>
                     Production:
@@ -20,6 +20,6 @@ export const ProductionInfo = () => {
                     24.10.2020
                 </ContentItem>
             </ProductionItem>
-        </Production>
+        </Wrapper>
     )
 };
