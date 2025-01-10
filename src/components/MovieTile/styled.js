@@ -34,6 +34,7 @@ export const TileTitle = styled.header`
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         font-size: 16px;
         margin-bottom: 0px;
+        font-weight: 500;
     }
 `;
 
