@@ -9,16 +9,14 @@ function MovieList() {
             <Section
                 sectionHeader="Popular movies"
                 body={
-                    <>
-                        <Content>
-                            <MovieTile/>
-                            <MovieTile/>
-                            <MovieTile/>
-                            <MovieTile/>
-                            <MovieTile/>
-                            <MovieTile/>
-                        </Content>
-                    </>
+                    <Content>
+                        <MovieTile />
+                        <MovieTile />
+                        <MovieTile />
+                        <MovieTile />
+                        <MovieTile />
+                        <MovieTile />
+                    </Content>
                 }
             />
         </Wrapper>
