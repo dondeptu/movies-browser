@@ -66,13 +66,13 @@ export const LogoTitle = styled.h1`
   color: ${({ theme }) => theme.color.white};
   font-size: 24px;
   font-weight: ${({ theme }) => theme.fontWeight.medium};
-  line-height: 40px;
+  line-height: 1.6;
   letter-spacing: -1.5px;
   white-space: nowrap;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 13px;
-    line-height: 16.9px;
+    line-height: 1.3;
     letter-spacing: -0.5px;
   }
 `;
@@ -92,7 +92,7 @@ export const NavItem = styled.a`
   color: ${({ theme }) => theme.color.white};
   font-size: 14px;
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
-  line-height: 21px;
+  line-height: 1.5;
   text-decoration: none;
   text-transform: uppercase;
   padding: 8px 24px;
@@ -104,7 +104,7 @@ export const NavItem = styled.a`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 12px;
-    line-height: 18px;
+    line-height: 1.5;
     padding: 8px 12px;
     border-radius: 29px;
   }
@@ -115,13 +115,13 @@ export const SearchBarStyled = styled.div`
   align-items: center;
   gap: 16px;
   border-radius: 33px;
-  max-width: 432px;
+  width: 432px;
   height: 48px;
   background-color: ${({ theme }) => theme.color.white};
   padding: 12px 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    max-width: 288px;
+    width: 288px;
     height: 44px;
     gap: 8px;
     padding: 14px 16px;
@@ -143,13 +143,12 @@ export const Input = styled.input`
   border: none;
   outline: none;
   font-size: 16px;
-  line-height: 24px;
-  flex-grow: 1;
+  line-height: 1.5;
   font-weight: ${({ theme }) => theme.fontWeight.regular};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 13px;
-    line-height: 16.9px;
+    line-height: 1.3;
   }
 `;
 
