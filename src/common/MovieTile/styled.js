@@ -64,19 +64,3 @@ export const ReleaseDate = styled.div`
         font-size: 13px;
     }
 `;
-
-export const Ratings = styled.div`
-
-`;
-
-export const StyledStar = styled.div`
-
-`;
-
-export const Rate = styled.div`
-
-`;
-
-export const Votes = styled.div`
-
-`;

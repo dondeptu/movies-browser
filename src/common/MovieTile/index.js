@@ -1,7 +1,7 @@
 import posterMulan from "../../images/posterMulan.png";
 import { Genre } from "./Genre";
-import { GenreItem } from "./Genre/styled";
-import { Details, InfoContent, Poster, Rate, Ratings, ReleaseDate, StyledStar, Title, Votes, Wrapper } from "./styled";
+import { Ratings } from "./Ratings";
+import { Details, InfoContent, Poster, ReleaseDate, Title, Wrapper } from "./styled";
 
 export const MovieTile = () => (
     <>
@@ -13,11 +13,7 @@ export const MovieTile = () => (
                     <ReleaseDate>2020</ReleaseDate>
                     <Genre genres={[{ tag: 'Action' }, { tag: 'Adventure' }, { tag: 'Drama' }]} />
                 </Details>
-                <Ratings>
-                    <StyledStar />
-                    <Rate>7.8</Rate>
-                    <Votes>35 votes</Votes>
-                </Ratings>
+                <Ratings ratings={{ rate: '7,8', votes: '35' }} />
             </InfoContent>
         </Wrapper>
     </>
