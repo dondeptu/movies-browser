@@ -1,6 +1,6 @@
 import { TileImage,  TileTagGroup, TileTag, TileWrapper, TileTitle, TileSubTitle, TileDescription } from './styled.js';
 import { TileContent } from '../commonStyle/styled.js';
-import { Rating, RatingContainer, VoteEvaluation, RatingStar, MaxRating, NumbersOfVotes } from '../Rating/styled.js';
+import { Rating, RatingContainer, VoteEvaluation, RatingStar, MaxRating, NumberOfVotes } from '../Rating/styled.js';
 import posterMulan from '../../images/posterMulan.png';
 import shapeStar from '../../images/Shapes/shapeStar.svg';
 import { ProductionInfo } from '../ProductionInfo/index.js';
@@ -45,9 +45,9 @@ export const MovieTile = () => {
           <MaxRating>
             /10
           </MaxRating>
-          <NumbersOfVotes>
+          <NumberOfVotes>
             335 vote
-          </NumbersOfVotes>
+          </NumberOfVotes>
         </RatingContainer>
 
       </TileContent>
