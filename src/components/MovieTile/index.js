@@ -1,4 +1,4 @@
-import { TileImage, TileTags, TileTag, TileWrapper, TileTitle, TileSubTitle, TileDescription } from './styled.js';
+import { TileImage,  TileTagGroup, TileTag, TileWrapper, TileTitle, TileSubTitle, TileDescription } from './styled.js';
 import { TileContent } from '../commonStyle/styled.js';
 import { Rating, RatingContainer, VoteEvaluation, RatingStar, MaxRating, NumbersOfVotes } from '../Rating/styled.js';
 import posterMulan from '../../images/posterMulan.png';
@@ -23,7 +23,7 @@ export const MovieTile = () => {
 
         <ProductionInfo />
 
-        <TileTags>
+        < TileTagGroup>
           <TileTag>
             Action
           </TileTag>
@@ -33,7 +33,7 @@ export const MovieTile = () => {
           <TileTag>
             Drama
           </TileTag>
-        </TileTags>
+        </ TileTagGroup>
 
         <RatingContainer>
           <Rating>
