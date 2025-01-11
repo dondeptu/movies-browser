@@ -10,23 +10,34 @@ export const Wrapper = styled.div`
   width: 100%;
   margin: 0;
   padding: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    bottom: 30px;
+    gap: 8px;
+  }
 `;
 export const ButtonWrapper = styled.div`
   display: flex;
   gap: 12px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    gap: 8px;
+    justify-content: center;
+  }
 `;
 export const Button = styled.button`
   padding: 8px 16px;
   background-color: #d6e4ff;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.4;
   border-radius: 5px;
   border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 
   &:disabled {
-    cursor: auto;
+    cursor: not-allowed;
     background-color: #e4e6f0;
     color: ${({ theme }) => theme.color.black};
   }
@@ -78,6 +89,10 @@ export const TextWrapper = styled.div`
   gap: 8px;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    gap: 2px;
+  }
 `;
 export const PageLabel = styled.p`
   margin: 0;
