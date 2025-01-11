@@ -1,8 +1,3 @@
 import { Navigation } from "./components/Navigation";
 
-export const App = () => (
-  <>
-    <Navigation />
-
-  </>
-);
+export const App = () => <Navigation />;
