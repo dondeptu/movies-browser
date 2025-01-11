@@ -1,9 +1,13 @@
+import { Provider } from "react-redux";
+import {store} from "./store"
 import { Navigation } from "./components/Navigation";
-import MoviePage from "./features/MoviePage";
+import { Pagination } from "./components/Pagination";
 
-export const App = () => (
-  <>
-    <Navigation />
-    <MoviePage />
-  </>
-);
+export const App = () => {
+  return (
+    <Provider store={store}>
+      <Navigation />
+      <Pagination />
+    </Provider>
+  );
+};
