@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as ArrowIcon } from "../../images/iconArrow.svg";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -29,7 +30,49 @@ export const Button = styled.button`
     background-color: #e4e6f0;
     color: ${({ theme }) => theme.color.black};
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    padding: 8px 12px;
+    gap: 4px;
+  }
 `;
+
+export const Arrow = styled(ArrowIcon)`
+  width: 7px;
+  height: 11px;
+  color: ${({ $disabled }) => ($disabled ? "#7E839A" : "#0044CC")};
+  transform: ${({ direction }) =>
+    direction === "right" ? "rotate(180deg)" : "rotate(0deg)"};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    width: 5px;
+    height: 8px;
+  }
+`;
+
+export const SecondArrow = styled(ArrowIcon)`
+  width: 5px;
+  height: 8px;
+  color: ${({ $disabled }) => ($disabled ? "#7E839A" : "#0044CC")};
+  transform: ${({ direction }) =>
+    direction === "right" ? "rotate(180deg)" : "rotate(0deg)"};
+
+  @media (min-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    display: none;
+  }
+`;
+
+export const ButtonText = styled.span`
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: ${({ theme }) => theme.color.black};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    display: none;
+  }
+`;
+
 export const TextWrapper = styled.div`
   display: flex;
   gap: 8px;
