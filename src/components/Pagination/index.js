@@ -7,6 +7,36 @@ import {
   PageNumber,
 } from "./styled.js";
 
+const PaginationButton = ({ onClick, disabled, children, direction }) => (
+  <Button disabled={disabled} onClick={onClick}>
+    {direction === "left" && (
+      <>
+        {children === "First" ? (
+          <>
+            <Arrow $disabled={disabled} direction={direction} />
+            <SecondArrow $disabled={disabled} direction={direction} />
+          </>
+        ) : (
+          <Arrow $disabled={disabled} direction={direction} />
+        )}
+      </>
+    )}
+    <ButtonText $disabled={disabled}>{children}</ButtonText>
+    {direction === "right" && (
+      <>
+        {children === "Last" ? (
+          <>
+            <Arrow $disabled={disabled} direction={direction} />
+            <SecondArrow $disabled={disabled} direction={direction} />
+          </>
+        ) : (
+          <Arrow $disabled={disabled} direction={direction} />
+        )}
+      </>
+    )}
+  </Button>
+);
+
 export const Pagination = () => {
   return (
     <Wrapper>
