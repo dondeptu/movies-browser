@@ -16,6 +16,7 @@ export const Wrapper = styled.div`
     gap: 8px;
   }
 `;
+
 export const ButtonWrapper = styled.div`
   display: flex;
   gap: 12px;
@@ -25,6 +26,7 @@ export const ButtonWrapper = styled.div`
     justify-content: center;
   }
 `;
+
 export const Button = styled.button`
   padding: 8px 16px;
   background-color: #d6e4ff;
@@ -48,7 +50,7 @@ export const Button = styled.button`
   }
 `;
 
-export const Arrow = styled(ArrowIcon)`
+export const PrimaryArrow = styled(ArrowIcon)`
   width: 7px;
   height: 11px;
   color: ${({ $disabled }) => ($disabled ? "#7E839A" : "#0044CC")};
@@ -61,7 +63,7 @@ export const Arrow = styled(ArrowIcon)`
   }
 `;
 
-export const SecondArrow = styled(ArrowIcon)`
+export const SecondaryArrow = styled(ArrowIcon)`
   width: 5px;
   height: 8px;
   color: ${({ $disabled }) => ($disabled ? "#7E839A" : "#0044CC")};
@@ -94,6 +96,7 @@ export const TextWrapper = styled.div`
     gap: 2px;
   }
 `;
+
 export const PageLabel = styled.p`
   margin: 0;
   font-size: 16px;
@@ -106,6 +109,7 @@ export const PageLabel = styled.p`
     line-height: 2.4;
   }
 `;
+
 export const PageNumber = styled.p`
   margin: 0;
   font-size: 16px;

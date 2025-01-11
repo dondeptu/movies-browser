@@ -5,8 +5,8 @@ import {
   Wrapper,
   ButtonWrapper,
   Button,
-  Arrow,
-  SecondArrow,
+  PrimaryArrow,
+  SecondaryArrow,
   ButtonText,
   TextWrapper,
   PageLabel,
@@ -19,11 +19,11 @@ const PaginationButton = ({ onClick, disabled, children, direction }) => (
       <>
         {children === "First" ? (
           <>
-            <Arrow $disabled={disabled} direction={direction} />
-            <SecondArrow $disabled={disabled} direction={direction} />
+            <PrimaryArrow $disabled={disabled} direction={direction} />
+            <SecondaryArrow $disabled={disabled} direction={direction} />
           </>
         ) : (
-          <Arrow $disabled={disabled} direction={direction} />
+          <PrimaryArrow $disabled={disabled} direction={direction} />
         )}
       </>
     )}
@@ -32,11 +32,11 @@ const PaginationButton = ({ onClick, disabled, children, direction }) => (
       <>
         {children === "Last" ? (
           <>
-            <Arrow $disabled={disabled} direction={direction} />
-            <SecondArrow $disabled={disabled} direction={direction} />
+            <PrimaryArrow $disabled={disabled} direction={direction} />
+            <SecondaryArrow $disabled={disabled} direction={direction} />
           </>
         ) : (
-          <Arrow $disabled={disabled} direction={direction} />
+          <PrimaryArrow $disabled={disabled} direction={direction} />
         )}
       </>
     )}
