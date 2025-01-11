@@ -8,14 +8,4 @@ export const theme = {
         waterloo: '#7E839A',
         black: '#18181B',
     },
-    fontWeight: {
-        regular: 400,
-        medium: 500,
-        semiBold: 600,
-        bold: 700
-    },
-
-    breakpoint: {
-        mobileMax: 767,
-      },
 };
