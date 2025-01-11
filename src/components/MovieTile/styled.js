@@ -26,10 +26,10 @@ export const TileImage = styled.img`
     }
 `;
 
-export const TileTitle = styled.header`
+export const TileTitle = styled.h1`
     font-weight: 600;
     font-size: 36px;
-    margin-bottom: 24px;
+    margin: 8px 0px -7px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         font-size: 16px;
@@ -39,18 +39,20 @@ export const TileTitle = styled.header`
 `;
 
 export const TileSubTitle = styled.div`    
-    font-size: 22px; 
+    font-size: 22px;
+    margin-bottom: -8px;
     
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         font-size: 13px;
     }
 `;
 
-export const  TileTagGroup = styled.ul`
+export const TileTagGroup = styled.ul`
     list-style: none;    
     padding-left: 0px;
-    margin: 0px 0px 8px -8px;
+    margin: 0px 0px -24px -16px;
     width: fit-content;
+    height: fit-content;
     display: flex;
     flex-wrap:wrap;
 
@@ -64,9 +66,10 @@ export const TileTag = styled.li`
     background-color: ${({ theme }) => theme.color.mystic};
     font-size: 14px;
     padding: 8px 16px;
-    margin: 8px;
-    border-radius: 5px;
-    cursor: pointer;
+    line-height: 1;
+    /* margin: 8px; */
+    margin: 0px 0px 16px 16px;
+    border-radius: 5px;    
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         font-size: 10px;
