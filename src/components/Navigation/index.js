@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import {
   NavigationStyled,
   Wrapper,
@@ -7,10 +6,10 @@ import {
   Logo,
   LogoIcon,
   LogoTitle,
-  ListStyled,
+  NavItemList,
   NavItem,
-  SearchBarStyled,
-  SearchBarIcon,
+  SearchContainer,
+  SearchIcon,
   Input,
 } from "./styled";
 
@@ -24,21 +23,29 @@ export const Navigation = () => {
             <LogoIcon />
             <LogoTitle>Movies Browser</LogoTitle>
           </Logo>
-          <ListStyled>
+          <NavItemList>
             <li>
-              <NavItem isActive={activeTab === "Movies"}
-              onClick={() => setActiveTab("Movies")}>Movies</NavItem>
+              <NavItem
+                $isActive={activeTab === "Movies"}
+                onClick={() => setActiveTab("Movies")}
+              >
+                Movies
+              </NavItem>
             </li>
             <li>
-              <NavItem isActive={activeTab === "People"}
-              onClick={() => setActiveTab("People")}>People</NavItem>
+              <NavItem
+                $isActive={activeTab === "People"}
+                onClick={() => setActiveTab("People")}
+              >
+                People
+              </NavItem>
             </li>
-          </ListStyled>
+          </NavItemList>
         </NavGroup>
-        <SearchBarStyled>
-          <SearchBarIcon />
+        <SearchContainer>
+          <SearchIcon />
           <Input type="text" placeholder="Search for movies..." />
-        </SearchBarStyled>
+        </SearchContainer>
       </Wrapper>
     </NavigationStyled>
   );

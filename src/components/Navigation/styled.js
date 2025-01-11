@@ -76,7 +76,7 @@ export const LogoTitle = styled.h1`
   }
 `;
 
-export const ListStyled = styled.ul`
+export const NavItemList = styled.ul`
   list-style: none;
   display: flex;
   gap: 16px;
@@ -97,7 +97,7 @@ export const NavItem = styled.a`
   text-transform: uppercase;
   padding: 8px 24px;
   border: 1px solid
-    ${({ isActive, theme }) => (isActive ? theme.color.white : "transparent")};
+    ${({ $isActive, theme }) => ($isActive ? theme.color.white : "transparent")};
   border-radius: 24px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -110,7 +110,7 @@ export const NavItem = styled.a`
   }
 `;
 
-export const SearchBarStyled = styled.div`
+export const SearchContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 16px;
@@ -129,7 +129,7 @@ export const SearchBarStyled = styled.div`
   }
 `;
 
-export const SearchBarIcon = styled(IconSearch)`
+export const SearchIcon = styled(IconSearch)`
   height: 24px;
   width: 24px;
   color: #7e839a;
