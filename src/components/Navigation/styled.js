@@ -24,6 +24,7 @@ export const Wrapper = styled.div`
   align-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    padding-top: 24px;
     flex-wrap: wrap;
     gap: 24px;
     justify-content: center;
@@ -34,7 +35,6 @@ export const NavGroup = styled.div`
   display: flex;
   align-items: center;
   gap: 80px;
-  cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     gap: 24px;
@@ -45,11 +45,10 @@ export const Logo = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 0;
+  cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     gap: 8px;
-    padding: 0;
   }
 `;
 export const LogoIcon = styled(IconCamera)`
@@ -82,6 +81,7 @@ export const ListStyled = styled.ul`
   display: flex;
   gap: 16px;
   padding: 0;
+  margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     gap: 12px;
@@ -125,6 +125,7 @@ export const SearchBarStyled = styled.div`
     height: 44px;
     gap: 8px;
     padding: 14px 16px;
+    margin-bottom: 16px;
   }
 `;
 
@@ -151,4 +152,3 @@ export const Input = styled.input`
     line-height: 1.3;
   }
 `;
-
