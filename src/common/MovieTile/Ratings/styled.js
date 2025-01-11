@@ -4,7 +4,7 @@ import { ReactComponent as Star } from './star.svg';
 export const Wrapper = styled.div`
     display: flex;
     align-items: center;
-    line-height: 2.0;
+    line-height: 1.5;
     gap: 12px;
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {

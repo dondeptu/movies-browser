@@ -57,10 +57,11 @@ export const Title = styled.h2`
 
 export const ReleaseDate = styled.div`
     font-size: 16px;
-    line-height: 2.0;
+    line-height: 1.5;
     color: ${({ theme }) => theme.color.waterloo};
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         font-size: 13px;
+        line-height: 1.3;
     }
 `;
