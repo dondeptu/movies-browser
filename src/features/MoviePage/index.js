@@ -1,11 +1,11 @@
-import { MainContainer } from "../../GlobalStyle";
 import { MovieTile } from "../../components/MovieTile";
+import { Wrapper } from "../../Wrapper";
 function MoviePage() {
 
     return (
-        <MainContainer>
+        <Wrapper>
             <MovieTile />
-        </MainContainer>
+        </Wrapper>
     );
 }
 
