@@ -100,6 +100,11 @@ export const PageLabel = styled.p`
   font-weight: 400;
   line-height: 1.3;
   color: #7e839a;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    font-size: 10px;
+    line-height: 2.4;
+  }
 `;
 export const PageNumber = styled.p`
   margin: 0;
@@ -107,4 +112,9 @@ export const PageNumber = styled.p`
   font-weight: 600;
   line-height: 1.5;
   color: #18181b;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    font-size: 10px;
+    line-height: 2.4;
+  }
 `;
