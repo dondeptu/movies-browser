@@ -29,7 +29,7 @@ export const ButtonWrapper = styled.div`
 
 export const Button = styled.button`
   padding: 8px 16px;
-  background-color: #d6e4ff;
+  background-color: ${({ theme }) => theme.color.lightblue};
   border-radius: 5px;
   border: none;
   cursor: pointer;
@@ -40,7 +40,7 @@ export const Button = styled.button`
 
   &:disabled {
     cursor: not-allowed;
-    background-color: #e4e6f0;
+    background-color: ${({ theme }) => theme.color.grey};
     color: ${({ theme }) => theme.color.black};
   }
 
@@ -53,7 +53,8 @@ export const Button = styled.button`
 export const PrimaryArrow = styled(ArrowIcon)`
   width: 7px;
   height: 11px;
-  color: ${({ $disabled }) => ($disabled ? "#7E839A" : "#0044CC")};
+  color: ${({ $disabled, theme }) =>
+    $disabled ? theme.color.darkergrey : theme.color.blue};
   transform: ${({ direction }) =>
     direction === "right" ? "rotate(180deg)" : "rotate(0deg)"};
 
@@ -66,7 +67,8 @@ export const PrimaryArrow = styled(ArrowIcon)`
 export const SecondaryArrow = styled(ArrowIcon)`
   width: 5px;
   height: 8px;
-  color: ${({ $disabled }) => ($disabled ? "#7E839A" : "#0044CC")};
+  color: ${({ $disabled, theme }) =>
+    $disabled ? theme.color.darkergrey : theme.color.blue};
   transform: ${({ direction }) =>
     direction === "right" ? "rotate(180deg)" : "rotate(0deg)"};
 
@@ -102,7 +104,7 @@ export const PageLabel = styled.p`
   font-size: 16px;
   font-weight: 400;
   line-height: 1.3;
-  color: #7e839a;
+  color: ${({ theme }) => theme.color.darkergrey};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 10px;
@@ -115,7 +117,7 @@ export const PageNumber = styled.p`
   font-size: 16px;
   font-weight: 600;
   line-height: 1.5;
-  color: #18181b;
+  color: ${({ theme }) => theme.color.black};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 10px;
