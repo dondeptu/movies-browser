@@ -26,11 +26,11 @@ export const Navigation = () => {
           </Logo>
           <ListStyled>
             <li>
-              <NavItem isActive={activeTab === "Movies"}
+              <NavItem $isActive={activeTab === "Movies"}
               onClick={() => setActiveTab("Movies")}>Movies</NavItem>
             </li>
             <li>
-              <NavItem isActive={activeTab === "People"}
+              <NavItem $isActive={activeTab === "People"}
               onClick={() => setActiveTab("People")}>People</NavItem>
             </li>
           </ListStyled>
