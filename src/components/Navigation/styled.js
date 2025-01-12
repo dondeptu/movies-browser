@@ -131,7 +131,7 @@ export const SearchContainer = styled.div`
 export const SearchIcon = styled(IconSearch)`
   height: 24px;
   width: 24px;
-  color: #7e839a;
+  color:${({ theme }) => theme.color.darkergrey};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     height: 16px;
