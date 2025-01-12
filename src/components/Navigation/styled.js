@@ -65,7 +65,7 @@ export const LogoIcon = styled(IconCamera)`
 export const LogoTitle = styled.h1`
   color: ${({ theme }) => theme.color.white};
   font-size: 24px;
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  font-weight: 500;
   line-height: 40px;
   letter-spacing: -1.5px;
   white-space: nowrap;
@@ -91,13 +91,13 @@ export const ListStyled = styled.ul`
 export const NavItem = styled.a`
   color: ${({ theme }) => theme.color.white};
   font-size: 14px;
-  font-weight: ${({ theme }) => theme.fontWeight.semiBold};
+  font-weight: 600;
   line-height: 21px;
   text-decoration: none;
   text-transform: uppercase;
   padding: 8px 24px;
   border: 1px solid
-    ${({ isActive, theme }) => (isActive ? theme.color.white : "transparent")};
+    ${({ $isActive, theme }) => ($isActive ? theme.color.white : "transparent")};
   border-radius: 24px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -145,11 +145,10 @@ export const Input = styled.input`
   font-size: 16px;
   line-height: 24px;
   flex-grow: 1;
-  font-weight: ${({ theme }) => theme.fontWeight.regular};
+  font-weight: 400;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 13px;
     line-height: 16.9px;
   }
 `;
-
