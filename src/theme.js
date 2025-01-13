@@ -8,8 +8,10 @@ export const theme = {
         waterloo: '#7E839A',
         black: '#000000',
     },
-
-    breakpoint: {
-        mobileMax: 767
+    shadows: {
+        elevation: '0px 4px 12px 0px #BAC7D580',
+    },
+    breakpoints: {
+        mobileMax: 767,
     },
 };
