@@ -1,11 +1,10 @@
-import { MainContainer } from "../../GlobalStyle";
-import { MovieTile } from "../../components/MovieTile";
+import { Wrapper } from "./style";
+import { MovieDetailsTile } from "../../common/TileMovieDetails";
 function MoviePage() {
-
     return (
-        <MainContainer>
-            <MovieTile />
-        </MainContainer>
+        <Wrapper>
+            <MovieDetailsTile />
+        </Wrapper>
     );
 }
 
