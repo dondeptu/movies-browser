@@ -14,7 +14,7 @@ export const Container = styled.div`
 `;
 
 export const GenreItem = styled.div`
-    background-color: ${({ theme }) => theme.color.mystic};
+    background-color: ${({ theme }) => theme.color.grey};
     border-radius: 5px;
     padding: 8px 16px;
     font-size: 14px;

@@ -32,7 +32,7 @@ export const Rate = styled.span`
     }
 `;
 
-export const MaxRating = styled.div`
+export const MaxRate = styled.div`
     font-size: 14px;   
     margin-right: 4px;
 
@@ -43,7 +43,7 @@ export const MaxRating = styled.div`
 
 export const Votes = styled.span`
     font-size: 14px;
-    color: ${({ theme }) => theme.color.waterloo};
+    color: ${({ theme }) => theme.color.darkgray};
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         font-size: 13px;
