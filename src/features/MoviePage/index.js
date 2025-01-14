@@ -1,5 +1,5 @@
 import { Wrapper } from "./style";
-import { MovieDetailsTile } from "../../common/TileMovieDetails";
+import { MovieDetailsTile } from "../../common/MovieDetailsTile";
 function MoviePage() {
     return (
         <Wrapper>
