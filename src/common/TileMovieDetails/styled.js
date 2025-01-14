@@ -60,33 +60,3 @@ export const TileSubTitle = styled.div`
         margin: 0px 0px -4px;
     }
 `;
-
-export const TileTagGroup = styled.ul`
-    list-style: none;    
-    padding-left: 0px;
-    margin: 0px 0px -24px -16px;
-    width: fit-content;
-    height: fit-content;
-    display: flex;
-    flex-wrap:wrap;
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-        margin: 1px;
-        gap: 8px;
-    }
-`;
-
-export const TileTag = styled.li`
-    background-color: ${({ theme }) => theme.color.mystic};
-    font-size: 14px;
-    padding: 8px 16px;
-    line-height: 1;    
-    margin: 0px 0px 16px 16px;
-    border-radius: 5px;    
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-        font-size: 10px;
-        padding: 4px 8px;
-        margin: 0px;
-    }
-`;
