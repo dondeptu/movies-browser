@@ -24,6 +24,7 @@ export const Wrapper = styled.div`
   align-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    display: grid;
     padding-top: 24px;
     flex-wrap: wrap;
     gap: 24px;
