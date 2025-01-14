@@ -26,7 +26,6 @@ export const Wrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     display: grid;
     padding-top: 24px;
-    flex-wrap: wrap;
     gap: 24px;
     justify-content: center;
   }
@@ -89,8 +88,20 @@ export const NavItemList = styled.ul`
   }
 `;
 
-export const NavItem = styled.a`
+export const NavItem = styled.li`
+  min-width: 102px;
+  min-height: 48px;
+  display: flex;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    min-width: 70px;
+    min-height: 34px;
+  }
+`;
+
+export const NavLink = styled.a`
   color: ${({ theme }) => theme.color.white};
+  align-content: center;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.5;
