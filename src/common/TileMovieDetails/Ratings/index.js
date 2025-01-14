@@ -1,11 +1,11 @@
-import { MaxRating, Rate, StarIcon, Votes, Wrapper } from "./styled";
+import { MaxRate, Rate, StarIcon, Votes, Wrapper } from "./styled";
 
 export const Ratings = ({ ratings }) => {
     return (
         <Wrapper>
             <StarIcon />
             <Rate>{ratings.rate}</Rate>
-            <MaxRating>{ratings.maxRate}</MaxRating>
+            <MaxRate>{ratings.maxRate}</MaxRate>
             <Votes>{ratings.votes} votes</Votes>
         </Wrapper>
     );
