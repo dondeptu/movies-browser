@@ -12,7 +12,6 @@ export const Wrapper = styled.ul`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         margin: 0px;
-        gap: 8px;
     }
 `;
 
