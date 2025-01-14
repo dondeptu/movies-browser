@@ -8,6 +8,7 @@ import {
   LogoTitle,
   NavItemList,
   NavItem,
+  NavLink,
   SearchContainer,
   SearchIcon,
   Input,
@@ -24,22 +25,22 @@ export const Navigation = () => {
             <LogoTitle>Movies Browser</LogoTitle>
           </Logo>
           <NavItemList>
-            <li>
-              <NavItem
+            <NavItem>
+              <NavLink
                 $isActive={activeTab === "Movies"}
                 onClick={() => setActiveTab("Movies")}
               >
                 Movies
-              </NavItem>
-            </li>
-            <li>
-              <NavItem
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
                 $isActive={activeTab === "People"}
                 onClick={() => setActiveTab("People")}
               >
                 People
-              </NavItem>
-            </li>
+              </NavLink>
+            </NavItem>
           </NavItemList>
         </NavGroup>
         <SearchContainer>
