@@ -7,6 +7,10 @@ export const Container = styled.div`
     flex-wrap: wrap;
     gap: 8px;
     margin-bottom: -8px;
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        margin-bottom: 0px;
+    }
 `;
 
 export const GenreItem = styled.div`
