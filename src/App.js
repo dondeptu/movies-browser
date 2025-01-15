@@ -1,6 +1,9 @@
+import MoviePage from "./features/MoviePage";
+import { Navigation } from "./common/Navigation";
 import MovieList from "./features/MovieList";
-
 export const App = () => (
-  <MovieList />
+  <>
+    <Navigation />
+    <MovieList />
+  </>
 );
-
