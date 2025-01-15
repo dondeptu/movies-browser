@@ -17,26 +17,22 @@ const PaginationButton = ({ onClick, disabled, children, direction }) => (
   <Button disabled={disabled} onClick={onClick}>
     {direction === "left" && (
       <>
+        <PrimaryArrow $disabled={disabled} direction={direction} />
         {children === "First" ? (
-          <>
-            <PrimaryArrow $disabled={disabled} direction={direction} />
-            <SecondaryArrow $disabled={disabled} direction={direction} />
-          </>
+          <SecondaryArrow $disabled={disabled} direction={direction} />
         ) : (
-          <PrimaryArrow $disabled={disabled} direction={direction} />
+          ""
         )}
       </>
     )}
     <ButtonText $disabled={disabled}>{children}</ButtonText>
     {direction === "right" && (
       <>
+        <PrimaryArrow $disabled={disabled} direction={direction} />
         {children === "Last" ? (
-          <>
-            <PrimaryArrow $disabled={disabled} direction={direction} />
-            <SecondaryArrow $disabled={disabled} direction={direction} />
-          </>
+          <SecondaryArrow $disabled={disabled} direction={direction} />
         ) : (
-          <PrimaryArrow $disabled={disabled} direction={direction} />
+          ""
         )}
       </>
     )}
