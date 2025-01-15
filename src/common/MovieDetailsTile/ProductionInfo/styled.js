@@ -20,7 +20,7 @@ export const ProductionItem = styled.li`
 `;
 
 export const NameItem = styled.p`
-    color: ${({ theme }) => theme.color.darkergray};
+    color: ${({ theme }) => theme.color.darkergrey};   
     margin: 0px 10px 0px 0px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
