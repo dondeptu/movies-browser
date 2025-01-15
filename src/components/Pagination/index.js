@@ -12,6 +12,7 @@ import {
   PageLabel,
   PageNumber,
 } from "./styled.js";
+import { theme } from "../../theme.js";
 
 const PaginationButton = ({ onClick, disabled, children, direction }) => (
   <Button disabled={disabled} onClick={onClick}>
@@ -44,7 +45,7 @@ export const Pagination = () => {
   const dispatch = useDispatch();
   const totalPages = useTotalPages();
 
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = window.innerWidth <= theme.breakpoint.mobileMax;
 
   const handleSetCurrentPage = (page) => {
     if (page < 1) {
