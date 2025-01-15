@@ -57,6 +57,6 @@ export const TileSubTitle = styled.div`
     
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         font-size: 13px;
-        margin: 0px 0px -4px;
+        margin: -4px 0px -4px;
     }
 `;
