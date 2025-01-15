@@ -16,3 +16,4 @@ export const theme = {
     mobileMax: 767,
   },
 };
+
