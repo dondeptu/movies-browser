@@ -1,6 +1,5 @@
-import MoviePage from './features/MoviePage';
+import MovieList from "./features/MovieList";
 
 export const App = () => (
   <MoviePage />
 );
-

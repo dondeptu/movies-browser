@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
+
 export const GlobalStyles = createGlobalStyle`
     html {
             box-sizing: border-box;
@@ -11,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
 
         body {
             background-color: ${({ theme }) => theme.color.whisper};
-            color: ${({ theme }) => theme.color.black};
-            font-family: 'Poppins', sans-serif;             
+            font-family: 'Poppins', sans-serif;
+            font-optical-sizing: auto;     
         } 
 `;
