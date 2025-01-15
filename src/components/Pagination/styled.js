@@ -103,7 +103,7 @@ export const PageLabel = styled.p`
   margin: 0;
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.3;
+  line-height: 1.5;
   color: ${({ theme }) => theme.color.darkergrey};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
