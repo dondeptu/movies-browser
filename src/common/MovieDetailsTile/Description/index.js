@@ -1,11 +1,8 @@
 import { TileDescription } from "./styled";
 
-export const MovieDescription = () => {
+export const MovieDescription = ({ movieDescription }) => {
 
     return (
-        <TileDescription>
-            A young Chinese maiden disguises herself as a male warrior in order to save her father.
-            Disguises herself as a male warrior in order to save her father.  A young Chinese maiden disguises herself as a male warrior in order to save her father.
-        </TileDescription>
+        <TileDescription>{movieDescription.description}</TileDescription>
     )
 };

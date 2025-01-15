@@ -1,24 +1,16 @@
 import { ContentItem, NameItem, Wrapper, ProductionItem } from "./styled";
 
-export const ProductionInfo = () => {
+export const ProductionInfo = ({ info }) => {
 
     return (
         <Wrapper>
             <ProductionItem>
-                <NameItem>
-                    Production:
-                </NameItem>
-                <ContentItem>
-                    China, United States of America
-                </ContentItem>
+                <NameItem>Production:</NameItem>
+                <ContentItem>{info.productionCountries}</ContentItem>
             </ProductionItem>
             <ProductionItem>
-                <NameItem>
-                    Release date:
-                </NameItem>
-                <ContentItem>
-                    24.10.2020
-                </ContentItem>
+                <NameItem>Release date:</NameItem>
+                <ContentItem>{info.date}</ContentItem>
             </ProductionItem>
         </Wrapper>
     )
