@@ -1,12 +1,8 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    max-width: 1368px;
-    margin: auto;
-    /* display: grid;
-    grid-template-rows: auto;
-    grid-gap: 64px; */
-    /* width: 1368px; */
+    width: 1368px;
+    margin: auto;   
     max-width: calc(100% - 24px);
     margin: auto;
 
