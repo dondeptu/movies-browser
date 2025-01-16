@@ -5,11 +5,12 @@ export const Container = styled.div`
     width: fit-content;
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 16px;
     margin-bottom: -8px;
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         margin-bottom: 0px;
+        gap: 8px;
     }
 `;
 
