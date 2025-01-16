@@ -44,7 +44,7 @@ export const TileTitle = styled.h1`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         font-size: 16px;
-        margin-bottom: 0px;
+        margin: 0px;
         font-weight: 500;
     }
 `;
@@ -56,7 +56,9 @@ export const TileSubTitle = styled.div`
     align-items: center;
     
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        color:  ${({ theme }) => theme.color.darkergrey};
         font-size: 13px;
-        margin: -4px 0px -4px;
+        margin: 0px;
+        line-height: 116%;
     }
 `;
