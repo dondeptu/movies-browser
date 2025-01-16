@@ -10,8 +10,9 @@ export const GlobalStyles = createGlobalStyle`
         }
 
         body {
-            background-color: ${({ theme }) => theme.color.whisper};
+            background-color: ${({ theme }) => theme.color.lightgrey};
             color: ${({ theme }) => theme.color.black};
-            font-family: 'Poppins', sans-serif;             
+            font-family: 'Poppins', sans-serif;
+            font-optical-sizing: auto;     
         } 
 `;
