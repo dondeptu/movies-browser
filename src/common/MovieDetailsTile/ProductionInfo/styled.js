@@ -17,11 +17,12 @@ export const Wrapper = styled.ul`
 
 export const ProductionItem = styled.li`
     display: flex;
+    gap: 10px;
 `;
 
 export const NameItem = styled.p`
     color: ${({ theme }) => theme.color.darkergrey};   
-    margin: 0px 10px 0px 0px;
+    margin: 0px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         display: none;
@@ -34,5 +35,6 @@ export const ContentItem = styled.p`
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         font-size: 12px;
         margin: 0px;
+        line-height: 120%;
     }
 `;
