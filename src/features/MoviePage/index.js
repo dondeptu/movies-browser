@@ -1,11 +1,9 @@
 import { Wrapper } from "./style";
-import { MovieDetailsTile } from "../../common/MovieDetailsTile";
 import PersonsSection from "../../common/PersonsSection";
 import { PersonTile } from "../../common/PersonTile";
 function MoviePage() {
     return (
         <Wrapper>
-            <MovieDetailsTile />
             <PersonsSection
                 title="Cast"
                 body={
