@@ -24,7 +24,8 @@ export const Wrapper = styled.div`
   align-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    flex-wrap: wrap;
+    display: grid;
+    padding-top: 24px;
     gap: 24px;
     justify-content: center;
   }
@@ -34,7 +35,6 @@ export const NavGroup = styled.div`
   display: flex;
   align-items: center;
   gap: 80px;
-  cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     gap: 24px;
@@ -45,11 +45,10 @@ export const Logo = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 0;
+  cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     gap: 8px;
-    padding: 0;
   }
 `;
 export const LogoIcon = styled(IconCamera)`
@@ -66,33 +65,46 @@ export const LogoTitle = styled.h1`
   color: ${({ theme }) => theme.color.white};
   font-size: 24px;
   font-weight: 500;
-  line-height: 40px;
+  line-height: 1.6;
   letter-spacing: -1.5px;
   white-space: nowrap;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 13px;
-    line-height: 16.9px;
+    line-height: 1.3;
     letter-spacing: -0.5px;
   }
 `;
 
-export const ListStyled = styled.ul`
+export const NavItemList = styled.ul`
   list-style: none;
   display: flex;
   gap: 16px;
   padding: 0;
+  margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     gap: 12px;
   }
 `;
 
-export const NavItem = styled.a`
+export const NavItem = styled.li`
+  min-width: 102px;
+  min-height: 48px;
+  display: flex;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    min-width: 70px;
+    min-height: 34px;
+  }
+`;
+
+export const NavLink = styled.a`
   color: ${({ theme }) => theme.color.white};
+  align-content: center;
   font-size: 14px;
   font-weight: 600;
-  line-height: 21px;
+  line-height: 1.5;
   text-decoration: none;
   text-transform: uppercase;
   padding: 8px 24px;
@@ -104,34 +116,34 @@ export const NavItem = styled.a`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 12px;
-    line-height: 18px;
     padding: 8px 12px;
     border-radius: 29px;
   }
 `;
 
-export const SearchBarStyled = styled.div`
+export const SearchContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 16px;
   border-radius: 33px;
-  max-width: 432px;
+  width: 432px;
   height: 48px;
   background-color: ${({ theme }) => theme.color.white};
   padding: 12px 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    max-width: 288px;
+    width: 288px;
     height: 44px;
     gap: 8px;
     padding: 14px 16px;
+    margin-bottom: 16px;
   }
 `;
 
-export const SearchBarIcon = styled(IconSearch)`
+export const SearchIcon = styled(IconSearch)`
   height: 24px;
-  width: 24px;
-  color: #7e839a;
+  min-width: 24px;
+  color: ${({ theme }) => theme.color.darkergrey};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     height: 16px;
@@ -143,12 +155,12 @@ export const Input = styled.input`
   border: none;
   outline: none;
   font-size: 16px;
-  line-height: 24px;
-  flex-grow: 1;
   font-weight: 400;
+  line-height: 1.5;
+  width: 100%;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 13px;
-    line-height: 16.9px;
+    line-height: 1.3;
   }
 `;

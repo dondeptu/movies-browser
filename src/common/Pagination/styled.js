@@ -5,14 +5,14 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   gap: 24px;
-  position: fixed;
-  bottom: 103px;
+  margin-top: 40px;
+  margin-bottom: 103px;
   width: 100%;
-  margin: 0;
   padding: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    bottom: 30px;
+    margin-top: auto;
+    margin-bottom: 30px;
     gap: 8px;
   }
 `;
