@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const SectionPerson = styled.div`
     display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));   
+    grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));
+    justify-items: center;
     grid-gap: 24px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
