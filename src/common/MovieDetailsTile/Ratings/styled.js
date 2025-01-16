@@ -29,12 +29,15 @@ export const Rate = styled.span`
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         font-size: 13px;
+        line-height: 165%;
     }
 `;
 
 export const MaxRate = styled.div`
     font-size: 14px;   
     margin-right: 4px;
+    line-height: 120%;
+    align-self: flex-end;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         display: none;
@@ -42,10 +45,13 @@ export const MaxRate = styled.div`
 `;
 
 export const Votes = styled.span`
-    font-size: 14px;
-    color: ${({ theme }) => theme.color.darkgray};
+    font-size: 14px;    
+    line-height: 120%;
+    align-self: flex-end;
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         font-size: 13px;
+        color: ${({ theme }) => theme.color.darkergrey};
+        line-height: 155%;
     }
 `;
