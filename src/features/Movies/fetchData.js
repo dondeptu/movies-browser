@@ -10,12 +10,12 @@ export const fetchPopularMovies = async (page) => {
     }
     const data = await response.json();
 
-    if (!data || !data.results || !data.total_pages) {
+    if (!data || !data.results) {
       throw new Error("Invalid API response");
     }
+
     return {
       results: data.results,
-      total_pages: data.total_pages,
     };
   } catch (error) {
     console.error("Error fetching movies:", error);

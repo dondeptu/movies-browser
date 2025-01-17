@@ -11,9 +11,9 @@ import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 function* fetchMoviesData() {
   try {
     const page = yield select(selectCurrentPage);
-    const { results, total_pages } = yield call(fetchPopularMovies, page);
+    const { results } = yield call(fetchPopularMovies, page);
     yield put(
-      fetchMovies({ results, total_pages, total_results: results.length })
+      fetchMovies({ results, total_pages : 500, total_results: results.length })
     );
     yield delay(1000);
     yield put(fetchMovieSuccess());

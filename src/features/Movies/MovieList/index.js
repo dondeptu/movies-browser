@@ -11,7 +11,7 @@ function MovieList() {
   const dispatch = useDispatch();
   const movies = useSelector(selectMovies);
   const movieCount = movies.results.length;
-  const totalPages = movies.total_pages;
+  const totalPages = 500;
   const error = useSelector(selectError);
 
   useEffect(() => {

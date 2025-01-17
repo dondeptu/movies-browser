@@ -5,7 +5,6 @@ const movieSlice = createSlice({
   initialState: {
     movies: {
       results: [],
-      total_pages: 0,
       total_results: 0,
     },
     loading: false,
@@ -25,7 +24,6 @@ const movieSlice = createSlice({
       state.movies.total_pages = 500;
       state.movies.total_results = popularMovies.total_results;
       state.loading = false;
-      state.totalPages = popularMovies.total_pages;
     },
     fetchMovieSuccess: (state) => {
       state.loading = false;
@@ -34,9 +32,6 @@ const movieSlice = createSlice({
     fetchMovieError: (state, { payload: errorMessage }) => {
       state.loading = false;
       state.error = errorMessage;
-    },
-    setTotalPages: (state, { payload }) => {
-      state.movies.total_pages = payload;
     },
   },
 });
@@ -48,7 +43,6 @@ export const selectError = (state) => state.movies.error;
 
 export const {
   fetchMovies,
-  setTotalPages,
   startFetch,
   fetchMovieSuccess,
   fetchMovieError,
