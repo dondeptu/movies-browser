@@ -1,5 +1,5 @@
-import { MovieTile } from "../../components/MovieTile";
-import { Wrapper } from "../../Wrapper";
+import { MovieTile } from "../../../components/MovieTile";
+import { Wrapper } from "../../../Wrapper";
 function MoviePage() {
 
     return (
