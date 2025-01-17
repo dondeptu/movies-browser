@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { totalPages } from "./useTotalPages";
 
 export const paginationSlice = createSlice({
   name: "pagination",
@@ -11,9 +10,12 @@ export const paginationSlice = createSlice({
       state.currentPage = 1;
     },
     setCurrentPage: (state, { payload: pageNumber }) => {
-      if (pageNumber >= 1 && pageNumber <= totalPages) {
+      if (pageNumber >= 1 && pageNumber <= state.totalPages) {
         state.currentPage = pageNumber;
       }
+    },
+    setTotalPages: (state, { payload: total }) => {
+      state.totalPages = total;
     },
   },
 });
