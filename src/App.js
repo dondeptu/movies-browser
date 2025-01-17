@@ -2,7 +2,7 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import { Navigation } from "./common/Navigation";
 import { Pagination } from "./common/Pagination";
-import MovieList from "./features/MovieList";
+import MovieList from "./features/Movies/MovieList";
 
 export const App = () => {
   return (
