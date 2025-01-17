@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as ArrowIcon } from "../../images/iconArrow.svg";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.footer`
   display: flex;
   justify-content: center;
   gap: 24px;

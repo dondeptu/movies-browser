@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import {
   NavigationStyled,
   Wrapper,
@@ -8,38 +7,28 @@ import {
   LogoTitle,
   NavItemList,
   NavItem,
-  NavLink,
+  StyledNavLink,
   SearchContainer,
   SearchIcon,
   Input,
 } from "./styled";
+import { toMovieList, toPeople } from "../../routes";
 
 export const Navigation = () => {
-  const [activeTab, setActiveTab] = useState("Movies");
   return (
     <NavigationStyled>
       <Wrapper>
         <NavGroup>
-          <Logo>
+          <Logo to="/">
             <LogoIcon />
             <LogoTitle>Movies Browser</LogoTitle>
           </Logo>
           <NavItemList>
             <NavItem>
-              <NavLink
-                $isActive={activeTab === "Movies"}
-                onClick={() => setActiveTab("Movies")}
-              >
-                Movies
-              </NavLink>
+              <StyledNavLink to={toMovieList()}>Movies</StyledNavLink>
             </NavItem>
             <NavItem>
-              <NavLink
-                $isActive={activeTab === "People"}
-                onClick={() => setActiveTab("People")}
-              >
-                People
-              </NavLink>
+              <StyledNavLink to={toPeople()}>People</StyledNavLink>
             </NavItem>
           </NavItemList>
         </NavGroup>

@@ -41,11 +41,7 @@ export const selectMovies = (state) => state.movies.movies;
 export const selectLoading = (state) => state.movies.loading;
 export const selectError = (state) => state.movies.error;
 
-export const {
-  fetchMovies,
-  startFetch,
-  fetchMovieSuccess,
-  fetchMovieError,
-} = movieSlice.actions;
+export const { fetchMovies, startFetch, fetchMovieSuccess, fetchMovieError } =
+  movieSlice.actions;
 
 export default movieSlice.reducer;

@@ -13,7 +13,7 @@ function* fetchMoviesData() {
     const page = yield select(selectCurrentPage);
     const { results } = yield call(fetchPopularMovies, page);
     yield put(
-      fetchMovies({ results, total_pages : 500, total_results: results.length })
+      fetchMovies({ results, total_pages: 500, total_results: results.length })
     );
     yield delay(1000);
     yield put(fetchMovieSuccess());
