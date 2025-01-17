@@ -14,15 +14,13 @@ function MovieList() {
   const totalPages = movies.total_pages;
   const error = useSelector(selectError);
 
-useEffect(() => {
+  useEffect(() => {
     dispatch(startFetch());
   }, [dispatch]);
 
   if (error) {
     return <p>Error fetching movies: {error}</p>;
   }
-
-  console.log("Movies state:", movies);
 
   return (
     <Wrapper>

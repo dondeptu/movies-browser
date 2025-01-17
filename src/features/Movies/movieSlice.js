@@ -21,9 +21,8 @@ const movieSlice = createSlice({
       state.loading = true;
     },
     fetchMovies: (state, { payload: popularMovies }) => {
-      console.log("Updating state with popularMovies:", popularMovies);
       state.movies.results = popularMovies.results;
-      state.movies.total_pages = popularMovies.total_pages;
+      state.movies.total_pages = 500;
       state.movies.total_results = popularMovies.total_results;
       state.loading = false;
       state.totalPages = popularMovies.total_pages;
