@@ -1,7 +1,11 @@
 import { MovieDetailsTile } from "../../common/MovieDetailsTile";
+// import { Wrapper } from "../../Wrapper";
+import { Wrapper } from "./styled";
 function MoviePage() {
-    return (           
-            <MovieDetailsTile />        
+    return (
+        <Wrapper>
+            <MovieDetailsTile />
+        </Wrapper>
     );
 }
 
