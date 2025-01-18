@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.article`
     background:  ${({ theme }) => theme.color.white};
+    margin-top:56px;
     padding: 40px;
     box-shadow: ${({ theme }) => theme.shadows.elevation};
     display: grid;
@@ -9,6 +10,7 @@ export const Wrapper = styled.article`
     column-gap: 40px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        margin-top: 24px;
         padding: 16px;
         column-gap: 16px;
     }
