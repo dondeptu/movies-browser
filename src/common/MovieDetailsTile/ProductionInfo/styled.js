@@ -17,6 +17,7 @@ export const Wrapper = styled.ul`
 
 export const ProductionItem = styled.li`
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 `;
 
