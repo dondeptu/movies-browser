@@ -1,8 +1,8 @@
-import { SectionPerson, PersonsHeader } from "./styled.js";
+import { SectionPerson, PersonsHeader } from "./styled";
 
-const PersonsSection = ({ title, body }) => (
+const PersonsSection = ({ header, body }) => (
   <>
-    <PersonsHeader>{title}</PersonsHeader>
+    <PersonsHeader>{header}</PersonsHeader>
     <SectionPerson>{body}</SectionPerson>
   </>
 );
