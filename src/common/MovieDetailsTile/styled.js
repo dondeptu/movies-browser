@@ -8,7 +8,7 @@ export const Wrapper = styled.article`
     grid-template-columns: auto 1fr;
     column-gap: 40px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         padding: 16px;
         column-gap: 16px;
     }
@@ -20,7 +20,7 @@ export const Poster = styled.img`
     border-radius: 5px;
     grid-row-end: span 2;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         width: 114px;
         height: 169px;
     }
@@ -32,7 +32,7 @@ export const TileContent = styled.section`
     grid-row-end: 1;
     gap: 24px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         grid-row-gap:8px;
     }
 `;
@@ -42,7 +42,7 @@ export const TileTitle = styled.h1`
     font-size: 36px;
     margin: 8px 0px -16px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         font-size: 16px;
         margin-bottom: 0px;
         font-weight: 500;
@@ -55,7 +55,7 @@ export const TileSubTitle = styled.div`
     display: flex;
     align-items: center;
     
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         font-size: 13px;
         margin: -4px 0px -4px;
     }

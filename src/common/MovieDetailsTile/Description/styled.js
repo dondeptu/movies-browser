@@ -5,7 +5,7 @@ export const TileDescription = styled.p`
     line-height: 1.6;
     margin: 24px 0px 0px;
        
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         display: grid;
         grid-column-start: 1;
         grid-column-end: span 2;

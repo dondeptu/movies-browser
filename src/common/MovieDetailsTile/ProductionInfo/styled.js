@@ -10,7 +10,7 @@ export const Wrapper = styled.ul`
     flex-direction: column;
     gap: 8px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         margin: 0px;
     }
 `;
@@ -23,7 +23,7 @@ export const NameItem = styled.p`
     color: ${({ theme }) => theme.color.darkergrey};   
     margin: 0px 10px 0px 0px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         display: none;
     }
 `;
@@ -31,7 +31,7 @@ export const NameItem = styled.p`
 export const ContentItem = styled.p`
     margin: 0px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         font-size: 12px;
         margin: 0px;
     }

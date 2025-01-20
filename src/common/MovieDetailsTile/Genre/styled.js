@@ -8,7 +8,7 @@ export const Container = styled.div`
     gap: 8px;
     margin-bottom: -8px;
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         margin-bottom: 0px;
     }
 `;
@@ -20,7 +20,7 @@ export const GenreItem = styled.div`
     font-size: 14px;
     line-height: 1.4;
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         padding: 4px 8px;
         font-size: 10px;
         line-height: 1.1;

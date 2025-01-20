@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
     margin: auto;   
     max-width: calc(100% - 24px);    
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         width: calc(-32px + 100vw);  
     }
 `;

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const PersonTileWrapper = styled.a`
-    background:  ${({ theme }) => theme.color.white};
-    box-shadow: ${({ theme }) => theme.shadows.elevation};
+    background:  ${({ theme }) => theme.color.white};    
+    box-shadow: ${({ theme }) => theme.shadow.elevation};
     width: 208px;
     height: 329px;
     padding: 16px;
@@ -18,7 +18,7 @@ export const PersonTileWrapper = styled.a`
         transform: scale(1.03);
     }
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {        
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {        
         height: fit-content;       
         width: fit-content;
         padding: 8px;
@@ -32,7 +32,7 @@ export const PersonImage = styled.img`
     height: 231px;
     border-radius: 5px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         width: 120px;
         height: 176px;        
     }
@@ -46,7 +46,7 @@ export const PersonName = styled.h2`
     margin: 12px 0px 8px;
     overflow-wrap: anywhere;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         font-size: 14px;
         margin: 0px;        
     }
@@ -61,7 +61,7 @@ export const PersonSubtitle = styled.h3`
     margin: 0px;
     text-align: center;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         font-weight: 400;
         font-size: 13px;
         margin: 0px;
