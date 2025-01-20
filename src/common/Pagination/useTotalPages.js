@@ -1,13 +1,12 @@
 import { useSelector } from "react-redux";
-
-export const totalPages = 500;
+import { selectTotalPages } from "./paginationSlice";
 
 export const useTotalPages = () => {
-  const data = useSelector((state) => state.data);
+  const totalPages = useSelector(selectTotalPages);
 
-  if (!data) {
-    console.error("Invalid data for total pages", data);
-    return totalPages;
+  if (!totalPages) {
+    console.error("Invalid data for total pages", totalPages);
+    return 500;
   }
   return totalPages;
 };

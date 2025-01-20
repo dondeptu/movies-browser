@@ -48,12 +48,9 @@ export const Pagination = () => {
   const isMobile = window.innerWidth <= theme.breakpoint.mobileMax;
 
   const handleSetCurrentPage = (page) => {
-    if (page < 1) {
-      page = 1;
-    } else if (page > totalPages) {
-      page = totalPages;
+    if (page >= 1 && page <= totalPages) {
+      dispatch(setCurrentPage(page));
     }
-    dispatch(setCurrentPage(page));
   };
 
   return (
