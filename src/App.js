@@ -11,11 +11,13 @@ import MovieList from "./features/Movies/MovieList";
 import PeoplePage from "./features/People/PeoplePage";
 import { Pagination } from "./common/Pagination";
 import { toMovieList, toPeople } from "./routes";
+import { MovieDetail } from "./common/MoviePoster/movieDetail";
 
 export const App = () => (
   <Provider store={store}>
     <HashRouter>
       <Navigation />
+      <MovieDetail />
       <Switch>
         <Route path={toMovieList()}>
           <MovieList />
