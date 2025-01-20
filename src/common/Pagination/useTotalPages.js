@@ -10,3 +10,4 @@ export const useTotalPages = () => {
   }
   return totalPages;
 };
+

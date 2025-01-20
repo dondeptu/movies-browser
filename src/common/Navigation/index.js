@@ -13,8 +13,11 @@ import {
   Input,
 } from "./styled";
 import { toMovieList, toPeople } from "../../routes";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 export const Navigation = () => {
+  const location = useLocation();
+
   return (
     <NavigationStyled>
       <Wrapper>
@@ -34,7 +37,9 @@ export const Navigation = () => {
         </NavGroup>
         <SearchContainer>
           <SearchIcon />
-          <Input type="text" placeholder="Search for movies..." />
+          <Input
+            type="text"
+            placeholder={`Search for ${location.pathname.includes("/people") ? "people..." : "movies..."}`} />
         </SearchContainer>
       </Wrapper>
     </NavigationStyled>
