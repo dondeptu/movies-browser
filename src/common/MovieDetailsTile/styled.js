@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.article`
-    background:  ${({ theme }) => theme.color.white};
-    margin-top:56px;
+    background:  ${({ theme }) => theme.color.white};    
     padding: 40px;
     box-shadow: ${({ theme }) => theme.shadows.elevation};
     display: grid;
@@ -30,8 +29,7 @@ export const Poster = styled.img`
 
 export const TileContent = styled.section`
     display: grid;
-    grid-column-start: 2;
-    grid-row-end: 1;
+    grid-area: 1 / 2;
     gap: 24px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
@@ -42,10 +40,12 @@ export const TileContent = styled.section`
 export const TileTitle = styled.h1`
     font-weight: 600;
     font-size: 36px;
+    line-height: 1.2;
     margin: 8px 0px -16px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         font-size: 16px;
+        line-height: 1.3;
         margin: 0px;
         font-weight: 500;
     }
@@ -53,6 +53,7 @@ export const TileTitle = styled.h1`
 
 export const TileSubTitle = styled.div`    
     font-size: 22px;
+    line-height: 1.2;
     margin: -4px 0px -8px;
     display: flex;
     align-items: center;
@@ -60,7 +61,7 @@ export const TileSubTitle = styled.div`
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         color:  ${({ theme }) => theme.color.darkergrey};
         font-size: 13px;
+        line-height: 1.3;
         margin: 0px;
-        line-height: 116%;
     }
 `;
