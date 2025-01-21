@@ -1,6 +1,6 @@
-import { MovieDetailsTile } from "../../../common/MovieDetailsTile";
-import { Section } from "../../../common/Section";
-import { Wrapper } from "../../../Wrapper";
+import { MovieDetailsTile } from "../../common/MovieDetailsTile";
+import { Section } from "../../common/Section";
+import { Wrapper } from "../../Wrapper";
 function MoviePage() {
     return (
         <Wrapper>
