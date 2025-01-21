@@ -1,11 +1,11 @@
-import { Container, GenreItem } from "./styled";
+import { DetailsTileContainer, DetailsTileGenreItem } from "./styled";
 
 export const Genre = ({ genres }) => {
     return (
-        <Container>
+        <DetailsTileContainer>
             {genres.map(({ tag }) => (
-                <GenreItem key={tag}>{tag}</GenreItem>
+                <DetailsTileGenreItem key={tag}>{tag}</DetailsTileGenreItem>
             ))}
-        </Container>
+        </DetailsTileContainer>
     );
 };
