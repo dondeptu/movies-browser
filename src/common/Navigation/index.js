@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import {
   NavigationStyled,
   Wrapper,
@@ -8,44 +7,39 @@ import {
   LogoTitle,
   NavItemList,
   NavItem,
-  NavLink,
+  StyledNavLink,
   SearchContainer,
   SearchIcon,
   Input,
 } from "./styled";
+import { toMovieList, toPeople } from "../../routes";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 export const Navigation = () => {
-  const [activeTab, setActiveTab] = useState("Movies");
+  const location = useLocation();
+
   return (
     <NavigationStyled>
       <Wrapper>
         <NavGroup>
-          <Logo>
+          <Logo to="/">
             <LogoIcon />
             <LogoTitle>Movies Browser</LogoTitle>
           </Logo>
           <NavItemList>
             <NavItem>
-              <NavLink
-                $isActive={activeTab === "Movies"}
-                onClick={() => setActiveTab("Movies")}
-              >
-                Movies
-              </NavLink>
+              <StyledNavLink to={toMovieList()}>Movies</StyledNavLink>
             </NavItem>
             <NavItem>
-              <NavLink
-                $isActive={activeTab === "People"}
-                onClick={() => setActiveTab("People")}
-              >
-                People
-              </NavLink>
+              <StyledNavLink to={toPeople()}>People</StyledNavLink>
             </NavItem>
           </NavItemList>
         </NavGroup>
         <SearchContainer>
           <SearchIcon />
-          <Input type="text" placeholder="Search for movies..." />
+          <Input
+            type="text"
+            placeholder={`Search for ${location.pathname.includes("/people") ? "people..." : "movies..."}`} />
         </SearchContainer>
       </Wrapper>
     </NavigationStyled>
