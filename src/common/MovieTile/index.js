@@ -1,11 +1,17 @@
-import posterMulan from "../../images/posterMulan.png";
 import { Genre } from "./Genre";
 import { Ratings } from "./Ratings";
-import { Details, InfoContent, Poster, ReleaseDate, Title, Wrapper } from "./styled";
+import { Details, InfoContent, Poster, MissingPoster, ReleaseDate, StyledIconCamera, Title, Wrapper } from "./styled";
 
-export const MovieTile = () => (
+export const MovieTile = ({ movie }) => (
     <Wrapper>
-        <Poster src={posterMulan} alt="poster of mulan" />
+        {movie.poster_path ? (
+            <Poster src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="poster" />
+        ) : (
+            <MissingPoster>
+                <StyledIconCamera />
+            </MissingPoster>
+        )}
+
         <InfoContent>
             <Details>
                 <Title>Mulan</Title>

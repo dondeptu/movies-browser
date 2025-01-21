@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as iconCamera } from "../../images/iconCamera.svg";
 
 export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.color.white};
@@ -16,12 +17,29 @@ export const Wrapper = styled.div`
 
 export const Poster = styled.img`
   width: 100%;
+  object-fit: cover;
   padding: 16px;
   border-radius: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     padding-right: 0;
     width: 114px;
+  }
+`;
+
+export const MissingPoster = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 292px;
+  min-height: 434px;
+  margin: 16px;
+  border-radius: 5px;
+  background-color: ${({ theme }) => theme.color.postergrey};
+
+  @media (max-width : ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    min-width: 114px;
+    min-height: 169px;
   }
 `;
 
@@ -63,5 +81,14 @@ export const ReleaseDate = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 13px;
     line-height: 1.3;
+  }
+`;
+
+export const StyledIconCamera = styled(iconCamera)`
+  width: 72px;
+  height: auto;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    width: 48px;
   }
 `;
