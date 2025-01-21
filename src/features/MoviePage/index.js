@@ -1,10 +1,15 @@
 import { MovieDetailsTile } from "../../common/MovieDetailsTile";
-// import { Wrapper } from "../../Wrapper";
-import { Wrapper } from "./styled";
+import { Section } from "../../common/Section";
+import { Wrapper } from "../../Wrapper";
 function MoviePage() {
     return (
         <Wrapper>
-            <MovieDetailsTile />
+            <Section
+                sectionHeader=""
+                body={
+                    <MovieDetailsTile />
+                }
+            />
         </Wrapper>
     );
 }
