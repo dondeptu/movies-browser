@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import { Navigation } from "./common/Navigation";
 import MovieList from "./features/Movies/MovieList";
-import PeoplePage from "./features/People/PeoplePage";
+import PeopleList from "./features/People/PeopleList";
 import { Pagination } from "./common/Pagination";
 import { toMovieList, toPeople } from "./routes";
 
@@ -21,7 +21,7 @@ export const App = () => (
           <MovieList />
         </Route>
         <Route path={toPeople()}>
-          <PeoplePage />
+          <PeopleList />
         </Route>
         <Route path="/">
           <Redirect to={toMovieList()} />
