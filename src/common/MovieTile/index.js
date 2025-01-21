@@ -5,7 +5,7 @@ import { Details, InfoContent, Poster, MissingPoster, ReleaseDate, StyledIconCam
 export const MovieTile = ({ movie }) => (
     <Wrapper>
         {movie.poster_path ? (
-            <Poster src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="poster" />
+            <Poster src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={`poster of ${movie.title}`} />
         ) : (
             <MissingPoster>
                 <StyledIconCamera />
