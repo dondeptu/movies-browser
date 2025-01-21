@@ -17,6 +17,8 @@ export const App = () => (
   <Provider store={store}>
     <HashRouter>
       <Navigation />
+        {/* Tymczasowe włączenie kafelka Main Movie Details */}
+        <MoviePage />
       <Switch>
         <Route path={toMoviePage()}>
           <MoviePage />
