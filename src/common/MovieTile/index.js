@@ -14,11 +14,14 @@ export const MovieTile = ({ movie }) => (
 
         <InfoContent>
             <Details>
-                <Title>Mulan</Title>
-                <ReleaseDate>2020</ReleaseDate>
+                {movie.title && <Title>{movie.title}</Title>}
+                {movie.release_date &&
+                    <ReleaseDate>
+                        {movie.release_date.slice(0, 4)}
+                    </ReleaseDate>}
                 <Genre genres={[{ tag: 'Action' }, { tag: 'Adventure' }, { tag: 'Drama' }]} />
             </Details>
-            <Ratings ratings={{ rate: '7,8', votes: '35' }} />
+            <Ratings ratings={{ rate: movie.vote_average, votes: movie.vote_count }} />
         </InfoContent>
     </Wrapper>
 );
