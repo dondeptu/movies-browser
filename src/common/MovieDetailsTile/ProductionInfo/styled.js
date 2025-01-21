@@ -1,12 +1,10 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.ul`
+export const Wrapper = styled.div`
     list-style: none;
     margin: 0px 0px -8px;
-    padding-left: 0px;
     font-size: 18px;
     display: flex;
-    height: fit-content;
     flex-direction: column;
     gap: 8px;
 
@@ -15,7 +13,8 @@ export const Wrapper = styled.ul`
     }
 `;
 
-export const ProductionItem = styled.li`
+export const ProductionItem = styled.div`
+    line-height: 1.2;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -30,12 +29,10 @@ export const NameItem = styled.p`
     }
 `;
 
-export const ContentItem = styled.p`
-    margin: 0px;
+export const ContentItem = styled.span`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         font-size: 12px;
-        margin: 0px;
-        line-height: 120%;
+        line-height: 1.3;
     }
 `;
