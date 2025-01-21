@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const TileDescription = styled.p`
-    font-size: 20px;
+    font-size: clamp(14px, 2vw, 20px);
     line-height: 1.6;
     margin: 24px 0px 0px;
        
