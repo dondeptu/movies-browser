@@ -4,7 +4,7 @@ import { Container, GenreItem } from "../../MovieTile/Genre/styled";
 export const DetailsTileContainer = styled(Container)`
   gap: 16px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     gap: 8px;
   }
 `;
