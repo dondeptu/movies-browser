@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
     list-style: none;
-    margin: 0px 0px -8px;
     font-size: 18px;
     display: flex;
     flex-direction: column;

@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
     align-items: center;
     height: fit-content;  
     gap: 8px;
-    margin-bottom: -4px;
 `;
 
 export const StarIcon = styled(Star)`

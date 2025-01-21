@@ -6,6 +6,7 @@ export const Wrapper = styled.article`
     box-shadow: ${({ theme }) => theme.shadow.elevation};
     display: grid;
     grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
     column-gap: 40px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
@@ -41,7 +42,7 @@ export const TileTitle = styled.h1`
     font-weight: 600;
     font-size: 36px;
     line-height: 1.2;
-    margin: 8px 0px -16px;
+    margin: 8px 0px -4px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         font-size: 16px;
@@ -54,7 +55,7 @@ export const TileTitle = styled.h1`
 export const TileSubTitle = styled.div`    
     font-size: 22px;
     line-height: 1.2;
-    margin: -4px 0px -8px;
+    margin-bottom: -4px;
     display: flex;
     align-items: center;
     
