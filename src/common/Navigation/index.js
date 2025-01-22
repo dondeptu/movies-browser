@@ -28,14 +28,10 @@ export const Navigation = () => {
           </Logo>
           <NavItemList>
             <NavItem>
-              <StyledNavLink to={toMovieList()}>
-                Movies
-              </StyledNavLink>
+              <StyledNavLink to={toMovieList()}>Movies</StyledNavLink>
             </NavItem>
             <NavItem>
-              <StyledNavLink to={toPeople()}>
-                People
-              </StyledNavLink>
+              <StyledNavLink to={toPeople()}>People</StyledNavLink>
             </NavItem>
           </NavItemList>
         </NavGroup>
