@@ -1,10 +1,15 @@
-import { MovieTile } from "../../../components/MovieTile";
+import { MoviePoster } from "../../../common/MoviePoster";
 import { Wrapper } from "../../../Wrapper";
 function MoviePage() {
   return (
     <Wrapper>
-      <MovieTile />
-    </Wrapper>
+    <Section
+        sectionHeader=""
+        body={
+            <MovieDetail />
+        }
+    />
+</Wrapper>
   );
 }
 
