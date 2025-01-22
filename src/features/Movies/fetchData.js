@@ -1,4 +1,4 @@
-import { apiKey } from "../../api";
+const apiKey = process.env.REACT_APP_API_KEY;
 
 export const fetchPopularMovies = async (page) => {
   try {
