@@ -10,7 +10,7 @@ import { startFetch } from "../movieSlice";
 function MovieList() {
   const dispatch = useDispatch();
   const movies = useSelector(selectMovies);
-  const movieCount = movies.results.length;
+  const movieCount = movies?.results?.length || 0;
   const totalPages = 500;
   const error = useSelector(selectError);
 
@@ -28,6 +28,10 @@ function MovieList() {
     return <p>Error fetching movies: {error}</p>;
   }
 
+  console.log(movies);
+  console.log(movies.results);
+  console.log(movieCount);
+
   return (
     <Wrapper>
       <Section
@@ -35,8 +39,15 @@ function MovieList() {
         body={
           <Content>
             {movieCount > 0 ? (
-              movies.results.map((movie) => (
-                <MovieTile key={movie.id} movie={movie} />
+              movies.results.map(({ id, poster_path, title, release_date, vote_average, vote_count }) => (
+                <MovieTile
+                  key={id}
+                  poster_path={poster_path}
+                  title={title}
+                  release_date={release_date}
+                  vote_average={vote_average}
+                  vote_count={vote_count}
+                />
               ))
             ) : (
               <p>No movies available</p>
