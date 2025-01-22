@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
 
   @media (max-width: 768px) {
     min-width: 320px;
+    min-height: 148px;
   }
 `;
 
@@ -111,7 +112,7 @@ export const Background = styled.div`
 `;
 
 export const Poster = styled.img`
-  width: 100%;
+  width: 70%;
   max-width: 1368px; /* Max width constraint */
   height: auto;
   max-height: 769px; /* Max height constraint */
@@ -136,6 +137,7 @@ export const PosterDetails = styled.div`
 
   @media (max-width: 768px) {
     bottom: 8px;
+    gap: 4px;
   }
 `;
 
@@ -143,11 +145,11 @@ export const Title = styled.h1`
   font-weight: 600;
   font-size: 64px;
   line-height: 1.2;
-  margin: 0 auto 24px 0;
+  margin: 0;
 
   @media (max-width: 768px) {
     font-size: 24px;
-    margin: 0 auto 4px 0;
+    margin: 0;
   }
 `;
 
