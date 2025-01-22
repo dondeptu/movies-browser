@@ -11,10 +11,11 @@ import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 function* fetchPeopleData() {
   try {
     const page = yield select(selectCurrentPage);
-    const { results, total_pages, total_results } = yield call(fetchPopularPeople, page);
-    yield put(
-      fetchPeople({ results, total_pages, total_results })
+    const { results, total_pages, total_results } = yield call(
+      fetchPopularPeople,
+      page
     );
+    yield put(fetchPeople({ results, total_pages, total_results }));
     yield delay(1000);
     yield put(fetchPeopleSuccess());
   } catch (error) {

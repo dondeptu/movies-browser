@@ -17,8 +17,10 @@ function PeopleList() {
   }, [dispatch]);
 
   useEffect(() => {
-  console.log(`Popular people (${peopleCount} people from ${totalPages} pages)`);
-}, [peopleCount, totalPages]);
+    console.log(
+      `Popular people (${peopleCount} people from ${totalPages} pages)`
+    );
+  }, [peopleCount, totalPages]);
 
   if (error) {
     return <p>Error fetching people: {error}</p>;
