@@ -28,10 +28,6 @@ function MovieList() {
     return <p>Error fetching movies: {error}</p>;
   }
 
-  console.log(movies);
-  console.log(movies.results);
-  console.log(movieCount);
-
   return (
     <Wrapper>
       <Section
