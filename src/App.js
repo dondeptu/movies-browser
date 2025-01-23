@@ -8,15 +8,19 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import { Navigation } from "./common/Navigation";
 import MovieList from "./features/Movies/MovieList";
+import MoviePage from "./features/Movies/MoviePage";
 import PeopleList from "./features/People/PeopleList";
 import { Pagination } from "./common/Pagination";
-import { toMovieList, toPeople } from "./routes";
+import { toMovieList, toMoviePage, toPeople } from "./routes";
 
 export const App = () => (
   <Provider store={store}>
     <HashRouter>
       <Navigation />
       <Switch>
+        <Route path={toMoviePage()}>
+          <MoviePage />
+        </Route>
         <Route path={toMovieList()}>
           <MovieList />
         </Route>
