@@ -6,19 +6,34 @@ export const Wrapper = styled.div`
   width: 100%;
   display: grid;
   grid-template-rows: auto 1fr;
+  gap: 16px;
   border-radius: 5px;
+  padding: 16px;
   box-shadow: ${({ theme }) => theme.shadow.elevation};
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
     column-gap: 16px;
+  }
+`;
+
+export const PosterWrapper = styled.div`
+  aspect-ratio: 6 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    width: 114px;
+    height: 169px;
   }
 `;
 
 export const Poster = styled.img`
   width: 100%;
+  height: 100%;
   object-fit: cover;
-  padding: 16px;
   border-radius: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
@@ -31,27 +46,19 @@ export const MissingPoster = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 292px;
-  min-height: 434px;
-  margin: 16px;
+  width: 100%;
+  height: 100%;
   border-radius: 5px;
   background-color: ${({ theme }) => theme.color.postergrey};
-
-  @media (max-width : ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    min-width: 114px;
-    min-height: 169px;
-  }
 `;
 
 export const InfoContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 0 16px 16px 16px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     justify-content: flex-start;
-    margin: 16px 16px 16px 0;
   }
 `;
 
@@ -87,6 +94,11 @@ export const ReleaseDate = styled.div`
 export const StyledIconCamera = styled(iconCamera)`
   width: 72px;
   height: auto;
+  opacity: 50%;
+
+  path {
+    stroke-width: 1.69px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     width: 48px;

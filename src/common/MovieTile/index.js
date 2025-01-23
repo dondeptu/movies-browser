@@ -1,17 +1,18 @@
 import { Genre } from "./Genre";
 import { Ratings } from "./Ratings";
-import { Details, InfoContent, Poster, MissingPoster, ReleaseDate, StyledIconCamera, Title, Wrapper } from "./styled";
+import { Details, InfoContent, Poster, MissingPoster, ReleaseDate, StyledIconCamera, Title, Wrapper, PosterWrapper } from "./styled";
 
 export const MovieTile = ({ poster_path, title, release_date, vote_average, vote_count }) => (
     <Wrapper>
-        {poster_path ? (
-            <Poster src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={`poster of ${title}`} />
-        ) : (
-            <MissingPoster>
-                <StyledIconCamera />
-            </MissingPoster>
-        )}
-
+        <PosterWrapper>
+            {poster_path ? (
+                <Poster src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={`poster of ${title}`} />
+            ) : (
+                <MissingPoster>
+                    <StyledIconCamera />
+                </MissingPoster>
+            )}
+        </PosterWrapper>
         <InfoContent>
             <Details>
                 {title && <Title>{title}</Title>}
