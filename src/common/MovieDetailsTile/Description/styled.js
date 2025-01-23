@@ -6,7 +6,7 @@ export const TileDescription = styled.p`
   resize: none;  
   font-size: clamp(14px, 2vw, 20px);
   line-height: 1.6;
-  max-height: 158px;
+  max-height: 130px;
   overflow-y: scroll;
   overflow-x: hidden;
 
@@ -24,7 +24,7 @@ export const TileDescription = styled.p`
 
   &::-webkit-scrollbar-thumb {   
     background-color:  ${({ theme }) => theme.color.grey};
-    border-radius: 50%;    
+    border-radius: 10px;    
   }
 
   &::-webkit-scrollbar-thumb:hover {    
