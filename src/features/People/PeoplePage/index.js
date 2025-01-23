@@ -1,10 +1,10 @@
-import { Section } from "../../../common/Section";
+import { MainContent } from "../../../common/MainContent";
 import { Wrapper } from "../../../Wrapper";
 
 function PeoplePage() {
   return (
     <Wrapper>
-      <Section sectionHeader="Popular people" body="" />
+      <MainContent mainHeader="Popular people" body="" />
     </Wrapper>
   );
 }

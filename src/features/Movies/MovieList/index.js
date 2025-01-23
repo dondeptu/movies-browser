@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { Section } from "../../../common/Section";
+import { MainContent } from "../../../common/MainContent";
 import { Wrapper } from "../../../Wrapper";
 import { Content } from "./styled";
 import { MovieTile } from "../../../common/MovieTile";
@@ -30,8 +30,8 @@ function MovieList() {
 
   return (
     <Wrapper>
-      <Section
-        sectionHeader="Popular movies"
+      <MainContent
+        mainHeader="Popular movies"
         body={
           <Content>
             {movieCount > 0 ? (
