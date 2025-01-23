@@ -4,28 +4,21 @@ import {
   Poster,
   PosterDetails,
   Title,
-  RatingContainer,
-  Star,
   Rating,
   RatingWrapper,
-  TotalRating,
-  Votes,
 } from "./styled.js";
+import PosterBig from "../../images/posterBig.png";
+import { Ratings } from "../MoviePoster/Ratings";
 
-export const MoviePoster = ({ title, src, rating, votes }) => {
+export const MoviePoster = () => {
   return (
     <Wrapper>
       <Background />
-      <Poster src={src} alt={title} />
+      <Poster src={PosterBig} alt="Poster of Mulan long title" />
       <PosterDetails>
-        <Title>{title}</Title>
+        <Title>Mulan long title</Title>
         <RatingWrapper>
-          <RatingContainer>
-            <Star />
-            <Rating>{rating}</Rating>
-          </RatingContainer>
-          <TotalRating>/ 10</TotalRating>
-          <Votes>{votes} votes</Votes>
+          <Rating ratings={{ rate: "7,8", maxRate: "/ 10", votes: "335" }} />
         </RatingWrapper>
       </PosterDetails>
     </Wrapper>
