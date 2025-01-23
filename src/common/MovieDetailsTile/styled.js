@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.article`
     background:  ${({ theme }) => theme.color.white};
     padding: 40px;
-    box-shadow: ${({ theme }) => theme.shadows.elevation};
+    box-shadow: ${({ theme }) => theme.shadow.elevation};
     display: grid;
     grid-template-columns: auto 1fr;
     column-gap: 40px;
