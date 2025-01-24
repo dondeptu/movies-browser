@@ -17,7 +17,7 @@ export const App = () => (
   <Provider store={store}>
     <HashRouter>
       <Navigation />
-      <MovieDetail />
+      <MoviePage />
       <Switch>
         <Route path={toMoviePage()}>
           <MoviePage />
