@@ -18,6 +18,12 @@ function MovieList() {
     dispatch(startFetch());
   }, [dispatch]);
 
+  useEffect(() => {
+    console.log(
+      `Popular movies (${movieCount} movies from ${totalPages} pages)`
+    );
+  }, [movieCount, totalPages]);
+
   if (error) {
     return <p>Error fetching movies: {error}</p>;
   }
@@ -25,7 +31,7 @@ function MovieList() {
   return (
     <Wrapper>
       <Section
-        sectionHeader={`Popular movies (${movieCount} movies from ${totalPages} pages)`}
+        sectionHeader="Popular movies"
         body={
           <Content>
             {movieCount > 0 ? (

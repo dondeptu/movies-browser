@@ -1,16 +1,17 @@
-import { MoviePoster } from "../../../common/MoviePoster";
+import { MovieDetailsTile } from "../../../common/MovieDetailsTile";
+import { Section } from "../../../common/Section";
 import { Wrapper } from "../../../Wrapper";
 function MoviePage() {
-  return (
-    <Wrapper>
-    <Section
-        sectionHeader=""
-        body={
-            <MovieDetail />
-        }
-    />
-</Wrapper>
-  );
+    return (
+        <Wrapper>
+            <Section
+                sectionHeader=""
+                body={
+                    <MovieDetailsTile />
+                }
+            />
+        </Wrapper>
+    );
 }
 
 export default MoviePage;
