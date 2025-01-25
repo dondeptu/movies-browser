@@ -1,4 +1,4 @@
-import { apiKey, apiUrl } from "../../api";
+import { apiKey } from "../../api";
 
 export const fetchPopularPeople = async (page) => {
   try {

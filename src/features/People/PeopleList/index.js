@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { Section } from "../../../common/Section";
+import { MainContent } from "../../../common/MainContent";
 import { Wrapper } from "../../../Wrapper";
 import { selectPeople, selectError } from "../peopleSlice";
 import { startFetch } from "../peopleSlice";
@@ -28,7 +28,7 @@ function PeopleList() {
 
   return (
     <Wrapper>
-      <Section sectionHeader="Popular people" body="" />
+      <MainContent mainHeader="Popular people" body="" />
     </Wrapper>
   );
 }
