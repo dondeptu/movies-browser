@@ -4,6 +4,8 @@ import { MainContent } from "../../../common/MainContent";
 import { Wrapper } from "../../../Wrapper";
 import { selectPeople, selectError } from "../peopleSlice";
 import { startFetch } from "../peopleSlice";
+import { PersonsContent } from "../../../common/Persons/styled";
+import { PersonTile } from "../../../common/Persons/PersonTile";
 
 function PeopleList() {
   const dispatch = useDispatch();
@@ -28,7 +30,14 @@ function PeopleList() {
 
   return (
     <Wrapper>
-      <MainContent mainHeader="Popular people" body="" />
+      <MainContent
+        mainHeader="Popular people"
+        body={
+          <PersonsContent>
+            <PersonTile showSubtitle={false} />            
+          </PersonsContent>
+        }
+      />
     </Wrapper>
   );
 }
