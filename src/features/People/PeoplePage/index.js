@@ -1,30 +1,30 @@
+import { MainContent } from "../../../common/MainContent";
 import { PersonTile } from "../../../common/Persons/PersonTile";
 import { PersonsContent } from "../../../common/Persons/styled";
-import { Section } from "../../../common/Section";
 import { Wrapper } from "../../../Wrapper";
 
 function PeoplePage() {
   return (
     <Wrapper>
-      <Section
+      <MainContent
         sectionHeader="Popular people"
         body={
-          // <PersonsContent>
-          //   <PersonTile showSubtitle={false} />
-          //   <PersonTile showSubtitle={false} />
-          //   <PersonTile showSubtitle={false} />
-          //   <PersonTile showSubtitle={false} />
-          //   <PersonTile showSubtitle={false} />
-          //   <PersonTile showSubtitle={false} />
-          //   <PersonTile showSubtitle={false} />
-          //   <PersonTile showSubtitle={false} />
-          //   <PersonTile showSubtitle={false} />
-          //   <PersonTile showSubtitle={false} />
-          //   <PersonTile showSubtitle={false} />
-          //   <PersonTile showSubtitle={false} />
-          //   <PersonTile showSubtitle={false} />
-          //   <PersonTile showSubtitle={false} />
-          // </PersonsContent>
+          <PersonsContent>
+            <PersonTile showSubtitle={false} />
+            <PersonTile showSubtitle={false} />
+            <PersonTile showSubtitle={false} />
+            <PersonTile showSubtitle={false} />
+            <PersonTile showSubtitle={false} />
+            <PersonTile showSubtitle={false} />
+            <PersonTile showSubtitle={false} />
+            <PersonTile showSubtitle={false} />
+            <PersonTile showSubtitle={false} />
+            <PersonTile showSubtitle={false} />
+            <PersonTile showSubtitle={false} />
+            <PersonTile showSubtitle={false} />
+            <PersonTile showSubtitle={false} />
+            <PersonTile showSubtitle={false} />
+          </PersonsContent>
         }
       />
     </Wrapper>
