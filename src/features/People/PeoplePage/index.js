@@ -9,22 +9,22 @@ function PeoplePage() {
       <Section
         sectionHeader="Popular people"
         body={
-          <PersonsContent>
-            <PersonTile showSubtitle={false} />
-            <PersonTile showSubtitle={false} />
-            <PersonTile showSubtitle={false} />
-            <PersonTile showSubtitle={false} />
-            <PersonTile showSubtitle={false} />
-            <PersonTile showSubtitle={false} />
-            <PersonTile showSubtitle={false} />
-            <PersonTile showSubtitle={false} />
-            <PersonTile showSubtitle={false} />
-            <PersonTile showSubtitle={false} />
-            <PersonTile showSubtitle={false} />
-            <PersonTile showSubtitle={false} />
-            <PersonTile showSubtitle={false} />
-            <PersonTile showSubtitle={false} />
-          </PersonsContent>
+          // <PersonsContent>
+          //   <PersonTile showSubtitle={false} />
+          //   <PersonTile showSubtitle={false} />
+          //   <PersonTile showSubtitle={false} />
+          //   <PersonTile showSubtitle={false} />
+          //   <PersonTile showSubtitle={false} />
+          //   <PersonTile showSubtitle={false} />
+          //   <PersonTile showSubtitle={false} />
+          //   <PersonTile showSubtitle={false} />
+          //   <PersonTile showSubtitle={false} />
+          //   <PersonTile showSubtitle={false} />
+          //   <PersonTile showSubtitle={false} />
+          //   <PersonTile showSubtitle={false} />
+          //   <PersonTile showSubtitle={false} />
+          //   <PersonTile showSubtitle={false} />
+          // </PersonsContent>
         }
       />
     </Wrapper>

@@ -9,7 +9,7 @@ import { store } from "./store";
 import { Navigation } from "./common/Navigation";
 import MovieList from "./features/Movies/MovieList";
 import MoviePage from "./features/Movies/MoviePage";
-import PeoplePage from "./features/People/PeoplePage";
+import PeopleList from "./features/People/PeopleList";
 import { Pagination } from "./common/Pagination";
 import { toMovieList, toMoviePage, toPeople } from "./routes";
 
@@ -18,7 +18,7 @@ export const App = () => (
     <HashRouter>
       <Navigation />
       {/* Tymczasowe włączenie  */}
-      <PeoplePage />
+      <PeopleList />
       <Switch>
         <Route path={toMoviePage()}>
           <MoviePage />
@@ -27,7 +27,7 @@ export const App = () => (
           <MovieList />
         </Route>
         <Route path={toPeople()}>
-          <PeoplePage />
+          <PeopleList />
         </Route>
         <Route path="/">
           <Redirect to={toMovieList()} />

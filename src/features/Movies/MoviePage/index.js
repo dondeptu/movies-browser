@@ -1,11 +1,11 @@
+import { MainContent } from "../../../common/MainContent";
 import { PersonTile } from "../../../common/Persons/PersonTile";
 import { PersonsContent } from "../../../common/Persons/styled";
-import { Section } from "../../../common/Section";
 import { Wrapper } from "../../../Wrapper";
 function MoviePage() {
     return (
         <Wrapper>
-            <Section
+            <MainContent
                 sectionHeader="Cast"
                 body={
                     <PersonsContent>
@@ -20,7 +20,7 @@ function MoviePage() {
                     </PersonsContent>
                 }
             />
-            < Section
+            < MainContent
                 sectionHeader="Crew"
                 body={
                     <PersonsContent>
