@@ -39,7 +39,7 @@ export const Background = styled.div`
   }
 `;
 
-export const Poster = styled.img`
+export const Banner = styled.img`
   width: 75%;
   max-width: 1368px;
   height: auto;
@@ -53,7 +53,7 @@ export const Poster = styled.img`
   }
 `;
 
-export const PosterDetails = styled.div`
+export const BannerDetails = styled.div`
   position: absolute;
   left: 14%;
   bottom: clamp(8px, 5vw, 56px);
