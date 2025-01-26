@@ -13,7 +13,6 @@ import {
 } from "./styled";
 import { toMoviePage } from "../../routes";
 
-
 export const MovieTile = ({ id, poster_path, title, release_date, vote_average, vote_count }) => (
     <StyledLink to={toMoviePage({ id: id })}>
         <PosterWrapper>

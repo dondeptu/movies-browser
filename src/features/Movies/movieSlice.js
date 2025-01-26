@@ -9,16 +9,16 @@ const movieSlice = createSlice({
     },
     loading: false,
     error: null,
-    id: "",
+    // id: "",
   },
   reducers: {
     startFetch: (state) => {
       state.loading = true;
     },
-    setId: (state, { payload: id }) => {
-      state.id = id;
-      state.loading = true;
-    },
+    // setId: (state, { payload: id }) => {
+    //   state.id = id;
+    //   state.loading = true;
+    // },
     fetchMovies: (state, { payload: popularMovies }) => {
       state.movies.results = popularMovies.results;
       state.movies.total_pages = 500;

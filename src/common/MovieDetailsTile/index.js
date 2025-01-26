@@ -6,7 +6,6 @@ import { MovieDescription } from './Description/index.js';
 import { Genre } from './Genre/index.js';
 
 export const MovieDetailsTile = () => {
-
   return (
     <Wrapper>
       <Poster src={posterMulan} alt="poster of mulan" />
