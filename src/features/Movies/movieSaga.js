@@ -1,5 +1,5 @@
 import { call, delay, put, takeEvery, select } from "redux-saga/effects";
-import { fetchPopularMovies } from "./fetchData";
+import { fetchPopularMovies } from "./MovieList/fetchData";
 import {
   startFetch,
   fetchMovieSuccess,
