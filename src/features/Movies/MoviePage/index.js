@@ -1,12 +1,12 @@
 import { MovieDetailsTile } from "../../../common/MovieDetailsTile";
-import { MoviePoster } from "../../../common/MoviePoster";
+import { MovieBanner } from "../../../common/MovieBanner";
 import { Section } from "../../../common/Section";
-import { SectionPoster } from "../../../common/SectionPoster";
+import { SectionPoster } from "../../../common/SectionBanner";
 import { Wrapper } from "../../../Wrapper";
 function MoviePage() {
   return (
     <>
-    <SectionPoster body={<MoviePoster />} />
+    <SectionPoster body={<MovieBanner />} />
     <Wrapper>
       <Section sectionHeader="" body={<MovieDetailsTile />} />
     </Wrapper>

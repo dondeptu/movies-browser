@@ -1,8 +1,8 @@
 import { Wrapper, Background, Poster, PosterDetails, Title } from "./styled.js";
 import PosterBig from "../../images/posterBig.png";
-import { Ratings } from "../MoviePoster/Ratings";
+import { Ratings } from "../MovieBanner/Ratings";
 
-export const MoviePoster = () => {
+export const MovieBanner = () => {
   return (
     <Wrapper>
       <Background />
