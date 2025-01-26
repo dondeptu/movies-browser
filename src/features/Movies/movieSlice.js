@@ -4,7 +4,7 @@ const movieSlice = createSlice({
   name: "movies",
   initialState: {
     movies: {
-      results: [],
+      movies: [],
       total_results: 0,
     },
     loading: false,
@@ -20,7 +20,7 @@ const movieSlice = createSlice({
     //   state.loading = true;
     // },
     fetchMovies: (state, { payload: popularMovies }) => {
-      state.movies.results = popularMovies.results;
+      state.movies.movies = popularMovies.results;
       state.movies.total_pages = 500;
       state.movies.total_results = popularMovies.total_results;
       state.loading = false;
