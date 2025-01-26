@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import { ReactComponent as iconCamera } from "../../images/iconCamera.svg";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-export const Wrapper = styled.div`
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.color.black};
   background-color: ${({ theme }) => theme.color.white};
   width: 100%;
   display: grid;
@@ -15,6 +18,15 @@ export const Wrapper = styled.div`
     grid-template-columns: auto 1fr;
     grid-template-rows: 1fr;
     column-gap: 16px;
+  }
+
+  &:hover {
+    transform: scale(1.15);
+    transition: transform 0.3s ease;
+  }
+
+  &:active {
+    box-shadow: ${({ theme }) => theme.shadow.soft};
   }
 `;
 

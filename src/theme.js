@@ -12,6 +12,7 @@ export const theme = {
   },
   shadow: {
     elevation: "0px 4px 12px 0px #BAC7D580",
+    soft: "0px 4px 12px 0px #C4C4C4",
   },
   breakpoint: {
     mobileMax: 767,
