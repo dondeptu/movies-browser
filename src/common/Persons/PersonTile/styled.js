@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const PersonTileWrapper = styled.a`
     background:  ${({ theme }) => theme.color.white};    
     box-shadow: ${({ theme }) => theme.shadow.elevation};
-    width: 208px;
-    height: 339px;
+    width: 100%;
+    aspect-ratio: auto;
+    height: auto;
     padding: 16px;
     border-radius: 5px;
     text-decoration: none;
@@ -18,9 +19,7 @@ export const PersonTileWrapper = styled.a`
         transform: scale(1.03);
     }
 
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {        
-        height: fit-content;       
-        width: fit-content;
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {       
         padding: 8px;
         grid-row-gap: 8px;
     }    

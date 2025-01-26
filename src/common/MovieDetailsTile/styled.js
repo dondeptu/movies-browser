@@ -7,10 +7,12 @@ export const Wrapper = styled.article`
     display: grid;
     grid-template-columns: auto 1fr;
     column-gap: 40px;
+    margin-bottom: 64px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         padding: 16px;
         column-gap: 16px;
+        margin-bottom: -3px;
     }
 `;
 
