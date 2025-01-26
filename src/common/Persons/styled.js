@@ -10,6 +10,6 @@ export const PersonsContent = styled.div`
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         grid-template-columns: repeat(auto-fill, minmax(136px, 1fr));
         grid-gap: 16px;
-        margin-top: 21px;
+        margin-top: 12px;
     }
 `;

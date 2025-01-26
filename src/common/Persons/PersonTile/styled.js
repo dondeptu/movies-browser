@@ -4,7 +4,7 @@ export const PersonTileWrapper = styled.a`
     background:  ${({ theme }) => theme.color.white};    
     box-shadow: ${({ theme }) => theme.shadow.elevation};
     width: 208px;
-    height: 329px;
+    height: 339px;
     padding: 16px;
     border-radius: 5px;
     text-decoration: none;
@@ -34,7 +34,7 @@ export const PersonImage = styled.img`
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         width: 120px;
-        height: 176px;        
+        height: 178px;        
     }
 `;
 
@@ -56,8 +56,7 @@ export const PersonSubtitle = styled.h3`
     color: ${({ theme }) => theme.color.darkergrey};
     font-size: 18px;    
     line-height: 1.5;
-    font-weight: normal;
-    margin: -16px 0px 0px;
+    font-weight: normal;    
     margin: 0px;
     text-align: center;
 
