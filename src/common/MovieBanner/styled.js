@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   position: relative;
-  max-width: 1920px;
   height: auto;
   background-color: ${({ theme }) => theme.color.black};
   display: flex;
