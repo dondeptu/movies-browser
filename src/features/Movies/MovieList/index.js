@@ -27,6 +27,7 @@ function MovieList() {
   if (error) {
     return <p>Error fetching movies: {error}</p>;
   }
+console.log(movies);
 
   return (
     <Wrapper>
@@ -38,6 +39,7 @@ function MovieList() {
               movies.results.map(({ id, poster_path, title, release_date, vote_average, vote_count }) => (
                 <MovieTile
                   key={id}
+                  id={id}
                   poster_path={poster_path}
                   title={title}
                   release_date={release_date}
