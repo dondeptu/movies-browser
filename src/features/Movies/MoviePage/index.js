@@ -1,7 +1,3 @@
-// import { Wrapper } from "./style";
-// import PersonsSection from "../../../common/PersonsSection";
-import { MovieDetailsTile } from "../../../common/MovieDetailsTile";
-// import PersonsSection from "../../../common/Persons/PersonsSection";
 import { PersonTile } from "../../../common/Persons/PersonTile";
 import { PersonsContent } from "../../../common/Persons/styled";
 import { Section } from "../../../common/Section";
