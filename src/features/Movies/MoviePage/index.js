@@ -6,7 +6,7 @@ function MoviePage() {
     return (
         <Wrapper>
             <MainContent
-                sectionHeader="Cast"
+                mainHeader="Cast"
                 body={
                     <PersonsContent>
                         <PersonTile />
@@ -21,7 +21,7 @@ function MoviePage() {
                 }
             />
             < MainContent
-                sectionHeader="Crew"
+                mainHeader="Crew"
                 body={
                     <PersonsContent>
                         <PersonTile />

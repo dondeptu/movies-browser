@@ -7,7 +7,7 @@ function PeoplePage() {
   return (
     <Wrapper>
       <MainContent
-        sectionHeader="Popular people"
+        mainHeader="Popular people"
         body={
           <PersonsContent>
             <PersonTile showSubtitle={false} />
