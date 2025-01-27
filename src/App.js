@@ -16,9 +16,7 @@ import { toMovieList, toMoviePage, toPeople } from "./routes";
 export const App = () => (
   <Provider store={store}>
     <HashRouter>
-      <Navigation />
-      {/* Tymczasowe włączenie MoviePage z kafelkami Persons */}
-      <MoviePage />
+      <Navigation />     
       <Switch>
         <Route path={toMoviePage()}>
           <MoviePage />
@@ -36,7 +34,7 @@ export const App = () => (
           <Redirect to={toMovieList()} />
         </Route>
       </Switch>
-      {/* <Pagination /> Tymczasowe wyłączenie paginacji. Nie ma jej na MoviePage i na Profile */}
+      <Pagination />
     </HashRouter>
   </Provider>
 );
