@@ -1,12 +1,19 @@
 import { PersonTile } from "../../../common/Persons/PersonTile";
 import { PersonsContent } from "../../../common/Persons/styled";
-import { Section } from "../../../common/Section";
+import { MovieDetailsTile } from "../../../common/MovieDetailsTile";
+import { MainContent } from "../../../common/MainContent";
 import { Wrapper } from "../../../Wrapper";
 function MoviePage() {
     return (
         <Wrapper>
-            <Section
-                sectionHeader="Cast"
+            <MainContent
+                mainHeader=""
+                body={
+                    <MovieDetailsTile />
+                }
+            />
+            <MainContent
+                mainHeader="Cast"
                 body={
                     <PersonsContent>
                         <PersonTile />
@@ -20,8 +27,8 @@ function MoviePage() {
                     </PersonsContent>
                 }
             />
-            < Section
-                sectionHeader="Crew"
+            < MainContent
+                mainHeader="Crew"
                 body={
                     <PersonsContent>
                         <PersonTile />
