@@ -1,10 +1,11 @@
-import { Poster, Wrapper, TileTitle, ReleaseDate, TileContent } from './styled.js';
+import { Poster, Wrapper, TileTitle, ReleaseDate, TileContent, PosterWrapper } from './styled.js';
 import { ProductionInfo } from './ProductionInfo/index.js';
 import { Ratings } from './Ratings/index.js';
 import { MovieDescription } from './Description/index.js';
 import { Genre } from './Genre/index.js';
-import { theme } from "../../theme.js";
+import { theme } from "../../../theme.js";
 import { useEffect, useState } from 'react';
+import { MissingPoster } from '../MissingPoster/index.js';
 
 export const MovieDetailsTile = ({
   poster_path,
@@ -51,7 +52,13 @@ export const MovieDetailsTile = ({
 
   return (
     <Wrapper>
-      <Poster src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={`poster of ${title}`} />
+      <PosterWrapper>
+        {poster_path ? (
+          <Poster src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={`poster of ${title}`} />
+        ) : (
+          <MissingPoster />
+        )}
+      </PosterWrapper>
       <TileContent>
         {title && <TileTitle>{title}</TileTitle>}
         {release_date && <ReleaseDate>{release_date.slice(0, 4)}</ReleaseDate>}

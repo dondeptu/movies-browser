@@ -1,4 +1,4 @@
-import { Container, GenreItem } from "../Genre/styled";
+import { Container, GenreItem } from "./styled";
 
 export const Genre = ({ genres }) => {
     return (

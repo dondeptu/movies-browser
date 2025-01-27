@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { MainContent } from "../../../common/MainContent";
 import { Wrapper } from "../../../Wrapper";
 import { Content } from "./styled";
-import { MovieTile } from "../../../common/MovieTile";
+import { MovieTile } from "../../../common/tiles/MovieTile";
 import { selectMovies, selectError } from "../movieSlice";
 import { startFetch } from "../movieSlice";
 

@@ -4,14 +4,13 @@ import {
     Details,
     InfoContent,
     Poster,
-    MissingPoster,
     ReleaseDate,
-    StyledIconCamera,
     Title,
     StyledLink,
     PosterWrapper
 } from "./styled";
-import { toMoviePage } from "../../routes";
+import { toMoviePage } from "../../../routes";
+import { MissingPoster } from "../MissingPoster";
 
 export const MovieTile = ({ id, poster_path, title, release_date, vote_average, vote_count }) => (
     <StyledLink to={toMoviePage({ id: id })}>
@@ -19,9 +18,7 @@ export const MovieTile = ({ id, poster_path, title, release_date, vote_average, 
             {poster_path ? (
                 <Poster src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={`poster of ${title}`} />
             ) : (
-                <MissingPoster>
-                    <StyledIconCamera />
-                </MissingPoster>
+                <MissingPoster />
             )}
         </PosterWrapper>
         <InfoContent>
