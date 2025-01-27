@@ -36,7 +36,7 @@ function PeopleList() {
           <PersonsContent>
             <PersonTile showSubtitle={false} />
             <PersonTile showSubtitle={false} />
-            <PersonTile showSubtitle={false} />
+            <PersonTile />  {/* Tu jest SubTitle tylko dla pokazania zmian z wprowadzonym ContentPerson z flex i gap jak bedzie na MoviePage */}
             <PersonTile showSubtitle={false} />
             <PersonTile showSubtitle={false} />
             <PersonTile showSubtitle={false} />
