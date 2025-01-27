@@ -52,7 +52,7 @@ export const TileTitle = styled.h1`
     }
 `;
 
-export const TileSubTitle = styled.div`    
+export const ReleaseDate = styled.div`    
     font-size: 22px;
     line-height: 1.2;
     margin-bottom: -4px;

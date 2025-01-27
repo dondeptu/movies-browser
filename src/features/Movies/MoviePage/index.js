@@ -17,15 +17,21 @@ function MoviePage() {
         dispatch(fetchMovieDetails(id));
     }, [dispatch, id]);
 
-    console.log(movieDetails);
-
     return (
         <Wrapper>
             <MainContent
                 mainHeader=""
                 body={
                     movieDetails ? (
-                        <MovieDetailsTile  />
+                        <MovieDetailsTile
+                            poster_path={movieDetails.poster_path}
+                            title={movieDetails.title}
+                            production_countries={movieDetails.production_countries}
+                            release_date={movieDetails.release_date}
+                            vote_average={movieDetails.vote_average}
+                            vote_count={movieDetails.vote_count}
+                            overview={movieDetails.overview}
+                        />
                     ) : (
                         <p>No details available</p>
                     )

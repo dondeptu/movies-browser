@@ -7,7 +7,8 @@ export const Ratings = ({ ratings }) => {
                 <>
                     <StarIcon />
                     <Rate>{ratings.rate.toFixed(1).toString().replace('.', ',')}</Rate>
-                    <Votes>{ratings.votes} votes</Votes></>
+                    <Votes>{ratings.votes} votes</Votes>
+                </>
             ) : (
                 <Votes>No votes yet</Votes>
             )}
