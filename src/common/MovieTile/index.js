@@ -17,7 +17,7 @@ export const MovieTile = ({ id, poster_path, title, release_date, vote_average, 
     <StyledLink to={toMoviePage({ id: id })}>
         <PosterWrapper>
             {poster_path ? (
-                <Poster src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={`poster of ${title}`} />
+                <Poster src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={`poster of ${title}`} />
             ) : (
                 <MissingPoster>
                     <StyledIconCamera />
