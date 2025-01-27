@@ -36,7 +36,7 @@ export const App = () => (
           <Redirect to={toMovieList()} />
         </Route>
       </Switch>
-      <Pagination />
+      {/* <Pagination /> Tymczasowe wyłączenie paginacji. Nie ma jej na MoviePage i na Profile */}
     </HashRouter>
   </Provider>
 );
