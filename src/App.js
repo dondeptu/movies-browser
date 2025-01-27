@@ -17,7 +17,12 @@ export const App = () => (
   <Provider store={store}>
     <HashRouter>
       <Navigation />
+      {/* Tymczasowe włączenie MoviePage z kafelkami Persons */}
+      <MoviePage />
       <Switch>
+        <Route path={toMoviePage()}>
+          <MoviePage />
+        </Route>
         <Route path={toMoviePage()}>
           <MoviePage />
         </Route>
@@ -31,7 +36,7 @@ export const App = () => (
           <Redirect to={toMovieList()} />
         </Route>
       </Switch>
-      <Pagination />
+      {/* <Pagination /> Tymczasowe wyłączenie paginacji. Nie ma jej na MoviePage i na Profile */}
     </HashRouter>
   </Provider>
 );
