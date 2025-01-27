@@ -6,28 +6,22 @@ import { Content } from "./styled";
 import { MovieTile } from "../../../common/tiles/MovieTile";
 import { selectMovies, selectError } from "../movieSlice";
 import { startFetch } from "../movieSlice";
+import { resetPage } from "../../../common/Pagination/paginationSlice";
 
 function MovieList() {
   const dispatch = useDispatch();
   const movies = useSelector(selectMovies);
   const movieCount = movies?.results?.length || 0;
-  const totalPages = 500;
   const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(startFetch());
+    dispatch(resetPage());
   }, [dispatch]);
-
-  useEffect(() => {
-    console.log(
-      `Popular movies (${movieCount} movies from ${totalPages} pages)`
-    );
-  }, [movieCount, totalPages]);
 
   if (error) {
     return <p>Error fetching movies: {error}</p>;
   }
-console.log(movies);
 
   return (
     <Wrapper>
