@@ -1,6 +1,6 @@
 import { Wrapper } from "./styled";
 
-export const SectionPoster = ({body}) => (
+export const SectionBanner = ({body}) => (
     <Wrapper>
         {body}
     </Wrapper>

@@ -6,7 +6,7 @@ import {
   BannerContent,
   Title,
 } from "./styled.js";
-import PosterBig from "../../images/posterBig.png";
+import BannerBig from "../../images/bannerBig.png";
 import { Ratings } from "../MovieBanner/Ratings";
 
 export const MovieBanner = () => {
@@ -14,7 +14,7 @@ export const MovieBanner = () => {
     <Wrapper>
       <Background />
       <BannerContainer>
-        <BannerImage src={PosterBig} alt="Poster of Mulan long title" />
+        <BannerImage src={BannerBig} alt="Poster of Mulan long title" />
         <BannerContent>
           <Title>Mulan long title</Title>
           <Ratings ratings={{ rate: "7,8", maxRate: "/ 10", votes: "335" }} />

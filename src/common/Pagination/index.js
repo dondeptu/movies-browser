@@ -13,6 +13,8 @@ import {
   PageNumber,
 } from "./styled.js";
 import { theme } from "../../theme.js";
+import { startFetch } from "../../features/Movies/movieSlice.js";
+import { useEffect } from "react";
 
 const PaginationButton = ({ onClick, disabled, children, direction }) => (
   <Button disabled={disabled} onClick={onClick}>
@@ -42,6 +44,14 @@ const PaginationButton = ({ onClick, disabled, children, direction }) => (
 
 export const Pagination = () => {
   const currentPage = useSelector(selectCurrentPage);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "instant",
+    });
+  }, [currentPage]);
+
   const dispatch = useDispatch();
   const totalPages = useTotalPages();
 
@@ -50,6 +60,7 @@ export const Pagination = () => {
   const handleSetCurrentPage = (page) => {
     if (page >= 1 && page <= totalPages) {
       dispatch(setCurrentPage(page));
+      dispatch(startFetch());
     }
   };
 

@@ -1,18 +1,25 @@
-import posterMulan from "../../images/posterMulan.png";
 import { Genre } from "./Genre";
 import { Ratings } from "./Ratings";
-import { Details, InfoContent, Poster, ReleaseDate, Title, Wrapper } from "./styled";
+import { Details, InfoContent, Poster, MissingPoster, ReleaseDate, StyledIconCamera, Title, Wrapper, PosterWrapper } from "./styled";
 
-export const MovieTile = () => (
+export const MovieTile = ({ poster_path, title, release_date, vote_average, vote_count }) => (
     <Wrapper>
-        <Poster src={posterMulan} alt="poster of mulan" />
+        <PosterWrapper>
+            {poster_path ? (
+                <Poster src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={`poster of ${title}`} />
+            ) : (
+                <MissingPoster>
+                    <StyledIconCamera />
+                </MissingPoster>
+            )}
+        </PosterWrapper>
         <InfoContent>
             <Details>
-                <Title>Mulan</Title>
-                <ReleaseDate>2020</ReleaseDate>
+                {title && <Title>{title}</Title>}
+                {release_date && <ReleaseDate>{release_date.slice(0, 4)}</ReleaseDate>}
                 <Genre genres={[{ tag: 'Action' }, { tag: 'Adventure' }, { tag: 'Drama' }]} />
             </Details>
-            <Ratings ratings={{ rate: '7,8', votes: '35' }} />
+            <Ratings ratings={{ rate: vote_average, votes: vote_count }} />
         </InfoContent>
     </Wrapper>
 );
