@@ -15,7 +15,7 @@ export const StyledLink = styled(Link)`
   box-shadow: ${({ theme }) => theme.shadow.elevation};
 
   &:hover {
-    transform: scale(1.15);
+    transform: scale(1.03);
     transition: transform 0.3s ease;
   }
 
