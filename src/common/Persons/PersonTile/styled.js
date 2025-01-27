@@ -5,7 +5,7 @@ export const PersonTileWrapper = styled.a`
     box-shadow: ${({ theme }) => theme.shadow.elevation};
     width: 100%;
     aspect-ratio: auto;
-    height: auto;
+    height: 100%;
     padding: 16px;
     border-radius: 5px;
     text-decoration: none;
@@ -27,14 +27,9 @@ export const PersonTileWrapper = styled.a`
 
 export const PersonImage = styled.img`
     margin: 0px auto;
-    width: 176px;
-    height: 231px;
+    width: 100%;
+    height: auto;
     border-radius: 5px;
-
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-        width: 120px;
-        height: 178px;        
-    }
 `;
 
 export const PersonName = styled.h2`    
