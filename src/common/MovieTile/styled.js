@@ -14,12 +14,6 @@ export const StyledLink = styled(Link)`
   padding: 16px;
   box-shadow: ${({ theme }) => theme.shadow.elevation};
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr;
-    column-gap: 16px;
-  }
-
   &:hover {
     transform: scale(1.15);
     transition: transform 0.3s ease;
@@ -28,6 +22,17 @@ export const StyledLink = styled(Link)`
   &:active {
     box-shadow: ${({ theme }) => theme.shadow.soft};
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
+    column-gap: 16px;
+
+    &:hover {
+    transform: none;
+    }
+  }
+
 `;
 
 export const PosterWrapper = styled.div`
