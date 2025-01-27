@@ -8,8 +8,10 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  height: auto;
+  padding: 0 16px 0 16px;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     min-width: 320px;
     min-height: 148px;
   }
@@ -30,17 +32,41 @@ export const Background = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 
-    background: ${({ theme }) => theme.gradient.darkOverlay},
-      ${({ theme }) => theme.gradient.darkOverlayAlt},
-      ${({ theme }) => theme.gradient.darkOverlaySide},
-      ${({ theme }) => theme.gradient.darkOverlayVertical};
+    background: ${({ theme }) => theme.gradient.desktop};
     z-index: 1;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpointBanner.DesktopMax}px) {
+    &::before {
+      background: ${({ theme }) => theme.gradient.desktopMax};
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpointBanner.laptopMax}px) {
+    &::before {
+      background: ${({ theme }) => theme.gradient.laptopMax};
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpointBanner.mobileS}px) {
+    &::before {
+      background: ${({ theme }) => theme.gradient.mobileS};
+    }
   }
 `;
 
-export const Banner = styled.img`
-  width: 75%;
+export const BannerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+`;
+
+export const BannerImage = styled.img`
+  width: 100%;
   max-width: 1368px;
   height: auto;
   max-height: 769px;
@@ -48,24 +74,36 @@ export const Banner = styled.img`
   position: relative;
   z-index: 0;
 
-  @media (max-width: 768px) {
-    min-width: 262px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    min-width: 288px;
   }
 `;
 
-export const BannerDetails = styled.div`
+export const BannerContent = styled.div`
   position: absolute;
-  left: 14%;
-  bottom: clamp(8px, 5vw, 56px);
+  bottom: 56px;
   color: ${({ theme }) => theme.color.white};
   z-index: 2;
   display: flex;
   flex-direction: column;
   gap: 24px;
-  transition: left 0.5s ease-in-out, bottom 0.3s ease-in-out;
 
-  @media (max-width: 768px) {
-    left: 6%;
+  @media (max-width: ${({ theme }) => theme.breakpointBanner.DesktopMax}px) {
+    bottom: 28px;
+    gap: 12px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpointBanner.tabletMax}px) {
+    bottom: 14px;
+    gap: 6px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpointBanner.tabletMedium}px) {
+    bottom: 10px;
+    gap: 6px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     bottom: 8px;
     gap: 4px;
   }
@@ -73,11 +111,15 @@ export const BannerDetails = styled.div`
 
 export const Title = styled.h1`
   font-weight: 600;
-  font-size: clamp(24px, 4vw, 64px);
+  font-size: clamp(32px, 4vw, 64px);
   line-height: 1.2;
   margin: 0;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpointBanner.tabletMax}px) {
+    font-size: 32px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 24px;
     margin: 0;
   }
