@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useEffect } from "react";
 import { MovieDetailsTile } from "../../../common/tiles/MovieDetailsTile";
+import { PersonTile } from "../../../common/tiles/Persons/PersonTile";
+import { PersonsContent } from "../../../common/tiles/Persons/styled";
 import { MainContent } from "../../../common/MainContent";
 import { Wrapper } from "../../../Wrapper";
 import { fetchMovieDetails, selectMovieDetails } from "../movieSlice";
@@ -37,7 +39,32 @@ function MoviePage() {
                     )
                 }
             />
-        </Wrapper>
+            <MainContent
+                mainHeader="Cast"
+                body={
+                    <PersonsContent>
+                        <PersonTile />
+                        <PersonTile />
+                        <PersonTile />
+                        <PersonTile />
+                        <PersonTile />
+                        <PersonTile />
+                        <PersonTile />
+                        <PersonTile />
+                    </PersonsContent>
+                }
+            />
+            < MainContent
+                mainHeader="Crew"
+                body={
+                    <PersonsContent>
+                        <PersonTile />
+                        <PersonTile />
+                        <PersonTile />
+                    </PersonsContent>
+                }
+            />
+        </Wrapper >
     );
 }
 export default MoviePage;

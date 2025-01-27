@@ -8,11 +8,13 @@ export const Wrapper = styled.article`
     grid-template-columns: auto 1fr;
     grid-template-rows: auto 1fr;
     column-gap: 40px;
+    margin-bottom: 64px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         margin-top: 24px;
         padding: 16px;
         column-gap: 16px;
+        margin-bottom: -3px;
     }
 `;
 
