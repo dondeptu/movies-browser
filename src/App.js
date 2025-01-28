@@ -12,11 +12,13 @@ import MoviePage from "./features/Movies/MoviePage";
 import PeopleList from "./features/People/PeopleList";
 import { Pagination } from "./common/Pagination";
 import { toMovieList, toMoviePage, toPeople } from "./routes";
+import { Error } from "./common/Error";
 
 export const App = () => (
   <Provider store={store}>
     <HashRouter>
-      <Navigation />     
+      <Navigation />   
+      <Error />  
       <Switch>
         <Route path={toMoviePage()}>
           <MoviePage />
