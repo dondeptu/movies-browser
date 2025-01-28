@@ -10,14 +10,16 @@ import {
 } from "./movieSlice";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import { getMovieDetails } from "./MoviePage/getData";
+import { getGenres } from "./getGenres";
+import { setGenres } from "./genresSlice";
 
 function* fetchMoviesData() {
   try {
     const page = yield select(selectCurrentPage);
     const { results } = yield call(fetchPopularMovies, page);
-    yield put(
-      fetchMovies({ results, total_pages: 500, total_results: results.length })
-    );
+    const { genres } = yield call(getGenres);
+    yield put(fetchMovies({ results, total_pages: 500, total_results: results.length }));
+    yield put(setGenres(genres));
     yield delay(1000);
     yield put(fetchMovieSuccess());
   } catch (error) {

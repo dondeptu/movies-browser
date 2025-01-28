@@ -30,15 +30,16 @@ function MovieList() {
         body={
           <Content>
             {movieCount > 0 ? (
-              movies.results.map(({ id, poster_path, title, release_date, vote_average, vote_count }) => (
+              movies.results.map(({ id, poster_path, title, release_date, genre_ids, vote_average, vote_count }) => (
                 <MovieTile
                   key={id}
                   id={id}
-                  poster_path={poster_path}
+                  posterPath={poster_path}
                   title={title}
-                  release_date={release_date}
-                  vote_average={vote_average}
-                  vote_count={vote_count}
+                  releaseDate={release_date}
+                  genreIds={genre_ids}
+                  voteAverage={vote_average}
+                  voteCount={vote_count}
                 />
               ))
             ) : (
