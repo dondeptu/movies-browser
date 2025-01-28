@@ -16,9 +16,11 @@ import { toMovieList, toMoviePage, toPeople } from "./routes";
 export const App = () => (
   <Provider store={store}>
     <HashRouter>
-      <Navigation />
-      <MoviePage />
+      <Navigation />     
       <Switch>
+        <Route path={toMoviePage()}>
+          <MoviePage />
+        </Route>
         <Route path={toMoviePage()}>
           <MoviePage />
         </Route>
