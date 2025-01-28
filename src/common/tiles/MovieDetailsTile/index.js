@@ -22,7 +22,7 @@ export const MovieDetailsTile = ({
       const [year, month, day] = date.split('-');
       return `${day}.${month}.${year}`;
     }
-    return "";
+    return "Unknown";
   };
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= theme.breakpoint.mobileMax);
@@ -38,13 +38,13 @@ export const MovieDetailsTile = ({
 
   const getCountries = (countries) => {
     if (!countries)
-      return "";
+      return "Unknown";
 
     return countries.map((country) => {
-      if (isMobile && country.name.includes(' ')) {
+      if (isMobile && country.name?.includes(' ')) {
         return country.iso_3166_1;
       } else {
-        return country.name;
+        return country.name || "Unknown";
       }
     })
       .join(', ');
@@ -60,8 +60,8 @@ export const MovieDetailsTile = ({
         )}
       </PosterWrapper>
       <TileContent>
-        {title && <TileTitle>{title}</TileTitle>}
-        {release_date && <ReleaseDate>{release_date.slice(0, 4)}</ReleaseDate>}
+        {title ? <TileTitle>{title}</TileTitle> : <TileTitle>Title not available</TileTitle>}
+        {release_date ? <ReleaseDate>{release_date.slice(0, 4)}</ReleaseDate> : <ReleaseDate>Unknown release date</ReleaseDate>}
         <ProductionInfo info={{ productionCountries: getCountries(production_countries), date: formatDate(release_date) }} />
         <Genre genres={[{ tag: 'Action' }, { tag: 'Adventure' }, { tag: 'Drama' }]} />
         <Ratings ratings={{ rate: vote_average, maxRate: '/ 10', votes: vote_count }} />
