@@ -18,16 +18,25 @@ export const Wrapper = styled.article`
     }
 `;
 
-export const Poster = styled.img`
+export const PosterWrapper = styled.div`
     width: 312px;
     height: 464px;
-    border-radius: 5px;
     grid-row-end: span 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         width: 114px;
         height: 169px;
     }
+`;
+
+export const Poster = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;  
 `;
 
 export const TileContent = styled.section`
@@ -54,7 +63,7 @@ export const TileTitle = styled.h1`
     }
 `;
 
-export const TileSubTitle = styled.div`    
+export const ReleaseDate = styled.div`    
     font-size: 22px;
     line-height: 1.2;
     margin-bottom: -4px;

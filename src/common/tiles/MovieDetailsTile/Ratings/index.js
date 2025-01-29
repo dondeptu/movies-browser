@@ -1,4 +1,4 @@
-import { Rate, StarIcon, Votes, Wrapper } from "./styled";
+import { MaxRate, Rate, StarIcon, Votes, Wrapper } from "./styled";
 
 export const Ratings = ({ ratings }) => {
     return (
@@ -7,7 +7,9 @@ export const Ratings = ({ ratings }) => {
                 <>
                     <StarIcon />
                     <Rate>{ratings.rate.toFixed(1).toString().replace('.', ',')}</Rate>
-                    <Votes>{ratings.votes} votes</Votes></>
+                    <MaxRate>{ratings.maxRate}</MaxRate>
+                    <Votes>{ratings.votes} votes</Votes>
+                </>
             ) : (
                 <Votes>No votes yet</Votes>
             )}

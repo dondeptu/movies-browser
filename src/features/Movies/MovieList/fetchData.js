@@ -1,4 +1,4 @@
-import { apiKey } from "../../api";
+import { apiKey } from "../../../api";
 
 export const fetchPopularMovies = async (page) => {
   try {
