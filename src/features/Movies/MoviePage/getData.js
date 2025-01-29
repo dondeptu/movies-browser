@@ -7,6 +7,6 @@ export const getMovieDetails = async (movieId) => {
         return response.data;
     } catch (error) {
         console.error(`Failed to fetch movie details: ${error.message}`);
-        throw error(`Error fetching movie details: ${error.message}`);
+        throw error;
     }
 };
