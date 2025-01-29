@@ -6,7 +6,7 @@ import {
   BannerContent,
   Title,
 } from "./styled.js";
-import BannerBig from "../../images/bannerBig.png";
+import BannerBig from "../../../../../images/bannerBig.png";
 import { Ratings } from "../MovieBanner/Ratings";
 
 export const MovieBanner = () => {

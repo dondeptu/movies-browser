@@ -6,8 +6,8 @@ import { MovieDetailsTile } from "../../../common/tiles/MovieDetailsTile";
 import { PersonTile } from "../../../common/tiles/Persons/PersonTile";
 import { PersonsContent } from "../../../common/tiles/Persons/styled";
 import { MainContent } from "../../../common/MainContent";
-import { MovieBanner } from "../../../common/MovieBanner";
-import { SectionBanner } from "../../../common/SectionBanner";
+import { MovieBanner } from "../../../common/tiles/MovieDetailsTile/banner/MovieBanner";
+import { SectionBanner } from "../../../common/tiles/MovieDetailsTile/banner/SectionBanner";
 import { Wrapper } from "../../../Wrapper";
 import { fetchMovieDetails, selectMovieDetails } from "../movieSlice";
 
