@@ -40,12 +40,12 @@ function MoviePage() {
                     body={
                         movieDetails ? (
                             <MovieDetailsTile
-                                poster_path={movieDetails.poster_path}
+                                posterPath={movieDetails.poster_path}
                                 title={movieDetails.title}
-                                production_countries={movieDetails.production_countries}
-                                release_date={movieDetails.release_date}
-                                vote_average={movieDetails.vote_average}
-                                vote_count={movieDetails.vote_count}
+                                productionCountries={movieDetails.production_countries}
+                                releaseDate={movieDetails.release_date}
+                                voteAverage={movieDetails.vote_average}
+                                voteCount={movieDetails.vote_count}
                                 overview={movieDetails.overview}
                             />
                         ) : (

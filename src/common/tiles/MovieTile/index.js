@@ -12,11 +12,11 @@ import {
 import { toMoviePage } from "../../../routes";
 import { MissingPoster } from "../MissingPoster";
 
-export const MovieTile = ({ id, poster_path, title, release_date, vote_average, vote_count }) => (
+export const MovieTile = ({ id, posterPath, title, releaseDate, genreIds, voteAverage, voteCount }) => (
     <StyledLink to={toMoviePage({ id: id })}>
         <PosterWrapper>
-            {poster_path ? (
-                <Poster src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={`poster of ${title}`} />
+            {posterPath ? (
+                <Poster src={`https://image.tmdb.org/t/p/w500${posterPath}`} alt={`poster of ${title}`} />
             ) : (
                 <MissingPoster />
             )}
@@ -24,10 +24,10 @@ export const MovieTile = ({ id, poster_path, title, release_date, vote_average, 
         <InfoContent>
             <Details>
                 {title && <Title>{title}</Title>}
-                {release_date && <ReleaseDate>{release_date.slice(0, 4)}</ReleaseDate>}
-                <Genre genres={[{ tag: 'Action' }, { tag: 'Adventure' }, { tag: 'Drama' }]} />
+                {releaseDate && <ReleaseDate>{releaseDate.slice(0, 4)}</ReleaseDate>}
+                <Genre genreIds={genreIds} />
             </Details>
-            <Ratings ratings={{ rate: vote_average, votes: vote_count }} />
+            <Ratings ratings={{ rate: voteAverage, votes: voteCount }} />
         </InfoContent>
     </StyledLink>
 );
