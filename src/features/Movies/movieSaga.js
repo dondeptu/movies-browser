@@ -27,10 +27,11 @@ function* fetchMoviesData() {
 
 function* fetchMovieDetailsHandler({ payload: movieId }) {
   try {
+    yield put(setMovieDetails(null));
     yield put(startFetch());
     const movieDetails = yield call(getMovieDetails, movieId);
-    yield put(setMovieDetails(movieDetails));
     yield delay(1000);
+    yield put(setMovieDetails(movieDetails));
     yield put(fetchMovieSuccess());
   } catch (error) {
     yield put(fetchMovieError(`Error fetching movie details: ${error.message}`))
