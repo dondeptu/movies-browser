@@ -13,16 +13,12 @@ import PeopleList from "./features/People/PeopleList";
 import { Pagination } from "./common/Pagination";
 import { toMovieList, toMoviePage, toPeople } from "./routes";
 import ScrollToTop from "./common/ScrollToTop";
-import { Error } from "./common/Error";
-import { Loading } from "./common/Loading";
 
 export const App = () => (
   <Provider store={store}>
     <HashRouter>
       <ScrollToTop />
       <Navigation />
-      <Error />
-      <Loading />
       <Switch>
         <Route path={toMoviePage()}>
           <MoviePage />
