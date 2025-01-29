@@ -25,6 +25,7 @@ function MoviePage() {
         <>
             <SectionBanner
                 body={
+                    movieDetails && 
                     <MovieBanner
                         backdropPath={movieDetails.backdrop_path}
                         title={movieDetails.title}
