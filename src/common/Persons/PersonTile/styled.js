@@ -40,6 +40,10 @@ export const ContentPerson = styled.div`
     justify-content: center;
     align-items: center;
     gap: 8px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {       
+        margin-bottom: ${({ extraMargin }) => (extraMargin ? '25px' : '0')};
+    }    
 `;
 
 export const PersonName = styled.h2`    
