@@ -13,14 +13,15 @@ import { getMovieDetails } from "./MoviePage/getData";
 
 function* fetchMoviesData() {
   try {
+    yield delay(800);
     const page = yield select(selectCurrentPage);
     const { results } = yield call(fetchPopularMovies, page);
     yield put(
       fetchMovies({ results, total_pages: 500, total_results: results.length })
     );
-    yield delay(1000);
     yield put(fetchMovieSuccess());
   } catch (error) {
+    yield delay(800);
     yield put(fetchMovieError(`Error fetching movies: ${error.message}`));
   }
 }
@@ -28,12 +29,15 @@ function* fetchMoviesData() {
 function* fetchMovieDetailsHandler({ payload: movieId }) {
   try {
     yield put(startFetch());
+    yield delay(800);
     const movieDetails = yield call(getMovieDetails, movieId);
     yield put(setMovieDetails(movieDetails));
-    yield delay(1000);
     yield put(fetchMovieSuccess());
   } catch (error) {
-    yield put(fetchMovieError(`Error fetching movie details: ${error.message}`))
+    yield delay(800);
+    yield put(
+      fetchMovieError(`Error fetching movie details: ${error.message}`)
+    );
   }
 }
 
