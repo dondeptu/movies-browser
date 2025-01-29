@@ -3,5 +3,8 @@ import { movieSaga } from "./features/Movies/movieSaga";
 import { peopleSaga } from "./features/People/peopleSaga";
 
 export default function* saga() {
-  yield all([movieSaga(), peopleSaga()]);
+  yield all([
+    movieSaga(),
+    peopleSaga()
+  ]);
 }

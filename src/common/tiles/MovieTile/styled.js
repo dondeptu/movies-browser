@@ -1,7 +1,9 @@
 import styled from "styled-components";
-import { ReactComponent as iconCamera } from "../../images/iconCamera.svg";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-export const Wrapper = styled.div`
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.color.black};
   background-color: ${({ theme }) => theme.color.white};
   width: 100%;
   display: grid;
@@ -11,11 +13,25 @@ export const Wrapper = styled.div`
   padding: 16px;
   box-shadow: ${({ theme }) => theme.shadow.elevation};
 
+  &:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease;
+  }
+
+  &:active {
+    box-shadow: ${({ theme }) => theme.shadow.soft};
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     grid-template-columns: auto 1fr;
     grid-template-rows: 1fr;
     column-gap: 16px;
+
+    &:hover {
+    transform: none;
+    }
   }
+
 `;
 
 export const PosterWrapper = styled.div`
@@ -40,16 +56,6 @@ export const Poster = styled.img`
     padding-right: 0;
     width: 114px;
   }
-`;
-
-export const MissingPoster = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-  background-color: ${({ theme }) => theme.color.postergrey};
 `;
 
 export const InfoContent = styled.div`
@@ -88,19 +94,5 @@ export const ReleaseDate = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     font-size: 13px;
     line-height: 1.3;
-  }
-`;
-
-export const StyledIconCamera = styled(iconCamera)`
-  width: 72px;
-  height: auto;
-  opacity: 50%;
-
-  path {
-    stroke-width: 1.69px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    width: 48px;
   }
 `;

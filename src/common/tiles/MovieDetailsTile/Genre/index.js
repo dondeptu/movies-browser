@@ -1,10 +1,15 @@
 import { DetailsTileContainer, DetailsTileGenreItem } from "./styled";
 
 export const Genre = ({ genres }) => {
+
+    if (!Array.isArray(genres)) {
+        return null;
+    }
+
     return (
         <DetailsTileContainer>
-            {genres.map(({ tag }) => (
-                <DetailsTileGenreItem key={tag}>{tag}</DetailsTileGenreItem>
+            {genres.map((genre) => (
+                <DetailsTileGenreItem key={genre.id}>{genre.name}</DetailsTileGenreItem>
             ))}
         </DetailsTileContainer>
     );

@@ -1,5 +1,5 @@
 import { ContentPerson, PersonImage, PersonName, PersonSubtitle, PersonTileWrapper } from "./styled";
-import posterLiu from "../../../images/posterLiu.png";
+import posterLiu from "../../../../images/posterLiu.png";
 
 export const PersonTile = ({ extraMargin, showSubtitle = true }) => (
     <PersonTileWrapper>
