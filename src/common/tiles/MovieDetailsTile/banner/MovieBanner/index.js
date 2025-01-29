@@ -6,18 +6,19 @@ import {
   BannerContent,
   Title,
 } from "./styled.js";
-import BannerBig from "../../../../../images/bannerBig.png";
 import { Ratings } from "../MovieBanner/Ratings";
 
-export const MovieBanner = () => {
+export const MovieBanner = ({ backdropPath, title, voteAverage, voteCount }) => {
   return (
     <Wrapper>
       <Background />
       <BannerContainer>
-        <BannerImage src={BannerBig} alt="Poster of Mulan long title" />
+        {backdropPath &&
+          <BannerImage src={`https://image.tmdb.org/t/p/original${backdropPath}`} alt={`poster of ${title}`} />
+        }
         <BannerContent>
-          <Title>Mulan long title</Title>
-          <Ratings ratings={{ rate: "7,8", maxRate: "/ 10", votes: "335" }} />
+          {title ? <Title>{title}</Title> : <Title>Title not available</Title>}
+          <Ratings ratings={{ rate: voteAverage, maxRate: '/ 10', votes: voteCount }} />
         </BannerContent>
       </BannerContainer>
     </Wrapper>

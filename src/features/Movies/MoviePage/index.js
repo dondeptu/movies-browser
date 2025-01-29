@@ -23,7 +23,16 @@ function MoviePage() {
 
     return (
         <>
-            <SectionBanner body={<MovieBanner />} />
+            <SectionBanner
+                body={
+                    <MovieBanner
+                        backdropPath={movieDetails.backdrop_path}
+                        title={movieDetails.title}
+                        voteAverage={movieDetails.vote_average}
+                        voteCount={movieDetails.vote_count}
+                    />
+                }
+            />
             <Wrapper>
                 <MainContent
                     mainHeader=""

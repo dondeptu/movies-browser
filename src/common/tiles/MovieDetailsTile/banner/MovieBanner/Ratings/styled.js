@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 `;
 
 export const FirstRow = styled.div`
-display: flex;
+  display: flex;
   align-items: center; 
   gap: 8px;
 
