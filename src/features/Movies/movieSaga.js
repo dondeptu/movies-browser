@@ -1,12 +1,15 @@
-import { call, delay, put, takeEvery, select } from "redux-saga/effects";
-import { fetchPopularMovies } from "./fetchData";
+import { call, delay, put, select, takeLatest } from "redux-saga/effects";
+import { fetchPopularMovies } from "./MovieList/fetchData";
 import {
   startFetch,
   fetchMovieSuccess,
   fetchMovieError,
   fetchMovies,
+  setMovieDetails,
+  fetchMovieDetails,
 } from "./movieSlice";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
+import { getMovieDetails } from "./MoviePage/getData";
 
 function* fetchMoviesData() {
   try {
@@ -22,6 +25,20 @@ function* fetchMoviesData() {
   }
 }
 
+function* fetchMovieDetailsHandler({ payload: movieId }) {
+  try {
+    yield put(setMovieDetails(null));
+    yield put(startFetch());
+    const movieDetails = yield call(getMovieDetails, movieId);
+    yield delay(1000);
+    yield put(setMovieDetails(movieDetails));
+    yield put(fetchMovieSuccess());
+  } catch (error) {
+    yield put(fetchMovieError(`Error fetching movie details: ${error.message}`))
+  }
+}
+
 export function* movieSaga() {
-  yield takeEvery(startFetch, fetchMoviesData);
+  yield takeLatest(startFetch, fetchMoviesData);
+  yield takeLatest(fetchMovieDetails.type, fetchMovieDetailsHandler);
 }

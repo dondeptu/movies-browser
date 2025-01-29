@@ -7,16 +7,12 @@ const movieSlice = createSlice({
       results: [],
       total_results: 0,
     },
+    movieDetails: {},
     loading: false,
     error: null,
-    id: "",
   },
   reducers: {
     startFetch: (state) => {
-      state.loading = true;
-    },
-    setId: (state, { payload: id }) => {
-      state.id = id;
       state.loading = true;
     },
     fetchMovies: (state, { payload: popularMovies }) => {
@@ -33,6 +29,10 @@ const movieSlice = createSlice({
       state.loading = false;
       state.error = errorMessage;
     },
+    setMovieDetails: (state, { payload: movieDetails }) => {
+      state.movieDetails = movieDetails;
+    },
+    fetchMovieDetails: () => { },
   },
 });
 
@@ -40,8 +40,9 @@ export const selectMoviesState = (state) => state.movies;
 export const selectMovies = (state) => selectMoviesState(state).movies;
 export const selectLoading = (state) => selectMoviesState(state).loading;
 export const selectError = (state) => selectMoviesState(state).error;
+export const selectMovieDetails = (state) => selectMoviesState(state).movieDetails;
 
-export const { fetchMovies, startFetch, fetchMovieSuccess, fetchMovieError } =
+export const { fetchMovies, startFetch, fetchMovieSuccess, fetchMovieError, setMovieDetails, fetchMovieDetails } =
   movieSlice.actions;
 
 export default movieSlice.reducer;
