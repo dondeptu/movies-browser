@@ -61,9 +61,7 @@ function MoviePage() {
                     voteCount={movieDetails.vote_count}
                     overview={movieDetails.overview}
                   />
-                ) : (
-                  <p>No details available</p>
-                )
+                ) : null
               }
             />
             <MainContent
