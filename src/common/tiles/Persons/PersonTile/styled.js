@@ -10,6 +10,7 @@ export const PersonTileWrapper = styled.a`
     border-radius: 5px;
     text-decoration: none;
     display: grid;
+    gap: 12px;
     grid-template-columns: auto;
     grid-template-rows: auto 1fr;    
     cursor: pointer;
@@ -32,12 +33,25 @@ export const PersonImage = styled.img`
     border-radius: 5px;
 `;
 
+export const ContentPerson = styled.div`   
+    display: flex;
+    height: fit-content;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {       
+        margin-bottom: ${({ extraMargin }) => (extraMargin ? '25px' : '0')};
+    }    
+`;
+
 export const PersonName = styled.h2`    
     font-weight: 500;
     font-size: 22px;
     line-height: 1.3;
     text-align: center;
-    margin: 12px 0px 8px;
+    margin: 0px;
     overflow-wrap: anywhere;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
