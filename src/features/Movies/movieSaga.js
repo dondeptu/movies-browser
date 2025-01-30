@@ -33,7 +33,6 @@ function* fetchMoviesData() {
 
 function* fetchMovieDetailsHandler({ payload: movieId }) {
   try {
-    yield put(setMovieDetails(null));
     yield put(startFetch());
     yield delay(800);
     const movieDetails = yield call(getMovieDetails, movieId);
