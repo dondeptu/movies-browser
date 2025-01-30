@@ -23,9 +23,6 @@ export const App = () => (
         <Route path={toMoviePage()}>
           <MoviePage />
         </Route>
-        <Route path={toMoviePage()}>
-          <MoviePage />
-        </Route>
         <Route path={toMovieList()}>
           <MovieList />
         </Route>

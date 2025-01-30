@@ -1,5 +1,5 @@
-import { useSelector, useDispatch } from "react-redux";
-import { selectCurrentPage, setCurrentPage } from "./paginationSlice.js";
+import { useDispatch } from "react-redux";
+import { setCurrentPage } from "./paginationSlice.js";
 import { useTotalPages } from "./useTotalPages.js";
 import {
   Wrapper,
@@ -14,6 +14,7 @@ import {
 } from "./styled.js";
 import { theme } from "../../theme.js";
 import { startFetch } from "../../features/Movies/movieSlice.js";
+import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom.min.js";
 import { useEffect } from "react";
 
 const PaginationButton = ({ onClick, disabled, children, direction }) => (
@@ -43,26 +44,26 @@ const PaginationButton = ({ onClick, disabled, children, direction }) => (
 );
 
 export const Pagination = () => {
-  const currentPage = useSelector(selectCurrentPage);
-
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "instant",
-    });
-  }, [currentPage]);
-
   const dispatch = useDispatch();
+  const location = useLocation();
+  const history = useHistory();
   const totalPages = useTotalPages();
+  const currentPage = Number(new URLSearchParams(location.search).get("page")) || 1;
 
   const isMobile = window.innerWidth <= theme.breakpoint.mobileMax;
 
   const handleSetCurrentPage = (page) => {
     if (page >= 1 && page <= totalPages) {
+      history.push(`${location.pathname}?page=${page}`);
       dispatch(setCurrentPage(page));
       dispatch(startFetch());
     }
   };
+
+  useEffect(() => {
+    dispatch(setCurrentPage(currentPage));
+    dispatch(startFetch());
+  }, [location.search, dispatch, currentPage]);
 
   return (
     <Wrapper>

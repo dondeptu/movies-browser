@@ -12,7 +12,7 @@ import {
   SearchIcon,
   Input,
 } from "./styled";
-import { toMovieList, toPeople } from "../../routes";
+import { toPeople } from "../../routes";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 export const Navigation = () => {
@@ -28,7 +28,7 @@ export const Navigation = () => {
           </Logo>
           <NavItemList>
             <NavItem>
-              <StyledNavLink to={toMovieList()}>Movies</StyledNavLink>
+              <StyledNavLink to="/">Movies</StyledNavLink>
             </NavItem>
             <NavItem>
               <StyledNavLink to={toPeople()}>People</StyledNavLink>
