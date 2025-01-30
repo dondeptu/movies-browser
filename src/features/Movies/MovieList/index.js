@@ -10,7 +10,6 @@ import { resetPage } from "../../../common/Pagination/paginationSlice";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
 
-
 function MovieList() {
   const dispatch = useDispatch();
   const movies = useSelector(selectMovies);
@@ -25,32 +24,34 @@ function MovieList() {
   return (
     <Wrapper>
       {loading ? (
-        <Loading /> 
+        <Loading />
       ) : error ? (
-        <Error /> 
+        <Error />
       ) : movieCount > 0 ? (
         <MainContent
           mainHeader="Popular movies"
           body={
             <Content>
-               { movies.results.map(
-                  ({
-                    id,
-                    poster_path,
-                    title,
-                    release_date,
-                    vote_average,
-                    vote_count,
-                  }) => (
-                    <MovieTile
-                      key={id}
-                      id={id}
-                      poster_path={poster_path}
-                      title={title}
-                      release_date={release_date}
-                      vote_average={vote_average}
-                      vote_count={vote_count}
-                      />
+              {movies.results.map(
+                ({
+                  id,
+                  poster_path,
+                  title,
+                  release_date,
+                  genre_ids,
+                  vote_average,
+                  vote_count,
+                }) => (
+                  <MovieTile
+                    key={id}
+                    id={id}
+                    posterPath={poster_path}
+                    title={title}
+                    releaseDate={release_date}
+                    genreIds={genre_ids}
+                    voteAverage={vote_average}
+                    voteCount={vote_count}
+                  />
                 )
               )}
             </Content>

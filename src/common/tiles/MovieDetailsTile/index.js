@@ -8,12 +8,13 @@ import { useEffect, useState } from 'react';
 import { MissingPoster } from '../MissingPoster/index.js';
 
 export const MovieDetailsTile = ({
-  poster_path,
+  posterPath,
   title,
-  production_countries,
-  release_date,
-  vote_average,
-  vote_count,
+  productionCountries,
+  releaseDate,
+  genres,
+  voteAverage,
+  voteCount,
   overview
 }) => {
 
@@ -53,20 +54,20 @@ export const MovieDetailsTile = ({
   return (
     <Wrapper>
       <PosterWrapper>
-        {poster_path ? (
-          <Poster src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={`poster of ${title}`} />
+        {posterPath ? (
+          <Poster src={`https://image.tmdb.org/t/p/w500${posterPath}`} alt={`poster of ${title}`} />
         ) : (
           <MissingPoster />
         )}
       </PosterWrapper>
       <TileContent>
         {title ? <TileTitle>{title}</TileTitle> : <TileTitle>Title not available</TileTitle>}
-        {release_date ? <ReleaseDate>{release_date.slice(0, 4)}</ReleaseDate> : <ReleaseDate>Unknown release date</ReleaseDate>}
-        <ProductionInfo info={{ productionCountries: getCountries(production_countries), date: formatDate(release_date) }} />
-        <Genre genres={[{ tag: 'Action' }, { tag: 'Adventure' }, { tag: 'Drama' }]} />
-        <Ratings ratings={{ rate: vote_average, maxRate: '/ 10', votes: vote_count }} />
+        {releaseDate ? <ReleaseDate>{releaseDate.slice(0, 4)}</ReleaseDate> : <ReleaseDate>Unknown release date</ReleaseDate>}
+        <ProductionInfo info={{ productionCountries: getCountries(productionCountries), date: formatDate(releaseDate) }} />
+        <Genre genres={genres} />
+        <Ratings ratings={{ rate: voteAverage, maxRate: '/ 10', votes: voteCount }} />
       </TileContent>
       <MovieDescription movieDescription={{ description: overview }} />
-    </Wrapper>
+    </Wrapper >
   )
 };
