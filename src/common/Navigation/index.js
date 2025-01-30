@@ -8,40 +8,28 @@ import {
   NavItemList,
   NavItem,
   StyledNavLink,
-  SearchContainer,
-  SearchIcon,
-  Input,
 } from "./styled";
 import { toPeople } from "../../routes";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { Search } from "./Search";
 
-export const Navigation = () => {
-  const location = useLocation();
-
-  return (
-    <NavigationStyled>
-      <Wrapper>
-        <NavGroup>
-          <Logo to="/">
-            <LogoIcon />
-            <LogoTitle>Movies Browser</LogoTitle>
-          </Logo>
-          <NavItemList>
-            <NavItem>
-              <StyledNavLink to="/">Movies</StyledNavLink>
-            </NavItem>
-            <NavItem>
-              <StyledNavLink to={toPeople()}>People</StyledNavLink>
-            </NavItem>
-          </NavItemList>
-        </NavGroup>
-        <SearchContainer>
-          <SearchIcon />
-          <Input
-            type="text"
-            placeholder={`Search for ${location.pathname.includes("/people") ? "people..." : "movies..."}`} />
-        </SearchContainer>
-      </Wrapper>
-    </NavigationStyled>
-  );
-};
+export const Navigation = () => (
+  <NavigationStyled>
+    <Wrapper>
+      <NavGroup>
+        <Logo to="/">
+          <LogoIcon />
+          <LogoTitle>Movies Browser</LogoTitle>
+        </Logo>
+        <NavItemList>
+          <NavItem>
+            <StyledNavLink to="/">Movies</StyledNavLink>
+          </NavItem>
+          <NavItem>
+            <StyledNavLink to={toPeople()}>People</StyledNavLink>
+          </NavItem>
+        </NavItemList>
+      </NavGroup>
+      <Search />
+    </Wrapper>
+  </NavigationStyled>
+);
