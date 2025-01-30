@@ -37,7 +37,7 @@ function MoviePage() {
         <>
           <SectionBanner
             body={
-              movieDetails && movieDetails.backdrop_path ? (
+              movieDetails ? (
                 <MovieBanner
                   backdropPath={movieDetails.backdrop_path}
                   title={movieDetails.title}
