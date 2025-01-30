@@ -33,6 +33,7 @@ const movieSlice = createSlice({
       state.movieDetails = movieDetails;
     },
     fetchMovieDetails: () => { },
+    fetchSearchResults: () => { },
   },
 });
 
@@ -42,7 +43,15 @@ export const selectLoading = (state) => selectMoviesState(state).loading;
 export const selectError = (state) => selectMoviesState(state).error;
 export const selectMovieDetails = (state) => selectMoviesState(state).movieDetails;
 
-export const { fetchMovies, startFetch, fetchMovieSuccess, fetchMovieError, setMovieDetails, fetchMovieDetails } =
+export const {
+  fetchMovies,
+  startFetch,
+  fetchMovieSuccess,
+  fetchMovieError,
+  setMovieDetails,
+  fetchMovieDetails,
+  fetchSearchResults
+} =
   movieSlice.actions;
 
 export default movieSlice.reducer;

@@ -4,9 +4,12 @@ import { MainContent } from "../../../common/MainContent";
 import { Wrapper } from "../../../Wrapper";
 import { Content } from "./styled";
 import { MovieTile } from "../../../common/tiles/MovieTile";
-import { selectMovies, selectError } from "../movieSlice";
+import { selectMovies, selectError, fetchSearchResults } from "../movieSlice";
 import { startFetch } from "../movieSlice";
 import { resetPage } from "../../../common/Pagination/paginationSlice";
+import { useQueryParameter } from "../../../common/Navigation/Search/queryParameters";
+import searchQueryParamName from "../../../common/Navigation/Search/searchQueryParamName";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 function MovieList() {
   const dispatch = useDispatch();
@@ -14,10 +17,19 @@ function MovieList() {
   const movieCount = movies?.results?.length || 0;
   const error = useSelector(selectError);
 
+  const searchQuery = useQueryParameter(searchQueryParamName) || "";
+  const page = Number(new URLSearchParams(useLocation.search).get("page")) || 1;
+
   useEffect(() => {
-    dispatch(startFetch());
-    dispatch(resetPage());
-  }, [dispatch]);
+    if (searchQuery) {
+      dispatch(
+        fetchSearchResults({ searchQuery, page })
+      );
+    } else {
+      dispatch(startFetch());
+      dispatch(resetPage());
+    }
+  }, [dispatch, page, searchQuery]);
 
   if (error) {
     return <p>Error fetching movies: {error}</p>;

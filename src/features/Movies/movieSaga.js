@@ -7,11 +7,13 @@ import {
   fetchMovies,
   setMovieDetails,
   fetchMovieDetails,
+  fetchSearchResults,
 } from "./movieSlice";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import { getMovieDetails } from "./MoviePage/getData";
 import { getGenres } from "./getGenres";
 import { setGenres } from "./genresSlice";
+import { getSearchResults } from "./MovieList/getSearchResultsData";
 
 function* fetchMoviesData() {
   try {
@@ -40,7 +42,24 @@ function* fetchMovieDetailsHandler({ payload: movieId }) {
   }
 }
 
+function* fetchSearchResultsHandler({ payload: { page, searchQuery } }) {
+  try {
+    const { results } = yield call(getSearchResults, page, searchQuery);
+
+    const { genres } = yield call(getGenres);
+    yield put(fetchMovies({ results, total_pages: 500, total_results: results.length }));
+    yield put(setGenres(genres));
+
+    yield delay(1000);
+    yield put(fetchMovieSuccess());
+  } catch (error) {
+    console.error("Error fetching search results or genres:", error);
+    yield put(fetchMovieError(`Error fetching movie details: ${error.message}`))
+  }
+}
+
 export function* movieSaga() {
   yield takeLatest(startFetch, fetchMoviesData);
   yield takeLatest(fetchMovieDetails.type, fetchMovieDetailsHandler);
+  yield takeLatest(fetchSearchResults.type, fetchSearchResultsHandler);
 }
