@@ -13,7 +13,7 @@ import {
   PageNumber,
 } from "./styled.js";
 import { theme } from "../../theme.js";
-import { startFetch } from "../../features/Movies/movieSlice.js";
+import { fetchPopularMovies } from "../../features/Movies/movieSlice.js";
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom.min.js";
 import { useEffect } from "react";
 
@@ -56,13 +56,13 @@ export const Pagination = () => {
     if (page >= 1 && page <= totalPages) {
       history.push(`${location.pathname}?page=${page}`);
       dispatch(setCurrentPage(page));
-      dispatch(startFetch());
+      dispatch(fetchPopularMovies());
     }
   };
 
   useEffect(() => {
     dispatch(setCurrentPage(currentPage));
-    dispatch(startFetch());
+    dispatch(fetchPopularMovies());
   }, [location.search, dispatch, currentPage]);
 
   return (

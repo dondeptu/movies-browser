@@ -16,23 +16,23 @@ const movieSlice = createSlice({
       state.loading = true;
       state.movieDetails = null;
     },
-    fetchMovies: (state, { payload: popularMovies }) => {
+    setMovies: (state, { payload: popularMovies }) => {
       state.movies.results = popularMovies.results;
       state.movies.total_pages = 500;
       state.movies.total_results = popularMovies.total_results;
-      state.loading = false;
     },
-    fetchMovieSuccess: (state) => {
+    setMovieSuccess: (state) => {
       state.loading = false;
     },
 
-    fetchMovieError: (state, { payload: errorMessage }) => {
+    setMovieError: (state, { payload: errorMessage }) => {
       state.loading = false;
       state.error = errorMessage;
     },
     setMovieDetails: (state, { payload: movieDetails }) => {
       state.movieDetails = movieDetails;
     },
+    fetchPopularMovies: () => { },
     fetchMovieDetails: () => { },
     fetchSearchResults: () => { },
   },
@@ -46,11 +46,12 @@ export const selectMovieDetails = (state) =>
   selectMoviesState(state).movieDetails;
 
 export const {
-  fetchMovies,
+  setMovies,
   startFetch,
-  fetchMovieSuccess,
-  fetchMovieError,
+  setMovieSuccess,
+  setMovieError,
   setMovieDetails,
+  fetchPopularMovies,
   fetchMovieDetails,
   fetchSearchResults
 } =

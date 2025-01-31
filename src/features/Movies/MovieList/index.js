@@ -5,8 +5,7 @@ import { Wrapper } from "../../../Wrapper";
 import { Content } from "./styled";
 import { MovieTile } from "../../../common/tiles/MovieTile";
 
-import { selectMovies, selectMoviesState, fetchSearchResults } from "../movieSlice";
-import { startFetch } from "../movieSlice";
+import { selectMovies, selectMoviesState, fetchSearchResults, fetchPopularMovies } from "../movieSlice";
 import { resetPage } from "../../../common/Pagination/paginationSlice";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
@@ -33,7 +32,7 @@ function MovieList() {
         })
       );
     } else {
-      dispatch(startFetch());
+      dispatch(fetchPopularMovies());
       dispatch(resetPage());
     }
   }, [dispatch, page, searchQuery]);
