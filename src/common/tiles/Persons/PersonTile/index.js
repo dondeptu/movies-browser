@@ -1,12 +1,17 @@
 import { ContentPerson, PersonImage, PersonName, PersonSubtitle, PersonTileWrapper } from "./styled";
-import posterLiu from "../../../../images/posterLiu.png";
 
-export const PersonTile = ({ extraMargin, showSubtitle = true }) => (
+export const PersonTile = ({ id, profilePath, name, character, extraMargin, showSubtitle = true }) => {
+    return (
+    
     <PersonTileWrapper>
-        <PersonImage src={posterLiu} alt="poster of Lui" />
-        <ContentPerson extraMargin={extraMargin}>
-            <PersonName>Liu Yifei Long Name Long name</PersonName>
-            {showSubtitle && <PersonSubtitle>Mulan</PersonSubtitle>}
+        {profilePath ? (
+        <PersonImage src={`https://image.tmdb.org/t/p/w500${profilePath}`} alt={`poster of ${name}`} />
+        ) : ( <p>No poster</p>
+    )}
+        <ContentPerson $extraMargin={extraMargin}>
+            {name && <PersonName>{name}</PersonName>}
+            {showSubtitle && character &&<PersonSubtitle>{character}</PersonSubtitle>}
         </ContentPerson>
     </PersonTileWrapper>
-);
+)
+};
