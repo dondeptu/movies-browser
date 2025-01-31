@@ -41,7 +41,7 @@ function* fetchMovieDetailsHandler({ payload: movieId }) {
     yield delay(800);
     const movieDetails = yield call(getMovieDetails, movieId);
     yield put(setMovieDetails(movieDetails));
-    yield delay(1000);
+    yield delay(800);
     const cast = yield call(getCast, movieId);
     const crew = yield call(getCrew, movieId);
     yield put(fetchCast(cast));
