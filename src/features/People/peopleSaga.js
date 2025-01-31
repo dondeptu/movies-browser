@@ -1,28 +1,48 @@
-import { call, delay, put, takeEvery, select } from "redux-saga/effects";
-import { fetchPopularPeople } from "./fetchPeopleData";
+import { call, delay, put, takeLatest, select } from "redux-saga/effects";
+import { fetchPopularPeople } from "./PeopleList/fetchPeopleData";
 import {
   startFetch,
   fetchPeople,
   fetchPeopleError,
   fetchPeopleSuccess,
+  fetchPeopleDetails,
+  setPeopleDetails,
 } from "./peopleSlice";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
+import { getPeopleDetails } from "./PeoplePage/getPeopleData";
 
 function* fetchPeopleData() {
   try {
+    yield delay(800);
     const page = yield select(selectCurrentPage);
-    const { results, total_pages, total_results } = yield call(
-      fetchPopularPeople,
-      page
+    const { results } = yield call(fetchPopularPeople, page);
+    yield put(
+      fetchPeople({ results, total_pages: 500, total_results: results.length })
     );
-    yield put(fetchPeople({ results, total_pages, total_results }));
-    yield delay(1000);
+    yield delay(800);
     yield put(fetchPeopleSuccess());
   } catch (error) {
+    yield delay(800);
     yield put(fetchPeopleError(`Error fetching people: ${error.message}`));
   }
 }
 
+function* fetchPeopleDetailsHandler({ payload: peopleId }) {
+  try {
+    yield put(startFetch());
+    yield delay(800);
+    const peopleDetails = yield call(getPeopleDetails, peopleId);
+    yield put(setPeopleDetails(peopleDetails));
+    yield put(fetchPeopleSuccess());
+  } catch (error) {
+    yield delay(800);
+    yield put(
+      fetchPeopleError(`Error fetching people details: ${error.message}`)
+    );
+  }
+}
+
 export function* peopleSaga() {
-  yield takeEvery(startFetch, fetchPeopleData);
+  yield takeLatest(startFetch, fetchPeopleData);
+  yield takeLatest(fetchPeopleDetails.type, fetchPeopleDetailsHandler);
 }
