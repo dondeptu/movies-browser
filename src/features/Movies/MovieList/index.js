@@ -23,7 +23,11 @@ function MovieList() {
   useEffect(() => {
     if (searchQuery) {
       dispatch(
-        fetchSearchResults({ searchQuery, page })
+        fetchSearchResults({
+          page,
+          searchQuery,
+          searchType: "movie"
+        })
       );
     } else {
       dispatch(startFetch());

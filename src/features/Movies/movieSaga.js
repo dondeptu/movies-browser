@@ -42,15 +42,15 @@ function* fetchMovieDetailsHandler({ payload: movieId }) {
   }
 }
 
-function* fetchSearchResultsHandler({ payload: { page, searchQuery } }) {
+function* fetchSearchResultsHandler({ payload: { page, searchQuery, searchType } }) {
   try {
-    const { results } = yield call(getSearchResults, page, searchQuery);
-
+    const { results } = yield call(getSearchResults, page, searchQuery, searchType);
     const { genres } = yield call(getGenres);
+
+    delay(500);
     yield put(fetchMovies({ results, total_pages: 500, total_results: results.length }));
     yield put(setGenres(genres));
 
-    yield delay(1000);
     yield put(fetchMovieSuccess());
   } catch (error) {
     console.error("Error fetching search results or genres:", error);
