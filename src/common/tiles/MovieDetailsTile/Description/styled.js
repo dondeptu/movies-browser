@@ -12,8 +12,8 @@ export const TileDescription = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakpointDescription.mobileMax}px) {
      display: grid;
-     grid-column: 1 / span 2;
-     font-size: 14px;
+     grid-column: 1 / span 2;     
+     font-size: clamp(14px, 3vw, 16px);
      margin-top: 16px;
      padding: 0px;    
  }
