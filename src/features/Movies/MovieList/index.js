@@ -42,7 +42,7 @@ function MovieList() {
   return (
     <Wrapper>
       <MainContent
-        mainHeader="Popular movies"
+        mainHeader={searchQuery ? `Search results for ${searchQuery} (${movieCount})` : "Popular movies"}
         body={
           <Content>
             {movieCount > 0 ? (
