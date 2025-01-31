@@ -7,7 +7,11 @@ import {
   fetchMovies,
   setMovieDetails,
   fetchMovieDetails,
+  fetchCast,
+  fetchCrew,
 } from "./movieSlice";
+import { getCast } from "./MoviePage/getCast";
+import { getCrew } from "./MoviePage/getCrew";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import { getMovieDetails } from "./MoviePage/getData";
 import { getGenres } from "./getGenres";
@@ -37,6 +41,11 @@ function* fetchMovieDetailsHandler({ payload: movieId }) {
     yield delay(800);
     const movieDetails = yield call(getMovieDetails, movieId);
     yield put(setMovieDetails(movieDetails));
+    yield delay(1500); 
+    const cast = yield call(getCast, movieId);
+    const crew = yield call(getCrew, movieId);
+    yield put(fetchCast(cast));
+    yield put(fetchCrew(crew));
     yield put(fetchMovieSuccess());
   } catch (error) {
     yield delay(800);
