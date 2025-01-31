@@ -15,28 +15,34 @@ import { setGenres } from "./genresSlice";
 
 function* fetchMoviesData() {
   try {
+    yield delay(800);
     const page = yield select(selectCurrentPage);
     const { results } = yield call(fetchPopularMovies, page);
     const { genres } = yield call(getGenres);
-    yield put(fetchMovies({ results, total_pages: 500, total_results: results.length }));
+    yield put(
+      fetchMovies({ results, total_pages: 500, total_results: results.length })
+    );
     yield put(setGenres(genres));
-    yield delay(1000);
+    yield delay(800);
     yield put(fetchMovieSuccess());
   } catch (error) {
+    yield delay(800);
     yield put(fetchMovieError(`Error fetching movies: ${error.message}`));
   }
 }
 
 function* fetchMovieDetailsHandler({ payload: movieId }) {
   try {
-    yield put(setMovieDetails(null));
     yield put(startFetch());
+    yield delay(800);
     const movieDetails = yield call(getMovieDetails, movieId);
-    yield delay(1000);
     yield put(setMovieDetails(movieDetails));
     yield put(fetchMovieSuccess());
   } catch (error) {
-    yield put(fetchMovieError(`Error fetching movie details: ${error.message}`))
+    yield delay(800);
+    yield put(
+      fetchMovieError(`Error fetching movie details: ${error.message}`)
+    );
   }
 }
 
