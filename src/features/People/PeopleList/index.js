@@ -25,7 +25,8 @@ function PeopleList() {
           body={
             <PersonsContent>
               {people.results.map(({ id, profile_path, name }) => (
-                <PersonTile extraMargin={true}
+                <PersonTile
+                  extraMargin={true}
                   showSubtitle={false}
                   key={id}
                   id={id}

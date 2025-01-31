@@ -37,15 +37,15 @@ const movieSlice = createSlice({
     },
     fetchMovieDetails: () => {},
     fetchCast: (state, { payload }) => {
-      const { cast } = payload;  // Destructure to extract only cast
-      console.log('Cast:', cast);
-      state.cast = cast;  // Set cast data in state
+      const { cast } = payload;
+      console.log("Cast:", cast);
+      state.cast = cast;
     },
-    
+
     fetchCrew: (state, { payload }) => {
-      const { crew } = payload;  // Destructure to extract only crew
-      console.log('Crew:', crew);
-      state.crew = crew;  // Set crew data in state
+      const { crew } = payload;
+      console.log("Crew:", crew);
+      state.crew = crew;
     },
   },
 });
