@@ -1,7 +1,7 @@
 import { call, delay, put, takeLatest, select } from "redux-saga/effects";
 import { fetchPopularPeople } from "./PeopleList/fetchPeopleData";
 import {
-  startFetch,
+  startFetchPeople,
   fetchPeople,
   fetchPeopleError,
   fetchPeopleSuccess,
@@ -29,7 +29,7 @@ function* fetchPeopleData() {
 
 function* fetchPeopleDetailsHandler({ payload: peopleId }) {
   try {
-    yield put(startFetch());
+    yield put(startFetchPeople());
     yield delay(800);
     const peopleDetails = yield call(getPeopleDetails, peopleId);
     yield put(setPeopleDetails(peopleDetails));
@@ -43,6 +43,6 @@ function* fetchPeopleDetailsHandler({ payload: peopleId }) {
 }
 
 export function* peopleSaga() {
-  yield takeLatest(startFetch, fetchPeopleData);
+  yield takeLatest(startFetchPeople, fetchPeopleData);
   yield takeLatest(fetchPeopleDetails.type, fetchPeopleDetailsHandler);
 }

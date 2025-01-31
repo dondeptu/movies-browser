@@ -12,7 +12,7 @@ const peopleSlice = createSlice({
     error: null,
   },
   reducers: {
-    startFetch: (state) => {
+    startFetchPeople: (state) => {
       state.loading = true;
       state.peopleDetails = null;
     },
@@ -44,7 +44,7 @@ export const selectPeopleDetails = (state) =>
   selectPeopleState(state).peopleDetails;
 
 export const {
-  startFetch,
+  startFetchPeople,
   fetchPeople,
   fetchPeopleSuccess,
   fetchPeopleError,
