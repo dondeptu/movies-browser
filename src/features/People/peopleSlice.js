@@ -28,6 +28,7 @@ const peopleSlice = createSlice({
       state.loading = false;
       state.error = errorMessage;
     },
+    fetchPeopleDetails: () => { },
   },
 });
 
@@ -35,8 +36,9 @@ export const selectPeopleState = (state) => state.people;
 export const selectPeople = (state) => selectPeopleState(state).people;
 export const selectLoading = (state) => selectPeopleState(state).loading;
 export const selectError = (state) => selectPeopleState(state).error;
+export const selectPeopleDetails = (state) => selectPeopleState(state).peopleDetails;
 
-export const { startFetch, fetchPeople, fetchPeopleSuccess, fetchPeopleError } =
+export const { startFetch, fetchPeople, fetchPeopleSuccess, fetchPeopleError, fetchPeopleDetails } =
   peopleSlice.actions;
 
 export default peopleSlice.reducer;
