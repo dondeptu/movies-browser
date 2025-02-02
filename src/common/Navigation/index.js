@@ -9,20 +9,20 @@ import {
   NavItem,
   StyledNavLink,
 } from "./styled";
-import { toPeople } from "../../routes";
+import { toMovieList, toPeople } from "../../routes";
 import { Search } from "./Search";
 
 export const Navigation = () => (
   <NavigationStyled>
     <Wrapper>
       <NavGroup>
-        <Logo to="/">
+        <Logo to={toMovieList()}>
           <LogoIcon />
           <LogoTitle>Movies Browser</LogoTitle>
         </Logo>
         <NavItemList>
           <NavItem>
-            <StyledNavLink to="/">Movies</StyledNavLink>
+            <StyledNavLink to={toMovieList()}>Movies</StyledNavLink>
           </NavItem>
           <NavItem>
             <StyledNavLink to={toPeople()}>People</StyledNavLink>

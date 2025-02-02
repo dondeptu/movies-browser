@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { ReactComponent as Error } from "../../images/iconError.svg";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 export const ErrorWrapper = styled.div`
   margin: 180px 16px auto 16px;
@@ -48,7 +47,7 @@ export const ErrorDescription = styled.h2`
   }
 `;
 
-export const Button = styled(Link)`
+export const Button = styled.button`
   padding: 16px 24px;
   text-decoration: none;
   color: ${({ theme }) => theme.color.white};
