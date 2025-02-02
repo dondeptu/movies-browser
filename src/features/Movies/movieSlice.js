@@ -18,7 +18,7 @@ const movieSlice = createSlice({
     },
     setMovies: (state, { payload: popularMovies }) => {
       state.movies.results = popularMovies.results;
-      state.movies.total_pages = 500;
+      state.movies.total_pages = popularMovies.total_pages;
       state.movies.total_results = popularMovies.total_results;
     },
     setMovieSuccess: (state) => {
