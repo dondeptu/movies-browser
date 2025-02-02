@@ -10,24 +10,25 @@ import { Navigation } from "./common/Navigation";
 import MovieList from "./features/Movies/MovieList";
 import MoviePage from "./features/Movies/MoviePage";
 import PeopleList from "./features/People/PeopleList";
-import { Pagination } from "./common/Pagination";
-import { toMovieList, toMoviePage, toPeople } from "./routes";
-import ScrollToTop from "./common/ScrollToTop";
 import PeoplePage from "./features/People/PeoplePage";
+import { Pagination } from "./common/Pagination";
+import { toMovieList, toMoviePage, toPeople, toPeoplePage } from "./routes";
+import ScrollToTop from "./common/ScrollToTop";
 
 export const App = () => (
   <Provider store={store}>
     <HashRouter>
       <ScrollToTop />
       <Navigation />
-      {/* Tymczasowe włączenie */}
-      <PeoplePage />
       <Switch>
         <Route path={toMoviePage()}>
-          {/* <MoviePage /> */}
+          <MoviePage />
+        </Route>
+        <Route path={toPeoplePage()}>
+          <PeoplePage />
         </Route>
         <Route path={toMovieList()}>
-          {/* <MovieList /> */}
+          <MovieList />
         </Route>
         <Route path={toPeople()}>
           <PeopleList />
