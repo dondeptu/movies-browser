@@ -4,7 +4,6 @@ import { MainContent } from "../../../common/MainContent";
 import { Wrapper } from "../../../Wrapper";
 import { selectPeople, selectPeopleState } from "../peopleSlice";
 import { startFetchPeople } from "../peopleSlice";
-import { resetPage } from "../../../common/Pagination/paginationSlice";
 import { PersonsContent } from "../../../common/tiles/Persons/styled";
 import { PersonTile } from "../../../common/tiles/Persons/PersonTile";
 import { Error } from "../../../common/Error";
@@ -18,7 +17,6 @@ function PeopleList() {
 
   useEffect(() => {
     dispatch(startFetchPeople());
-    dispatch(resetPage());
   }, [dispatch]);
 
   return (
@@ -32,7 +30,7 @@ function PeopleList() {
           mainHeader="Popular people"
           body={
             <PersonsContent>
-              {people.results.map(({ id, profile_path, name }) => (
+              {people?.results?.map(({ id, profile_path, name }) => (
                 <PersonTile
                   extraMargin={true}
                   showSubtitle={false}
