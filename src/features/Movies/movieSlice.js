@@ -4,7 +4,9 @@ const movieSlice = createSlice({
   name: "movies",
   initialState: {
     movies: {
+      page: 1,
       results: [],
+      total_pages: 0,
       total_results: 0,
     },
     movieDetails: null,
@@ -17,6 +19,7 @@ const movieSlice = createSlice({
       state.movieDetails = null;
     },
     setMovies: (state, { payload: popularMovies }) => {
+      state.movies.page = popularMovies.page;
       state.movies.results = popularMovies.results;
       state.movies.total_pages = popularMovies.total_pages;
       state.movies.total_results = popularMovies.total_results;
@@ -42,8 +45,8 @@ export const selectMoviesState = (state) => state.movies;
 export const selectMovies = (state) => selectMoviesState(state).movies;
 export const selectLoading = (state) => selectMoviesState(state).loading;
 export const selectError = (state) => selectMoviesState(state).error;
-export const selectMovieDetails = (state) =>
-  selectMoviesState(state).movieDetails;
+export const selectMovieDetails = (state) => selectMoviesState(state).movieDetails;
+export const selectTotalPages = (state) => selectMovies(state).total_pages;
 
 export const {
   setMovies,

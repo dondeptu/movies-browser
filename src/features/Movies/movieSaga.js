@@ -1,4 +1,4 @@
-import { call, delay, put, select, takeLatest } from "redux-saga/effects";
+import { call, delay, put, takeLatest } from "redux-saga/effects";
 import { getPopularMovies } from "./MovieList/getData";
 import {
   startFetch,
@@ -10,17 +10,14 @@ import {
   fetchSearchResults,
   fetchPopularMovies,
 } from "./movieSlice";
-import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import { getMovieDetails } from "./MoviePage/getData";
 import { getGenres } from "./getGenres";
 import { setGenres } from "./genresSlice";
 import { getSearchResults } from "./MovieList/getSearchResultsData";
 
-function* fetchPopularMoviesHandler() {
+function* fetchPopularMoviesHandler({ payload: page }) {
   try {
     yield put(startFetch());
-    const page = yield select(selectCurrentPage);
-
     const { results } = yield call(getPopularMovies, page);
     yield put(setMovies({ results, total_pages: 500, total_results: results.length }));
 
@@ -53,7 +50,7 @@ function* fetchMovieDetailsHandler({ payload: movieId }) {
 function* fetchSearchResultsHandler({ payload: { page, searchQuery, searchType } }) {
   try {
     yield put(startFetch());
- 
+
     const { results } = yield call(getSearchResults, page, searchQuery, searchType);
     const { genres } = yield call(getGenres);
 
