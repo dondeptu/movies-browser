@@ -9,7 +9,11 @@ import {
   fetchMovieDetails,
   fetchSearchResults,
   fetchPopularMovies,
+  setCast,
+  setCrew,
 } from "./movieSlice";
+import { getCast } from "./MoviePage/getCast";
+import { getCrew } from "./MoviePage/getCrew";
 import { getMovieDetails } from "./MoviePage/getData";
 import { getGenres } from "./getGenres";
 import { setGenres } from "./genresSlice";
@@ -39,8 +43,14 @@ function* fetchMovieDetailsHandler({ payload: movieId }) {
 
     yield put(setMovieDetails(movieDetails));
 
+    const cast = yield call(getCast, movieId);
+    const crew = yield call(getCrew, movieId);
+    yield put(setCast(cast));
+    yield put(setCrew(crew));
+
     yield delay(500);
     yield put(setMovieSuccess());
+
   } catch (error) {
     yield delay(800);
     yield put(setMovieError(`Error fetching movie details: ${error.message}`));

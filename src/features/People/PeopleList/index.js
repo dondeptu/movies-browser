@@ -3,18 +3,20 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { MainContent } from "../../../common/MainContent";
 import { Wrapper } from "../../../Wrapper";
-import { selectPeople, selectError, fetchPopularPeople, selectTotalPages, selectTotalResults } from "../peopleSlice";
+import { selectPeople, selectPeopleState, selectError, fetchPopularPeople, selectTotalPages, selectTotalResults } from "../peopleSlice";
 import { PersonsContent } from "../../../common/tiles/Persons/styled";
 import { PersonTile } from "../../../common/tiles/Persons/PersonTile";
 import { useQueryParameter } from "../../../common/Navigation/Search/queryParameters";
 import searchQueryParamName from "../../../common/Navigation/Search/searchQueryParamName";
 import { Pagination } from "../../../common/Pagination";
+import { Error } from "../../../common/Error";
+import { Loading } from "../../../common/Loading";
 
 function PeopleList() {
   const dispatch = useDispatch();
   const people = useSelector(selectPeople);
   const peopleCount = people?.results?.length || 0;
-  const error = useSelector(selectError);
+  const { loading, error } = useSelector(selectPeopleState);
   const searchQuery = useQueryParameter(searchQueryParamName) || "";
 
   const { search } = useLocation();
@@ -22,6 +24,7 @@ function PeopleList() {
 
   const totalPages = useSelector(selectTotalPages);
   const totalResults = useSelector(selectTotalResults);
+
 
   useEffect(() => {
     dispatch(fetchPopularPeople(page));
@@ -32,34 +35,40 @@ function PeopleList() {
   }
 
   return (
-    <Wrapper>
-      <MainContent
-        mainHeader="Popular people"
-        body={
-          <PersonsContent>
-            <PersonTile showSubtitle={false} />
-            {/* <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} /> */}
-          </PersonsContent>
-        }
-      />
+    <>
+      <Wrapper>
+        {loading ? (
+          <Loading />
+        ) : error ? (
+          <Error />
+        ) : peopleCount > 0 ? (
+          <MainContent
+            mainHeader="Popular people"
+            body={
+              <PersonsContent>
+                {people?.results?.map(({ id, profile_path, name }) => (
+                  <PersonTile
+                    extraMargin={true}
+                    showSubtitle={false}
+                    key={id}
+                    id={id}
+                    profilePath={profile_path}
+                    name={name}
+                  />
+                ))}
+              </PersonsContent>
+            }
+          />
+        ) : (
+          <p>No people found</p>
+        )}
+      </Wrapper>
       <Pagination
         page={page}
         totalPages={totalPages}
       />
-    </Wrapper>
-  );
+    </>
+  )
 }
 
 export default PeopleList;

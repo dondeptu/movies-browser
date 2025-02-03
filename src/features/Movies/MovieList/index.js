@@ -84,7 +84,7 @@ function MovieList() {
         </>
       ) : (
         <MainContent
-          mainHeader={searchQuery ? `Sorry, there are no results for "${searchQuery}"` : "No movies available movies"}
+          mainHeader={searchQuery ? `Sorry, there are no results for "${searchQuery}"` : "No movies available"}
           body={"Image to do"}
         />
       )}
