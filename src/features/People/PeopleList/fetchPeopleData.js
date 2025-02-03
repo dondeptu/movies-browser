@@ -1,4 +1,4 @@
-import { apiKey } from "../../api";
+import { apiKey } from "../../../api";
 
 export const fetchPopularPeople = async (page) => {
   try {
@@ -14,8 +14,6 @@ export const fetchPopularPeople = async (page) => {
     }
     return {
       results: data.results,
-      total_results: data.total_results, // make sure the API returns this
-      total_pages: data.total_pages,
     };
   } catch (error) {
     console.error("Error fetching people:", error);

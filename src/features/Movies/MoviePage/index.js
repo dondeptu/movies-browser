@@ -11,6 +11,8 @@ import { SectionBanner } from "../../../common/tiles/MovieDetailsTile/banner/Sec
 import { Wrapper } from "../../../Wrapper";
 import {
   fetchMovieDetails,
+  selectCast,
+  selectCrew,
   selectMovieDetails,
   selectMoviesState,
 } from "../movieSlice";
@@ -21,6 +23,8 @@ function MoviePage() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const movieDetails = useSelector(selectMovieDetails);
+  const cast = useSelector(selectCast);
+  const crew = useSelector(selectCrew);
   const { loading, error } = useSelector(selectMoviesState);
 
   useEffect(() => {
@@ -64,31 +68,41 @@ function MoviePage() {
                 ) : null
               }
             />
-            <MainContent
-              mainHeader="Cast"
-              body={
-                <PersonsContent>
-                  <PersonTile />
-                  <PersonTile />
-                  <PersonTile />
-                  <PersonTile />
-                  <PersonTile />
-                  <PersonTile />
-                  <PersonTile />
-                  <PersonTile />
-                </PersonsContent>
-              }
-            />
-            <MainContent
-              mainHeader="Crew"
-              body={
-                <PersonsContent>
-                  <PersonTile />
-                  <PersonTile />
-                  <PersonTile />
-                </PersonsContent>
-              }
-            />
+            {movieDetails && cast.length > 0 ? (
+              <MainContent
+                mainHeader="Cast"
+                body={
+                  <PersonsContent>
+                    {cast.map((castMember, index) => (
+                      <PersonTile
+                        key={`${castMember.id}-${index}`}
+                        showSubtitle={true}
+                        profilePath={castMember.profile_path}
+                        name={castMember.name}
+                        character={castMember.character}
+                      />
+                    ))}
+                  </PersonsContent>
+                }
+              />
+            ) : null}
+            {movieDetails && crew.length > 0 ? (
+              <MainContent
+                mainHeader="Crew"
+                body={
+                  <PersonsContent>
+                    {crew.map((crewMember, index) => (
+                      <PersonTile
+                        key={`${crewMember.id}-${index}`}
+                        profilePath={crewMember.profile_path}
+                        name={crewMember.name}
+                        job={crewMember.job}
+                      />
+                    ))}
+                  </PersonsContent>
+                }
+              />
+            ) : null}
           </Wrapper>
         </>
       )}

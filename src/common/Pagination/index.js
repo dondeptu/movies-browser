@@ -14,6 +14,7 @@ import {
 } from "./styled.js";
 import { theme } from "../../theme.js";
 import { startFetch } from "../../features/Movies/movieSlice.js";
+import { startFetchPeople } from "../../features/People/peopleSlice.js"
 import { useEffect } from "react";
 
 const PaginationButton = ({ onClick, disabled, children, direction }) => (
@@ -61,6 +62,8 @@ export const Pagination = () => {
     if (page >= 1 && page <= totalPages) {
       dispatch(setCurrentPage(page));
       dispatch(startFetch());
+      dispatch(startFetchPeople());
+      
     }
   };
 
