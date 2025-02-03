@@ -46,7 +46,10 @@ export const Pagination = ({ page, totalPages }) => {
 
   const handleSetCurrentPage = (page) => {
     if (page >= 1 && page <= totalPages) {
-      history.push(`${location.pathname}?page=${page}`);
+      const params = new URLSearchParams(location.search);
+      params.set("page", page);
+      
+      history.push(`${location.pathname}?${params.toString()}`);
     }
   };
 
