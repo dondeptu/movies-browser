@@ -35,6 +35,7 @@ const peopleSlice = createSlice({
     },
     fetchPopularPeople: () => { },
     fetchPeopleDetails: () => { },
+    fetchSearchPeopleResults: () => { },
   },
 });
 
@@ -44,10 +45,14 @@ export const selectPeople = (state) => selectPeopleState(state).people;
 export const selectTotalPages = (state) => selectPeople(state).total_pages;
 export const selectTotalResults = (state) => selectPeople(state).total_results;
 
-export const selectLoading = (state) => selectPeopleState(state).loading;
-export const selectError = (state) => selectPeopleState(state).error;
-export const selectPeopleDetails = (state) =>
-  selectPeopleState(state).peopleDetails;
+// w "PeopleList/index.js" te stany są pobierane z selectora `selectPeopleState`, 
+// jeśli mają zostać uzyte to zostawiam, ale jeśli to jest jakiś "odpadek" implementacyjny
+// to trzeba usunąć.
+//
+// export const selectLoading = (state) => selectPeopleState(state).loading;
+// export const selectError = (state) => selectPeopleState(state).error;
+
+export const selectPeopleDetails = (state) => selectPeopleState(state).peopleDetails;
 
 export const {
   startFetch,
@@ -57,6 +62,7 @@ export const {
   fetchPopularPeople,
   setPeopleDetails,
   fetchPeopleDetails,
+  fetchSearchPeopleResults
 } = peopleSlice.actions;
 
 export default peopleSlice.reducer;

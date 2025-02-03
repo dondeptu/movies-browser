@@ -17,7 +17,7 @@ import { getCrew } from "./MoviePage/getCrew";
 import { getMovieDetails } from "./MoviePage/getData";
 import { getGenres } from "./getGenres";
 import { setGenres } from "./genresSlice";
-import { getSearchResults } from "./MovieList/getSearchResultsData";
+import { getSearchResults } from "../getSearchResultsData";
 
 function* fetchPopularMoviesHandler({ payload: page }) {
   try {
@@ -70,8 +70,8 @@ function* fetchSearchResultsHandler({ payload: { page, searchQuery, searchType }
     yield delay(500);
     yield put(setMovieSuccess());
   } catch (error) {
-    console.error("Error fetching search results or genres:", error);
-    yield put(setMovieError(`Error fetching movie details: ${error.message}`))
+    console.error("Error fetching movie search results or genres:", error);
+    yield put(setMovieError(`Error fetching movie search results: ${error.message}`))
   }
 }
 

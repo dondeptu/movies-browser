@@ -7,9 +7,11 @@ import {
   setPeopleError,
   fetchPopularPeople,
   setPeopleDetails,
-  fetchPeopleDetails
+  fetchPeopleDetails,
+  fetchSearchPeopleResults
 } from "../People/peopleSlice";
 import { getPeopleDetails } from "./PeoplePage/getPeopleData";
+import { getSearchResults } from "../getSearchResultsData";
 
 function* fetchPopularPeopleHandler({ payload: page }) {
   try {
@@ -41,7 +43,22 @@ function* fetchPeopleDetailsHandler({ payload: peopleId }) {
   }
 }
 
+function* fetchSearchPeopleResultsHandler({ payload: { page, searchQuery, searchType } }) {
+  try {
+    yield put(startFetch());
+    const { results, total_pages, total_results } = yield call(getSearchResults, page, searchQuery, searchType);
+    yield put(setPeople({ page, results, total_pages, total_results }));
+
+    yield delay(500);
+    yield put(setPeopleSuccess());
+  } catch (error) {
+    console.error("Error fetching people search results: ", error);
+    yield put(setPeopleError(`Error fetching people search results: ${error.message}`))
+  }
+}
+
 export function* peopleSaga() {
   yield takeLatest(fetchPopularPeople.type, fetchPopularPeopleHandler);
   yield takeLatest(fetchPeopleDetails.type, fetchPeopleDetailsHandler);
+  yield takeLatest(fetchSearchPeopleResults.type, fetchSearchPeopleResultsHandler);
 }

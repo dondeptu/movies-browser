@@ -3,7 +3,14 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { MainContent } from "../../../common/MainContent";
 import { Wrapper } from "../../../Wrapper";
-import { selectPeople, selectPeopleState, selectError, fetchPopularPeople, selectTotalPages, selectTotalResults } from "../peopleSlice";
+import {
+  selectPeople,
+  selectPeopleState,
+  fetchPopularPeople,
+  selectTotalPages,
+  selectTotalResults,
+  fetchSearchPeopleResults
+} from "../peopleSlice";
 import { PersonsContent } from "../../../common/tiles/Persons/styled";
 import { PersonTile } from "../../../common/tiles/Persons/PersonTile";
 import { useQueryParameter } from "../../../common/Navigation/Search/queryParameters";
@@ -27,12 +34,18 @@ function PeopleList() {
 
 
   useEffect(() => {
-    dispatch(fetchPopularPeople(page));
-  }, [dispatch, page]);
-
-  if (error) {
-    return <p>Error fetching people: {error}</p>;
-  }
+    if (searchQuery) {
+      dispatch(
+        fetchSearchPeopleResults({
+          page,
+          searchQuery,
+          searchType: "person"
+        })
+      );
+    } else {
+      dispatch(fetchPopularPeople(page));
+    }
+  }, [dispatch, page, searchQuery]);
 
   return (
     <>
@@ -43,7 +56,7 @@ function PeopleList() {
           <Error />
         ) : peopleCount > 0 ? (
           <MainContent
-            mainHeader="Popular people"
+            mainHeader={searchQuery ? `Search results for ${searchQuery} (${totalResults})` : "Popular people"}
             body={
               <PersonsContent>
                 {people?.results?.map(({ id, profile_path, name }) => (
