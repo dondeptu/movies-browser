@@ -36,15 +36,13 @@ const movieSlice = createSlice({
       state.movieDetails = movieDetails;
     },
     fetchMovieDetails: () => {},
-    fetchCast: (state, { payload }) => {
+    setCast: (state, { payload }) => {
       const { cast } = payload;
-      console.log("Cast:", cast);
       state.cast = cast;
     },
 
-    fetchCrew: (state, { payload }) => {
+    setCrew: (state, { payload }) => {
       const { crew } = payload;
-      console.log("Crew:", crew);
       state.crew = crew;
     },
   },
@@ -66,8 +64,8 @@ export const {
   fetchMovieError,
   setMovieDetails,
   fetchMovieDetails,
-  fetchCast,
-  fetchCrew,
+  setCast,
+  setCrew,
 } = movieSlice.actions;
 
 export default movieSlice.reducer;
