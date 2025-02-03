@@ -14,7 +14,7 @@ import { getPeopleDetails } from "./PeoplePage/getPeopleData";
 function* fetchPopularPeopleHandler({ payload: page }) {
   try {
     yield put(startFetch());
-    const { results, total_pages, total_results } = yield call(getPopularPeople, page);
+    const { results, total_results } = yield call(getPopularPeople, page);
     yield put(setPeople({ page, results, total_pages: 500, total_results }));
 
     yield delay(500);
@@ -30,7 +30,7 @@ function* fetchPeopleDetailsHandler({ payload: peopleId }) {
     yield put(startFetch());
     const peopleDetails = yield call(getPeopleDetails, peopleId);
     yield put(setPeopleDetails(peopleDetails));
-    
+
     yield delay(500);
     yield put(setPeopleSuccess());
   } catch (error) {
