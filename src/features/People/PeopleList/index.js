@@ -1,28 +1,31 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { MainContent } from "../../../common/MainContent";
 import { Wrapper } from "../../../Wrapper";
-import { selectPeople, selectError } from "../peopleSlice";
-import { startFetch } from "../peopleSlice";
+import { selectPeople, selectError, fetchPopularPeople, selectTotalPages, selectTotalResults } from "../peopleSlice";
 import { PersonsContent } from "../../../common/tiles/Persons/styled";
 import { PersonTile } from "../../../common/tiles/Persons/PersonTile";
+import { useQueryParameter } from "../../../common/Navigation/Search/queryParameters";
+import searchQueryParamName from "../../../common/Navigation/Search/searchQueryParamName";
+import { Pagination } from "../../../common/Pagination";
 
 function PeopleList() {
   const dispatch = useDispatch();
   const people = useSelector(selectPeople);
-  const peopleCount = people?.results?.length;
-  const totalPages = 500;
+  const peopleCount = people?.results?.length || 0;
   const error = useSelector(selectError);
+  const searchQuery = useQueryParameter(searchQueryParamName) || "";
+
+  const { search } = useLocation();
+  const page = Number(new URLSearchParams(search).get("page")) || 1;
+
+  const totalPages = useSelector(selectTotalPages);
+  const totalResults = useSelector(selectTotalResults);
 
   useEffect(() => {
-    dispatch(startFetch());
-  }, [dispatch]);
-
-  useEffect(() => {
-    console.log(
-      `Popular people (${peopleCount} people from ${totalPages} pages)`
-    );
-  }, [peopleCount, totalPages]);
+    dispatch(fetchPopularPeople(page));
+  }, [dispatch, page]);
 
   if (error) {
     return <p>Error fetching people: {error}</p>;
@@ -34,12 +37,9 @@ function PeopleList() {
         mainHeader="Popular people"
         body={
           <PersonsContent>
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile />  {/* Tu jest SubTitle tylko dla pokazania zmian z wprowadzonym ContentPerson z flex i gap jak bedzie na MoviePage */}
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
+            <PersonTile showSubtitle={false} />
+            {/* <PersonTile extraMargin showSubtitle={false} />
+            <PersonTile />
             <PersonTile extraMargin showSubtitle={false} />
             <PersonTile extraMargin showSubtitle={false} />
             <PersonTile extraMargin showSubtitle={false} />
@@ -48,8 +48,15 @@ function PeopleList() {
             <PersonTile extraMargin showSubtitle={false} />
             <PersonTile extraMargin showSubtitle={false} />
             <PersonTile extraMargin showSubtitle={false} />
+            <PersonTile extraMargin showSubtitle={false} />
+            <PersonTile extraMargin showSubtitle={false} />
+            <PersonTile extraMargin showSubtitle={false} /> */}
           </PersonsContent>
         }
+      />
+      <Pagination
+        page={page}
+        totalPages={totalPages}
       />
     </Wrapper>
   );

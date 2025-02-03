@@ -1,28 +1,20 @@
-import { call, delay, put, takeEvery, select } from "redux-saga/effects";
-import { fetchPopularPeople } from "./fetchPeopleData";
-import {
-  startFetch,
-  fetchPeople,
-  fetchPeopleError,
-  fetchPeopleSuccess,
-} from "./peopleSlice";
-import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
+import { call, delay, put, takeLatest } from "redux-saga/effects";
+import { getPopularPeople } from "./getData";
+import { startFetch, setPeople, setPeopleSuccess, setPeopleError, fetchPopularPeople } from "../People/peopleSlice";
 
-function* fetchPeopleData() {
+function* fetchPopularPeopleHandler({ payload: page }) {
   try {
-    const page = yield select(selectCurrentPage);
-    const { results, total_pages, total_results } = yield call(
-      fetchPopularPeople,
-      page
-    );
-    yield put(fetchPeople({ results, total_pages, total_results }));
-    yield delay(1000);
-    yield put(fetchPeopleSuccess());
+    yield put(startFetch());
+    const { results, total_pages, total_results } = yield call(getPopularPeople, page);
+    yield put(setPeople({ page, results, total_pages: 500, total_results }));
+
+    yield delay(500);
+    yield put(setPeopleSuccess());
   } catch (error) {
-    yield put(fetchPeopleError(`Error fetching people: ${error.message}`));
+    yield put(setPeopleError(`Error fetching people: ${error.message}`));
   }
 }
 
 export function* peopleSaga() {
-  yield takeEvery(startFetch, fetchPeopleData);
+  yield takeLatest(fetchPopularPeople.type, fetchPopularPeopleHandler);
 }
