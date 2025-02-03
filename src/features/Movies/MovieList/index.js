@@ -5,7 +5,7 @@ import { Wrapper } from "../../../Wrapper";
 import { Content } from "./styled";
 import { MovieTile } from "../../../common/tiles/MovieTile";
 
-import { selectMovies, selectMoviesState, fetchSearchResults, fetchPopularMovies, selectTotalPages } from "../movieSlice";
+import { selectMovies, selectMoviesState, fetchSearchResults, fetchPopularMovies, selectTotalPages, selectTotalResults } from "../movieSlice";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
 import { useQueryParameter } from "../../../common/Navigation/Search/queryParameters";
@@ -22,7 +22,9 @@ function MovieList() {
 
   const { search } = useLocation();
   const page = Number(new URLSearchParams(search).get("page")) || 1;
+
   const totalPages = useSelector(selectTotalPages);
+  const totalResults = useSelector(selectTotalResults);
 
   useEffect(() => {
     if (searchQuery) {
@@ -47,7 +49,7 @@ function MovieList() {
       ) : movieCount > 0 ? (
         <>
           <MainContent
-            mainHeader={searchQuery ? `Search results for ${searchQuery} (${movieCount})` : "Popular movies"}
+            mainHeader={searchQuery ? `Search results for ${searchQuery} (${totalResults})` : "Popular movies"}
             body={
               <Content>
                 {movies.results.map(

@@ -15,7 +15,10 @@ export const getPopularMovies = async (page) => {
     }
 
     return {
+      page: data.page,
       results: data.results,
+      total_pages: data.total_pages,
+      total_results: data.total_results,
     };
   } catch (error) {
     console.error("Error fetching movies:", error);

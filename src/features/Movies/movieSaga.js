@@ -18,8 +18,8 @@ import { getSearchResults } from "./MovieList/getSearchResultsData";
 function* fetchPopularMoviesHandler({ payload: page }) {
   try {
     yield put(startFetch());
-    const { results } = yield call(getPopularMovies, page);
-    yield put(setMovies({ results, total_pages: 500, total_results: results.length }));
+    const { results, total_results } = yield call(getPopularMovies, page);
+    yield put(setMovies({ page, results, total_pages: 500, total_results }));
 
     const { genres } = yield call(getGenres);
     yield put(setGenres(genres));
@@ -51,10 +51,10 @@ function* fetchSearchResultsHandler({ payload: { page, searchQuery, searchType }
   try {
     yield put(startFetch());
 
-    const { results } = yield call(getSearchResults, page, searchQuery, searchType);
+    const { results, total_pages, total_results } = yield call(getSearchResults, page, searchQuery, searchType);
     const { genres } = yield call(getGenres);
 
-    yield put(setMovies({ results, total_pages: 500, total_results: results.length }));
+    yield put(setMovies({ page, results, total_pages, total_results }));
     yield put(setGenres(genres));
 
     yield delay(500);

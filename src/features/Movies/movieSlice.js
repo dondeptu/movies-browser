@@ -42,11 +42,14 @@ const movieSlice = createSlice({
 });
 
 export const selectMoviesState = (state) => state.movies;
+
 export const selectMovies = (state) => selectMoviesState(state).movies;
-export const selectLoading = (state) => selectMoviesState(state).loading;
-export const selectError = (state) => selectMoviesState(state).error;
 export const selectMovieDetails = (state) => selectMoviesState(state).movieDetails;
 export const selectTotalPages = (state) => selectMovies(state).total_pages;
+export const selectTotalResults = (state) => selectMovies(state).total_results;
+
+export const selectLoading = (state) => selectMoviesState(state).loading;
+export const selectError = (state) => selectMoviesState(state).error;
 
 export const {
   setMovies,
