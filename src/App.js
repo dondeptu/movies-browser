@@ -10,7 +10,6 @@ import { Navigation } from "./common/Navigation";
 import MovieList from "./features/Movies/MovieList";
 import MoviePage from "./features/Movies/MoviePage";
 import PeopleList from "./features/People/PeopleList";
-import { Pagination } from "./common/Pagination";
 import { toMovieList, toMoviePage, toPeople } from "./routes";
 import ScrollToTop from "./common/ScrollToTop";
 
@@ -33,7 +32,6 @@ export const App = () => (
           <Redirect to={toMovieList()} />
         </Route>
       </Switch>
-      <Pagination />
     </HashRouter>
   </Provider>
 );
