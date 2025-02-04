@@ -18,6 +18,7 @@ import searchQueryParamName from "../../../common/Navigation/Search/searchQueryP
 import { Pagination } from "../../../common/Pagination";
 import { Error } from "../../../common/Error";
 import { Loading } from "../../../common/Loading";
+import { NoResults } from "../../../common/NoResults";
 
 function PeopleList() {
   const dispatch = useDispatch();
@@ -78,7 +79,10 @@ function PeopleList() {
           />
         </>
       ) : (
-        <p>No people found</p>
+        <MainContent
+          mainHeader={searchQuery ? `Sorry, there are no results for "${searchQuery}"` : "No people available"}
+          body={<NoResults />}
+        />
       )}
     </Wrapper>
   )

@@ -12,6 +12,7 @@ import { useQueryParameter } from "../../../common/Navigation/Search/queryParame
 import searchQueryParamName from "../../../common/Navigation/Search/searchQueryParamName";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { Pagination } from "../../../common/Pagination";
+import { NoResults } from "../../../common/NoResults";
 
 function MovieList() {
   const dispatch = useDispatch();
@@ -85,7 +86,7 @@ function MovieList() {
       ) : (
         <MainContent
           mainHeader={searchQuery ? `Sorry, there are no results for "${searchQuery}"` : "No movies available"}
-          body={"Image to do"}
+          body={<NoResults />}
         />
       )}
     </Wrapper>
