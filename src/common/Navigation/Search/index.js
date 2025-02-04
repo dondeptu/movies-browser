@@ -1,27 +1,38 @@
-import { useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
-import searchQueryParamName from "./searchQueryParamName";
+import { useState } from "react";
+import { useQueryParameter } from "./queryParameters";
 import { Input, SearchContainer, SearchIcon } from "./styled";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { searchQueryParamName } from "./QueryParamName";
 
 export const Search = () => {
     const location = useLocation();
+    const history = useHistory();
     const query = useQueryParameter(searchQueryParamName);
-    const replaceQueryParameter = useReplaceQueryParameter();
 
-    const onInputChange = ({ target }) => {
-        replaceQueryParameter({
-            key: searchQueryParamName,
-            value: target.value.trim() !== "" ? target.value : undefined,
-        });
+    const [searchQuery, setSearchQuery] = useState(query || "");
+
+    const onInputChange = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
+    const onFormSubmit = (e) => {
+        e.preventDefault();
+
+        if (searchQuery === query) {
+            return;
+        }
+
+        history.push(`${location.pathname}?${searchQueryParamName}=${searchQuery}`);
+        setSearchQuery("");
     };
 
     return (
-        <SearchContainer>
+        <SearchContainer onSubmit={onFormSubmit}>
             <SearchIcon />
             <Input
                 type="text"
                 placeholder={`Search for ${location.pathname.includes("/people") ? "people..." : "movies..."}`}
-                value={query || ""}
+                value={searchQuery}
                 onChange={onInputChange}
             />
         </SearchContainer>

@@ -1,4 +1,6 @@
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { useState, useEffect } from "react";
+import { searchQueryParamName } from "./QueryParamName";
 
 export const useQueryParameter = key => {
     const location = useLocation();
@@ -6,20 +8,18 @@ export const useQueryParameter = key => {
     return searchParams.get(key);
 };
 
-export const useReplaceQueryParameter = () => {
+export const useSearchQuery = () => {
     const location = useLocation();
     const history = useHistory();
+    const searchParams = new URLSearchParams(location.search);
 
-    return ({ key, value }) => {
-        const searchParams = new URLSearchParams(location.search);
-        searchParams.delete("page");
+    const [searchQuery, setSearchQuery] = useState(searchParams.get(searchQueryParamName) || "");
 
-        if (value === undefined) {
-            searchParams.delete(key);
-        } else {
-            searchParams.set(key, value);
-        }
+    useEffect(() => {
+        const newSearchParams = new URLSearchParams(location.search);
+        newSearchParams.set(searchQueryParamName, searchQuery);
+        history.replace({ search: newSearchParams.toString() });
+    }, [searchQuery, history, location.search]);
 
-        history.push(`${location.pathname}?${searchParams.toString()}`);
-    }
+    return [searchQuery, setSearchQuery];
 };
