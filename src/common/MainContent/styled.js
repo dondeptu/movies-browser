@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.main`
   margin: 56px 16px;
+  flex: 1;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     margin: 24px 16px;
