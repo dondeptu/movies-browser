@@ -4,15 +4,20 @@ import { MainContent } from "../../../common/MainContent";
 import { Wrapper } from "../../../Wrapper";
 import { Content } from "./styled";
 import { MovieTile } from "../../../common/tiles/MovieTile";
-
-import { selectMovies, selectMoviesState, fetchSearchResults, fetchPopularMovies, selectTotalPages, selectTotalResults } from "../movieSlice";
+import {
+  selectMovies,
+  selectMoviesState,
+  fetchSearchResults,
+  fetchPopularMovies,
+  selectTotalPages,
+  selectTotalResults
+} from "../movieSlice";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
 import { useQueryParameter } from "../../../common/Navigation/Search/queryParameters";
-import searchQueryParamName from "../../../common/Navigation/Search/searchQueryParamName";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { Pagination } from "../../../common/Pagination";
 import { NoResults } from "../../../common/NoResults";
+import { pageQueryParamName, searchQueryParamName } from "../../../common/Navigation/Search/QueryParamName";
 
 function MovieList() {
   const dispatch = useDispatch();
@@ -20,9 +25,7 @@ function MovieList() {
   const movieCount = movies?.results?.length || 0;
   const { loading, error } = useSelector(selectMoviesState);
   const searchQuery = useQueryParameter(searchQueryParamName) || "";
-
-  const { search } = useLocation();
-  const page = Number(new URLSearchParams(search).get("page")) || 1;
+  const page = Number(useQueryParameter(pageQueryParamName)) || 1;
 
   const totalPages = useSelector(selectTotalPages);
   const totalResults = useSelector(selectTotalResults);
