@@ -57,7 +57,7 @@ function PeopleList() {
       ) : peopleCount > 0 ? (
         <>
           <MainContent
-            mainHeader={searchQuery ? `Search results for ${searchQuery} (${totalResults})` : "Popular people"}
+            mainHeader={searchQuery ? `Search results for "${searchQuery}" (${totalResults})` : "Popular people"}
             body={
               <PersonsContent>
                 {people?.results?.map(({ id, profile_path, name }) => (

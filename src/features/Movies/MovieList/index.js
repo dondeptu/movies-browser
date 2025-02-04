@@ -50,7 +50,7 @@ function MovieList() {
       ) : movieCount > 0 ? (
         <>
           <MainContent
-            mainHeader={searchQuery ? `Search results for ${searchQuery} (${totalResults})` : "Popular movies"}
+            mainHeader={searchQuery ? `Search results for "${searchQuery}" (${totalResults})` : "Popular movies"}
             body={
               <Content>
                 {movies.results.map(

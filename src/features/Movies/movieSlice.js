@@ -58,13 +58,6 @@ export const selectMovieDetails = (state) => selectMoviesState(state).movieDetai
 export const selectTotalPages = (state) => selectMovies(state).total_pages;
 export const selectTotalResults = (state) => selectMovies(state).total_results;
 
-// w "MovieList/index.js" te stany są pobierane z selectora `selectMoviesState`, 
-// jeśli mają zostać uzyte to zostawiam, ale jeśli to jest jakiś "odpadek" implementacyjny
-// to trzeba usunąć.
-//
-// export const selectLoading = (state) => selectMoviesState(state).loading;
-// export const selectError = (state) => selectMoviesState(state).error;
-
 export const selectCast = (state) => selectMoviesState(state).cast;
 export const selectCrew = (state) => selectMoviesState(state).crew;
 

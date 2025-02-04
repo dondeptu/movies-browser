@@ -48,6 +48,7 @@ export const ErrorDescription = styled.h2`
 `;
 
 export const Button = styled.button`
+  border: none;
   padding: 16px 24px;
   text-decoration: none;
   color: ${({ theme }) => theme.color.white};
