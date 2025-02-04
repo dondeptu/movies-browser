@@ -48,13 +48,13 @@ function PeopleList() {
   }, [dispatch, page, searchQuery]);
 
   return (
-    <>
-      <Wrapper>
-        {loading ? (
-          <Loading />
-        ) : error ? (
-          <Error />
-        ) : peopleCount > 0 ? (
+    <Wrapper>
+      {loading ? (
+        <Loading />
+      ) : error ? (
+        <Error />
+      ) : peopleCount > 0 ? (
+        <>
           <MainContent
             mainHeader={searchQuery ? `Search results for ${searchQuery} (${totalResults})` : "Popular people"}
             body={
@@ -72,15 +72,15 @@ function PeopleList() {
               </PersonsContent>
             }
           />
-        ) : (
-          <p>No people found</p>
-        )}
-      </Wrapper>
-      <Pagination
-        page={page}
-        totalPages={totalPages}
-      />
-    </>
+          <Pagination
+            page={page}
+            totalPages={totalPages}
+          />
+        </>
+      ) : (
+        <p>No people found</p>
+      )}
+    </Wrapper>
   )
 }
 
