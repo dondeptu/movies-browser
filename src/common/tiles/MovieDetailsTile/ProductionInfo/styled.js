@@ -13,7 +13,6 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
-    line-height: 1.2;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -41,9 +40,10 @@ export const NameItemDisplay = styled(NameItem)`
 `;
 
 export const ContentItem = styled.span`
+    line-height: 1.2;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        line-height: ${({ personDetailsSize }) => personDetailsSize ? '1.2' : '1.3'};  
         font-size: 12px;
-        line-height: 1.3;
     }
 `;

@@ -28,7 +28,7 @@ function PeoplePage() {
       <MainContent
         mainHeader=""
         body={
-          <PersonDetailsTile />
+          <PersonDetailsTile personDetailsSize />
       //     peopleDetails ? (
       //     <PersonDetailsTile />
       //   ):(

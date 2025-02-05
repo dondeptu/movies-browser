@@ -19,17 +19,17 @@ export const Wrapper = styled.article`
 `;
 
 export const PosterWrapper = styled.div`
-    width: 312px;
-    height: 464px;
-    grid-row-end: span 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: ${({ personDetailsSize }) => personDetailsSize ? '399px' : '312px'};
+  height: ${({ personDetailsSize }) => personDetailsSize ? '564px' : '464px'};
+  grid-row-end: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-        width: 114px;
-        height: 169px;
-    }
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    width: ${({ personDetailsSize }) => personDetailsSize ? '116px' : '114px'};
+    height: ${({ personDetailsSize }) => personDetailsSize ? '163px' : '169px'};
+  }
 `;
 
 export const Poster = styled.img`
@@ -39,7 +39,7 @@ export const Poster = styled.img`
     border-radius: 5px;  
 `;
 
-export const TileContent = styled.section`
+export const TileContent = styled.div`
     display: grid;
     grid-area: 1 / 2;
     gap: 24px;
@@ -56,10 +56,11 @@ export const TileTitle = styled.h1`
     margin: 8px 0px -4px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-        font-size: 16px;
+        /* font-size: 16px; */
+        font-weight: 500;
+        font-size: ${({ personDetailsSize }) => personDetailsSize ? '14px' : '16px'};  
         line-height: 1.3;
         margin: 0px;
-        font-weight: 500;
     }
 `;
 

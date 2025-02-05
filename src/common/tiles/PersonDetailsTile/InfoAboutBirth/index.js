@@ -1,16 +1,20 @@
 import { Wrapper, Content, NameItemDisplay, ContentItem } from "../../MovieDetailsTile/ProductionInfo/styled";
 
-export const InfoAboutBirth = ({ info }) => {
+export const InfoAboutBirth = ({ info, personDetailsSize }) => {
 
     return (
         <Wrapper>
             <Content>
                 <NameItemDisplay>Birth:</NameItemDisplay>
-                <ContentItem>{info.dateOfBirth}</ContentItem>
+                <ContentItem personDetailsSize={personDetailsSize} >
+                    {info.dateOfBirth}
+                </ContentItem>
             </Content>
             <Content>
                 <NameItemDisplay>Place of birth:</NameItemDisplay>
-                <ContentItem>{info.placeOfBirth}</ContentItem>
+                <ContentItem personDetailsSize={personDetailsSize}>
+                    {info.placeOfBirth}
+                </ContentItem>
             </Content>
         </Wrapper>
     )
