@@ -46,7 +46,12 @@ function MovieList() {
 
   return (
     <Wrapper>
-      {loading ? (
+      {loading && searchQuery ? (
+        (<MainContent
+          mainHeader={`Search results for "${searchQuery}"`}
+          body={<Loading />}
+        />)
+      ) : loading ? (
         <Loading />
       ) : error ? (
         <Error />

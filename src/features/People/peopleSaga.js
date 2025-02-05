@@ -49,7 +49,7 @@ function* fetchSearchPeopleResultsHandler({ payload: { page, searchQuery, search
     const { results, total_pages, total_results } = yield call(getSearchResults, page, searchQuery, searchType);
     yield put(setPeople({ page, results, total_pages, total_results }));
 
-    yield delay(500);
+    yield delay(800);
     yield put(setPeopleSuccess());
   } catch (error) {
     console.error("Error fetching people search results: ", error);

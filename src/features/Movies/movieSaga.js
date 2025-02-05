@@ -67,7 +67,7 @@ function* fetchSearchResultsHandler({ payload: { page, searchQuery, searchType }
     yield put(setMovies({ page, results, total_pages, total_results }));
     yield put(setGenres(genres));
 
-    yield delay(500);
+    yield delay(800);
     yield put(setMovieSuccess());
   } catch (error) {
     console.error("Error fetching movie search results or genres:", error);
