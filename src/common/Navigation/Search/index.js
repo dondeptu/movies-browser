@@ -3,6 +3,7 @@ import { useQueryParameter } from "./queryParameters";
 import { Input, SearchContainer, SearchIcon } from "./styled";
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { searchQueryParamName } from "../../QueryParamName";
+import { toMovieList, toPeople } from "../../../routes";
 
 export const Search = () => {
     const location = useLocation();
@@ -26,8 +27,18 @@ export const Search = () => {
         if (searchQuery === query) {
             return;
         }
+        
+        const params = new URLSearchParams(location.search);
+        params.set(searchQueryParamName, searchQuery);
 
-        history.push(`${location.pathname}?${searchQueryParamName}=${searchQuery}`);
+        let path = location.pathname;
+        if (path.startsWith(`${toMovieList()}/`) && path !== toMovieList()) {
+            path = toMovieList();
+        } else if (path.startsWith(`${toPeople()}/`) && path !== toPeople()) {
+            path = toPeople();
+        }
+
+        history.push(`${path}?${params.toString()}`);
     };
 
     return (
