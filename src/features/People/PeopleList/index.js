@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { MainContent } from "../../../common/MainContent";
+import { Section } from "../../../common/Section";
 import { Wrapper } from "../../../Wrapper";
 import {
   selectPeople,
@@ -49,8 +49,8 @@ function PeopleList() {
   return (
     <Wrapper>
       {loading && searchQuery ? (
-        <MainContent
-          mainHeader={`Search results for "${searchQuery}"`}
+        <Section
+          sectionHeader={`Search results for "${searchQuery}"`}
           body={<Loading />}
         />
       ) : loading ? (
@@ -59,8 +59,8 @@ function PeopleList() {
         <Error />
       ) : peopleCount > 0 ? (
         <>
-          <MainContent
-            mainHeader={searchQuery ? `Search results for "${searchQuery}" (${totalResults})` : "Popular people"}
+          <Section
+            sectionHeader={searchQuery ? `Search results for "${searchQuery}" (${totalResults})` : "Popular people"}
             body={
               <PersonsContent>
                 {people?.results?.map(({ id, profile_path, name }) => (
@@ -82,8 +82,8 @@ function PeopleList() {
           />
         </>
       ) : (
-        <MainContent
-          mainHeader={searchQuery ? `Sorry, there are no results for "${searchQuery}"` : "No people available"}
+        <Section
+          sectionHeader={searchQuery ? `Sorry, there are no results for "${searchQuery}"` : "No people available"}
           body={<NoResults />}
         />
       )}

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { MainContent } from "../../../common/MainContent";
+import { Section } from "../../../common/Section";
 import { Wrapper } from "../../../Wrapper";
 import { Content } from "./styled";
 import { MovieTile } from "../../../common/tiles/MovieTile";
@@ -47,8 +47,8 @@ function MovieList() {
   return (
     <Wrapper>
       {loading && searchQuery ? (
-        (<MainContent
-          mainHeader={`Search results for "${searchQuery}"`}
+        (<Section
+          sectionHeader={`Search results for "${searchQuery}"`}
           body={<Loading />}
         />)
       ) : loading ? (
@@ -57,8 +57,8 @@ function MovieList() {
         <Error />
       ) : movieCount > 0 ? (
         <>
-          <MainContent
-            mainHeader={searchQuery ? `Search results for "${searchQuery}" (${totalResults})` : "Popular movies"}
+          <Section
+            sectionHeader={searchQuery ? `Search results for "${searchQuery}" (${totalResults})` : "Popular movies"}
             body={
               <Content>
                 {movies.results.map(
@@ -92,8 +92,8 @@ function MovieList() {
           />
         </>
       ) : (
-        <MainContent
-          mainHeader={searchQuery ? `Sorry, there are no results for "${searchQuery}"` : "No movies available"}
+        <Section
+          sectionHeader={searchQuery ? `Sorry, there are no results for "${searchQuery}"` : "No movies available"}
           body={<NoResults />}
         />
       )}
