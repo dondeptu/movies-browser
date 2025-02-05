@@ -1,6 +1,6 @@
 import { InfoAboutBirth } from './InfoAboutBirth/index.js';
 import { PersonDescription } from '../MovieDetailsTile/Description/index.js';
-import { Poster, PosterWrapper, TileContent, TileTitle, Wrapper } from "../MovieDetailsTile/styled.js";
+import { Poster, PosterWrapper, TileContent, TileTitle, Wrapper } from "../../StylesDetailsTile/styled.js";
 import posterLiu from "../../../images/posterLiu.png";
 // import { MissingPoster } from '../MissingPoster/index.js';
 

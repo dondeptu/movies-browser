@@ -45,7 +45,7 @@ export const TileContent = styled.div`
     gap: 24px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-        grid-row-gap:8px;
+        grid-row-gap:8px;       
     }
 `;
 
@@ -55,12 +55,11 @@ export const TileTitle = styled.h1`
     line-height: 1.2;
     margin: 8px 0px -4px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-        /* font-size: 16px; */
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {        
         font-weight: 500;
-        font-size: ${({ personDetailsSize }) => personDetailsSize ? '14px' : '16px'};  
-        line-height: 1.3;
-        margin: 0px;
+        font-size: ${({ personDetailsSize }) => personDetailsSize ? '14px' : '16px'};
+        margin: ${({ personDetailsSize }) => personDetailsSize ? '0px 0px 8px 0px' : '0px 0px -4px 0px'};
+        line-height: 1.3;        
     }
 `;
 
