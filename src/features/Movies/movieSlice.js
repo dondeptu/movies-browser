@@ -12,7 +12,7 @@ const movieSlice = createSlice({
     movieDetails: null,
     cast: [],
     crew: [],
-    loading: false,
+    loading: true,
     error: null,
   },
   reducers: {

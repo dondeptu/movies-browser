@@ -9,7 +9,7 @@ const peopleSlice = createSlice({
       total_results: 0,
     },
     peopleDetails: null,
-    loading: false,
+    loading: true,
     error: null,
   },
   reducers: {
