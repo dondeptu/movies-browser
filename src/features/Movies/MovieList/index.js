@@ -24,7 +24,7 @@ function MovieList() {
   const movies = useSelector(selectMovies);
   const movieCount = movies?.results?.length || 0;
   const { loading, error } = useSelector(selectMoviesState);
-  const searchQuery = useQueryParameter(searchQueryParamName) || "";
+  const searchQuery = (useQueryParameter(searchQueryParamName) || "").toLowerCase();
   const page = Number(useQueryParameter(pageQueryParamName)) || 1;
 
   const totalPages = useSelector(selectTotalPages);
