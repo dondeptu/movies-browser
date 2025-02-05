@@ -20,8 +20,8 @@ function PeoplePage() {
     dispatch(fetchPeopleDetails(id));
   }, [dispatch, id]);
 
-  const filmRole = "Mulan";
-  const  crewPosition = "Director";
+  const castCharacter = "Mulan";
+  const crewJob = "Director";
 
   return (
     <Wrapper>
@@ -29,11 +29,11 @@ function PeoplePage() {
         mainHeader=""
         body={
           <PersonDetailsTile personDetailsSize />
-      //     peopleDetails ? (
-      //     <PersonDetailsTile />
-      //   ):(
-      //   <p>No details available</p>
-      // )          
+          //     peopleDetails ? (
+          //     <PersonDetailsTile />
+          //   ):(
+          //   <p>No details available</p>
+          // )          
         }
       />
       <MainContent
@@ -47,7 +47,7 @@ function PeoplePage() {
                   id={id}
                   posterPath={poster_path}
                   title={title}
-                  filmRole={filmRole}
+                  castCharacter={castCharacter}
                   releaseDate={release_date}
                   genreIds={genre_ids}
                   voteAverage={vote_average}
@@ -71,7 +71,7 @@ function PeoplePage() {
                   id={id}
                   posterPath={poster_path}
                   title={title}
-                   crewPosition={ crewPosition}
+                  crewJob={crewJob}
                   releaseDate={release_date}
                   genreIds={genre_ids}
                   voteAverage={vote_average}
