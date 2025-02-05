@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQueryParameter } from "./queryParameters";
 import { Input, SearchContainer, SearchIcon } from "./styled";
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom.min";
@@ -8,8 +8,13 @@ export const Search = () => {
     const location = useLocation();
     const history = useHistory();
     const query = useQueryParameter(searchQueryParamName);
-
     const [searchQuery, setSearchQuery] = useState(query || "");
+
+    useEffect(() => {
+        if (!query) {
+            setSearchQuery("");
+        }
+    }, [location.pathname, query]);
 
     const onInputChange = (e) => {
         setSearchQuery(e.target.value);
@@ -23,7 +28,6 @@ export const Search = () => {
         }
 
         history.push(`${location.pathname}?${searchQueryParamName}=${searchQuery}`);
-        setSearchQuery("");
     };
 
     return (
