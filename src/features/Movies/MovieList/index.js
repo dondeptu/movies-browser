@@ -47,10 +47,10 @@ function MovieList() {
   return (
     <Wrapper>
       {loading && searchQuery ? (
-        (<Section
+        <Section
           sectionHeader={`Search results for "${searchQuery}"`}
           body={<Loading />}
-        />)
+        />
       ) : loading ? (
         <Loading />
       ) : error ? (
@@ -58,7 +58,11 @@ function MovieList() {
       ) : movieCount > 0 ? (
         <>
           <Section
-            sectionHeader={searchQuery ? `Search results for "${searchQuery}" (${totalResults})` : "Popular movies"}
+            sectionHeader={
+              searchQuery
+                ? `Search results for "${searchQuery}" (${totalResults})`
+                : "Popular movies"
+            }
             body={
               <Content>
                 {movies.results.map(
@@ -93,7 +97,11 @@ function MovieList() {
         </>
       ) : (
         <Section
-          sectionHeader={searchQuery ? `Sorry, there are no results for "${searchQuery}"` : "No movies available"}
+          sectionHeader={
+            searchQuery
+              ? `Sorry, there are no results for "${searchQuery}"`
+              : "No movies available"
+          }
           body={<NoResults />}
         />
       )}
