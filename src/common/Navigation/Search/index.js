@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useQueryParameter } from "./queryParameters";
 import { Input, SearchContainer, SearchIcon } from "./styled";
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom.min";
-import { searchQueryParamName } from "../../QueryParamName";
+import { pageQueryParamName, searchQueryParamName } from "../../QueryParamName";
 import { toMovieList, toPeople } from "../../../routes";
 
 export const Search = () => {
@@ -27,9 +27,10 @@ export const Search = () => {
         if (searchQuery === query) {
             return;
         }
-        
+
         const params = new URLSearchParams(location.search);
         params.set(searchQueryParamName, searchQuery);
+        params.delete(pageQueryParamName);
 
         let path = location.pathname;
         if (path.startsWith(`${toMovieList()}/`) && path !== toMovieList()) {
