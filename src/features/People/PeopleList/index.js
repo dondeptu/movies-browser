@@ -18,7 +18,7 @@ import { Pagination } from "../../../common/Pagination";
 import { Error } from "../../../common/Error";
 import { Loading } from "../../../common/Loading";
 import { NoResults } from "../../../common/NoResults";
-import { pageQueryParamName, searchQueryParamName } from "../../../common/Navigation/Search/QueryParamName";
+import { pageQueryParamName, searchQueryParamName } from "../../../common/QueryParamName";
 
 function PeopleList() {
   const dispatch = useDispatch();

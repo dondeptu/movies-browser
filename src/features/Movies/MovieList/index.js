@@ -17,7 +17,7 @@ import { Error } from "../../../common/Error";
 import { useQueryParameter } from "../../../common/Navigation/Search/queryParameters";
 import { Pagination } from "../../../common/Pagination";
 import { NoResults } from "../../../common/NoResults";
-import { pageQueryParamName, searchQueryParamName } from "../../../common/Navigation/Search/QueryParamName";
+import { pageQueryParamName, searchQueryParamName } from "../../../common/QueryParamName";
 
 function MovieList() {
   const dispatch = useDispatch();
