@@ -12,7 +12,11 @@ import { Wrapper } from "../../../Wrapper";
 import {
   fetchMovieDetails,
   selectCast,
+  selectCastError,
+  selectCastLoading,
   selectCrew,
+  selectCrewError,
+  selectCrewLoading,
   selectMovieDetails,
   selectMoviesState,
 } from "../movieSlice";
@@ -20,6 +24,7 @@ import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
 import { Article } from "../../../common/Article";
 import { selectGenresError } from "../genresSlice";
+import { NoResults } from "../../../common/NoResults";
 
 function MoviePage() {
   const dispatch = useDispatch();
@@ -29,6 +34,10 @@ function MoviePage() {
   const crew = useSelector(selectCrew);
   const { loading, error } = useSelector(selectMoviesState);
   const genresError = useSelector(selectGenresError);
+  const castError = useSelector(selectCastError);
+  const crewError = useSelector(selectCrewError);
+  const castLoading = useSelector(selectCastLoading);
+  const crewLoading = useSelector(selectCrewLoading);
 
   useEffect(() => {
     dispatch(fetchMovieDetails(id));
@@ -73,39 +82,51 @@ function MoviePage() {
                     />
                   )}
 
-                  {movieDetails && cast.length > 0 && (
+                  {movieDetails && (
                     <Article
                       articleHeader="Cast"
                       body={
-                        <PersonsContent>
-                          {cast.map((castMember, index) => (
-                            <PersonTile
-                              key={`${castMember.id}-${index}`}
-                              showSubtitle={true}
-                              profilePath={castMember.profile_path}
-                              name={castMember.name}
-                              character={castMember.character}
-                            />
-                          ))}
-                        </PersonsContent>
+                        castLoading ? (
+                          <Loading />
+                        ) : castError || !cast || cast.length === 0 ? (
+                          <NoResults />
+                        ) : (
+                          <PersonsContent>
+                            {cast.map((castMember, index) => (
+                              <PersonTile
+                                key={`${castMember.id}-${index}`}
+                                showSubtitle={true}
+                                profilePath={castMember.profile_path}
+                                name={castMember.name}
+                                character={castMember.character}
+                              />
+                            ))}
+                          </PersonsContent>
+                        )
                       }
                     />
                   )}
 
-                  {movieDetails && crew.length > 0 && (
+                  {movieDetails && (
                     <Article
                       articleHeader="Crew"
                       body={
-                        <PersonsContent>
-                          {crew.map((crewMember, index) => (
-                            <PersonTile
-                              key={`${crewMember.id}-${index}`}
-                              profilePath={crewMember.profile_path}
-                              name={crewMember.name}
-                              job={crewMember.job}
-                            />
-                          ))}
-                        </PersonsContent>
+                        crewLoading ? (
+                          <Loading />
+                        ) : crewError || !crew || crew.length === 0 ? (
+                          <NoResults />
+                        ) : (
+                          <PersonsContent>
+                            {crew.map((crewMember, index) => (
+                              <PersonTile
+                                key={`${crewMember.id}-${index}`}
+                                profilePath={crewMember.profile_path}
+                                name={crewMember.name}
+                                job={crewMember.job}
+                              />
+                            ))}
+                          </PersonsContent>
+                        )
                       }
                     />
                   )}
