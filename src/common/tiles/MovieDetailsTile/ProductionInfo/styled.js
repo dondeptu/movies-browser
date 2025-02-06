@@ -31,7 +31,7 @@ export const NameItem = styled.p`
 export const ContentItem = styled.span`
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-        font-size: 12px;
+        font-size: clamp(12px, 3vw, 18px);;
         line-height: 1.3;
     }
 `;
