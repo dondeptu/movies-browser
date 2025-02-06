@@ -26,7 +26,7 @@ export const LoadingIcon = styled(Icon)`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     margin-top: 50px;
-    height: 50px;
-    width: 50px;
+    height: 35px;
+    width: 35px;
   }
 `;
