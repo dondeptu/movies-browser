@@ -19,6 +19,7 @@ import {
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
 import { Article } from "../../../common/Article";
+import { selectGenresError } from "../genresSlice";
 
 function MoviePage() {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ function MoviePage() {
   const cast = useSelector(selectCast);
   const crew = useSelector(selectCrew);
   const { loading, error } = useSelector(selectMoviesState);
+  const genresError = useSelector(selectGenresError);
 
   useEffect(() => {
     dispatch(fetchMovieDetails(id));
@@ -66,10 +68,12 @@ function MoviePage() {
                       voteAverage={movieDetails.vote_average}
                       voteCount={movieDetails.vote_count}
                       overview={movieDetails.overview}
+                      genres={movieDetails.genres}
+                      genresError={genresError}
                     />
                   )}
 
-                  {(movieDetails && cast.length > 0) && (
+                  {movieDetails && cast.length > 0 && (
                     <Article
                       articleHeader="Cast"
                       body={
@@ -88,7 +92,7 @@ function MoviePage() {
                     />
                   )}
 
-                  {(movieDetails && crew.length > 0) && (
+                  {movieDetails && crew.length > 0 && (
                     <Article
                       articleHeader="Crew"
                       body={

@@ -10,21 +10,29 @@ import {
   fetchSearchResults,
   fetchPopularMovies,
   selectTotalPages,
-  selectTotalResults
+  selectTotalResults,
 } from "../movieSlice";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
 import { useQueryParameter } from "../../../common/Navigation/Search/queryParameters";
 import { Pagination } from "../../../common/Pagination";
 import { NoResults } from "../../../common/NoResults";
-import { pageQueryParamName, searchQueryParamName } from "../../../common/QueryParamName";
+import {
+  pageQueryParamName,
+  searchQueryParamName,
+} from "../../../common/QueryParamName";
+import { selectGenresError } from "../genresSlice";
 
 function MovieList() {
   const dispatch = useDispatch();
   const movies = useSelector(selectMovies);
   const movieCount = movies?.results?.length || 0;
   const { loading, error } = useSelector(selectMoviesState);
-  const searchQuery = (useQueryParameter(searchQueryParamName) || "").toLowerCase();
+  const genresError = useSelector(selectGenresError);
+
+  const searchQuery = (
+    useQueryParameter(searchQueryParamName) || ""
+  ).toLowerCase();
   const page = Number(useQueryParameter(pageQueryParamName)) || 1;
 
   const totalPages = useSelector(selectTotalPages);
@@ -36,7 +44,7 @@ function MovieList() {
         fetchSearchResults({
           page,
           searchQuery,
-          searchType: "movie"
+          searchType: "movie",
         })
       );
     } else {
@@ -84,16 +92,14 @@ function MovieList() {
                       genreIds={genre_ids}
                       voteAverage={vote_average}
                       voteCount={vote_count}
+                      genresError={genresError}
                     />
                   )
                 )}
               </Content>
             }
           />
-          <Pagination
-            page={page}
-            totalPages={totalPages}
-          />
+          <Pagination page={page} totalPages={totalPages} />
         </>
       ) : (
         <Section

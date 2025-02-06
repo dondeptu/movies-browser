@@ -72,7 +72,7 @@ export const Details = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 `;
 
 export const Title = styled.h2`
