@@ -5,10 +5,10 @@ export const Wrapper = styled.footer`
   display: flex;
   justify-content: center;
   gap: 24px;
-  margin-top: 40px;
-  margin-bottom: 103px;
+  margin-top: auto;
+  margin-bottom: 56px;
   width: 100%;
-  padding: 0;
+  padding-bottom: 10px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     margin-top: auto;

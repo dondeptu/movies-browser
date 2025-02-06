@@ -1,9 +1,9 @@
 import { Header, Wrapper } from "./styled";
 
-export const MainContent = ({ mainHeader, body }) => (
+export const Article = ({ articleHeader, body }) => (
     <Wrapper>
         <Header>
-            {mainHeader}
+            {articleHeader}
         </Header>
         {body}
     </Wrapper>

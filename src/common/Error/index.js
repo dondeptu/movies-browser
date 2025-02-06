@@ -1,3 +1,4 @@
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import {
   ErrorWrapper,
   ErrorIcon,
@@ -7,6 +8,13 @@ import {
 } from "./styled";
 
 export const Error = () => {
+  const history = useHistory();
+
+  const reloadPage = () => {
+    history.push("/");
+    window.location.reload();
+  };
+
   return (
     <ErrorWrapper>
       <ErrorIcon />
@@ -14,7 +22,7 @@ export const Error = () => {
       <ErrorDescription>
         Please check your network connection <br /> and try again
       </ErrorDescription>
-      <Button to="/">Back to home page</Button>
+      <Button onClick={reloadPage}>Back to home page</Button>
     </ErrorWrapper>
   );
 };

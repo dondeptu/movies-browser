@@ -1,6 +1,6 @@
 import { apiKey } from "../../../api";
 
-export const fetchPopularPeople = async (page) => {
+export const getPopularPeople = async (page) => {
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/person/popular?language=en-US&page=${page}&api_key=${apiKey}`
