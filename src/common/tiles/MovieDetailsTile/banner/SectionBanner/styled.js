@@ -5,5 +5,6 @@ export const Wrapper = styled.header`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     padding-bottom: 0;
+    margin-bottom: -8px;
   }
 `;

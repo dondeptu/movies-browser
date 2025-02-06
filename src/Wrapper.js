@@ -7,4 +7,8 @@ export const Wrapper = styled.main`
     display: flex;
     flex-direction: column;
     min-height: calc(100vh - 94px);
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    min-height: calc(100vh - 142px);
+  }
 `;
