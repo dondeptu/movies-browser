@@ -8,6 +8,8 @@ const movieSlice = createSlice({
       total_results: 0,
     },
     movieDetails: null,
+    cast: [],
+    crew: [],
     loading: false,
     error: null,
   },
@@ -34,6 +36,15 @@ const movieSlice = createSlice({
       state.movieDetails = movieDetails;
     },
     fetchMovieDetails: () => {},
+    setCast: (state, { payload }) => {
+      const { cast } = payload;
+      state.cast = cast;
+    },
+
+    setCrew: (state, { payload }) => {
+      const { crew } = payload;
+      state.crew = crew;
+    },
   },
 });
 
@@ -43,6 +54,8 @@ export const selectLoading = (state) => selectMoviesState(state).loading;
 export const selectError = (state) => selectMoviesState(state).error;
 export const selectMovieDetails = (state) =>
   selectMoviesState(state).movieDetails;
+export const selectCast = (state) => selectMoviesState(state).cast;
+export const selectCrew = (state) => selectMoviesState(state).crew;
 
 export const {
   fetchMovies,
@@ -51,6 +64,8 @@ export const {
   fetchMovieError,
   setMovieDetails,
   fetchMovieDetails,
+  setCast,
+  setCrew,
 } = movieSlice.actions;
 
 export default movieSlice.reducer;

@@ -6,14 +6,15 @@ const peopleSlice = createSlice({
     people: {
       results: [],
       total_results: 0,
-      total_pages: 0,
     },
+    peopleDetails: null,
     loading: false,
     error: null,
   },
   reducers: {
-    startFetch: (state) => {
+    startFetchPeople: (state) => {
       state.loading = true;
+      state.peopleDetails = null;
     },
     fetchPeople: (state, { payload: popularPeople }) => {
       state.people.results = popularPeople.results;
@@ -28,7 +29,10 @@ const peopleSlice = createSlice({
       state.loading = false;
       state.error = errorMessage;
     },
-    fetchPeopleDetails: () => { },
+    setPeopleDetails: (state, { payload: peopleDetails }) => {
+      state.peopleDetails = peopleDetails;
+    },
+    fetchPeopleDetails: () => {},
   },
 });
 
@@ -36,9 +40,16 @@ export const selectPeopleState = (state) => state.people;
 export const selectPeople = (state) => selectPeopleState(state).people;
 export const selectLoading = (state) => selectPeopleState(state).loading;
 export const selectError = (state) => selectPeopleState(state).error;
-export const selectPeopleDetails = (state) => selectPeopleState(state).peopleDetails;
+export const selectPeopleDetails = (state) =>
+  selectPeopleState(state).peopleDetails;
 
-export const { startFetch, fetchPeople, fetchPeopleSuccess, fetchPeopleError, fetchPeopleDetails } =
-  peopleSlice.actions;
+export const {
+  startFetchPeople,
+  fetchPeople,
+  fetchPeopleSuccess,
+  fetchPeopleError,
+  setPeopleDetails,
+  fetchPeopleDetails,
+} = peopleSlice.actions;
 
 export default peopleSlice.reducer;

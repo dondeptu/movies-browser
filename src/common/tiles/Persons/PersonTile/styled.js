@@ -44,7 +44,7 @@ export const ContentPerson = styled.div`
     gap: 8px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {       
-        margin-bottom: ${({ extraMargin }) => (extraMargin ? '25px' : '0')};
+        margin-bottom: ${({ $extraMargin }) => ($extraMargin ? '25px' : '0')};
     }    
 `;
 

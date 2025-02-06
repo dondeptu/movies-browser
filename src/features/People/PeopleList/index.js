@@ -2,55 +2,50 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { MainContent } from "../../../common/MainContent";
 import { Wrapper } from "../../../Wrapper";
-import { selectPeople, selectError } from "../peopleSlice";
-import { startFetch } from "../peopleSlice";
+import { selectPeople, selectPeopleState } from "../peopleSlice";
+import { startFetchPeople } from "../peopleSlice";
 import { PersonsContent } from "../../../common/tiles/Persons/styled";
 import { PersonTile } from "../../../common/tiles/Persons/PersonTile";
+import { Error } from "../../../common/Error";
+import { Loading } from "../../../common/Loading";
 
 function PeopleList() {
   const dispatch = useDispatch();
   const people = useSelector(selectPeople);
   const peopleCount = people?.results?.length;
-  const totalPages = 500;
-  const error = useSelector(selectError);
+  const { loading, error } = useSelector(selectPeopleState);
 
   useEffect(() => {
-    dispatch(startFetch());
+    dispatch(startFetchPeople());
   }, [dispatch]);
-
-  useEffect(() => {
-    console.log(
-      `Popular people (${peopleCount} people from ${totalPages} pages)`
-    );
-  }, [peopleCount, totalPages]);
-
-  if (error) {
-    return <p>Error fetching people: {error}</p>;
-  }
 
   return (
     <Wrapper>
-      <MainContent
-        mainHeader="Popular people"
-        body={
-          <PersonsContent>
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile />  {/* Tu jest SubTitle tylko dla pokazania zmian z wprowadzonym ContentPerson z flex i gap jak bedzie na MoviePage */}
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-            <PersonTile extraMargin showSubtitle={false} />
-          </PersonsContent>
-        }
-      />
+      {loading ? (
+        <Loading />
+      ) : error ? (
+        <Error />
+      ) : peopleCount > 0 ? (
+        <MainContent
+          mainHeader="Popular people"
+          body={
+            <PersonsContent>
+              {people?.results?.map(({ id, profile_path, name }) => (
+                <PersonTile
+                  extraMargin={true}
+                  showSubtitle={false}
+                  key={id}
+                  id={id}
+                  profilePath={profile_path}
+                  name={name}
+                />
+              ))}
+            </PersonsContent>
+          }
+        />
+      ) : (
+        <p>No people found</p>
+      )}
     </Wrapper>
   );
 }
