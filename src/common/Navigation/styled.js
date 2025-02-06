@@ -8,6 +8,9 @@ export const NavigationStyled = styled.nav`
   display: flex;
   align-items: center;
   height: 94px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     height: 142px;
