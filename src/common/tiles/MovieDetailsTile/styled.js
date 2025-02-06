@@ -26,17 +26,19 @@ export const PosterWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpointDescription.laptopMax}px) {
+  @media (max-width: ${({ theme }) =>
+      theme.breakpointDescription.laptopMax}px) {
     width: 220px;
     height: 320px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpointDescription.mobileMax}px) {
+  @media (max-width: ${({ theme }) =>
+      theme.breakpointDescription.mobileMax}px) {
     width: 150px;
     height: 230px;
   }
 
-  @media (max-width:  ${({ theme }) => theme.breakpointDescription.mobileS}px) {
+  @media (max-width: ${({ theme }) => theme.breakpointDescription.mobileS}px) {
     width: 114px;
     height: 169px;
   }
@@ -54,11 +56,13 @@ export const TileContent = styled.section`
   grid-area: 1 / 2;
   gap: 24px;
 
-  @media (max-width: ${({ theme }) => theme.breakpointDescription.laptopMax}px) {
-    grid-row-gap: 32px;
+  @media (max-width: ${({ theme }) =>
+      theme.breakpointDescription.laptopMax}px) {
+    grid-row-gap: 28px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpointDescription.mobileMax}px) {
+  @media (max-width: ${({ theme }) =>
+      theme.breakpointDescription.mobileMax}px) {
     grid-row-gap: 16px;
   }
 

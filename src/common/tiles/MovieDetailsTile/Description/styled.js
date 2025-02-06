@@ -7,7 +7,8 @@ export const TileDescription = styled.p`
   font-size: 20px;
   line-height: 1.6;
 
-  @media (max-width: ${({ theme }) => theme.breakpointDescription.laptopMax}px) {
+  @media (max-width: ${({ theme }) =>
+      theme.breakpointDescription.laptopMax}px) {
     display: grid;
     grid-column: 1 / span 2;
     font-size: clamp(14px, 3vw, 18px);
