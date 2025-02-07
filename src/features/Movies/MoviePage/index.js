@@ -11,15 +11,17 @@ import { SectionBanner } from "../../../common/tiles/MovieDetailsTile/banner/Sec
 import { Wrapper } from "../../../Wrapper";
 import {
   fetchMovieDetails,
-  selectCast,
+  selectMovieDetails,
+  selectMoviesState,
+} from "../movieSlice";
+import {
   selectCastError,
+  selectCast,
   selectCastLoading,
   selectCrew,
   selectCrewError,
   selectCrewLoading,
-  selectMovieDetails,
-  selectMoviesState,
-} from "../movieSlice";
+} from "./creditsSlice";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
 import { Article } from "../../../common/Article";

@@ -9,13 +9,15 @@ import {
   fetchMovieDetails,
   fetchSearchResults,
   fetchPopularMovies,
+} from "./movieSlice";
+import {
   setCast,
   setCrew,
   setCastStart,
   setCrewError,
   setCastError,
   setCrewStart,
-} from "./movieSlice";
+} from "./MoviePage/creditsSlice";
 import { getCredits } from "./MoviePage/getCredits";
 import { getMovieDetails } from "./MoviePage/getData";
 import { getGenres } from "./getGenres";
