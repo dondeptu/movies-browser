@@ -10,7 +10,7 @@ export const PersonDetailsTile = ({ personDetailsSize }) => {
   const personDescriptionText = "Liu Yifei was born in Wuhan, Hubei, Province of China on August 25th, 1987. She began modeling at the age of 8 and was trained in singing, dancing and the piano. Moving to the United States at 10 with her mother, Liu lived there for four years.";
 
   return (
-    <Wrapper>
+    <Wrapper personDetailsSize={personDetailsSize}>
       <PosterWrapper personDetailsSize={personDetailsSize}>
         <Poster src={posterLiu} alt="poster of Liu" />
         {/* {Poster ? (

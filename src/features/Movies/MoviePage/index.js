@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { MovieDetailsTile } from "../../../common/tiles/MovieDetailsTile";
 import { PersonTile } from "../../../common/tiles/Persons/PersonTile";
 import { PersonsContent } from "../../../common/tiles/Persons/styled";
-import { MainContent } from "../../../common/MainContent";
+import { Section } from "../../../common/Section";
 import { MovieBanner } from "../../../common/tiles/MovieDetailsTile/banner/MovieBanner";
 import { SectionBanner } from "../../../common/tiles/MovieDetailsTile/banner/SectionBanner";
 import { Wrapper } from "../../../Wrapper";
@@ -18,6 +18,7 @@ import {
 } from "../movieSlice";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
+import { Article } from "../../../common/Article";
 
 function MoviePage() {
   const dispatch = useDispatch();
@@ -52,57 +53,61 @@ function MoviePage() {
             }
           />
           <Wrapper>
-            <MainContent
-              mainHeader=""
+            <Section
+              sectionHeader=""
               body={
-                movieDetails ? (
-                  <MovieDetailsTile
-                    posterPath={movieDetails.poster_path}
-                    title={movieDetails.title}
-                    productionCountries={movieDetails.production_countries}
-                    releaseDate={movieDetails.release_date}
-                    voteAverage={movieDetails.vote_average}
-                    voteCount={movieDetails.vote_count}
-                    overview={movieDetails.overview}
-                  />
-                ) : null
+                <>
+                  {movieDetails && (
+                    <MovieDetailsTile
+                      posterPath={movieDetails.poster_path}
+                      title={movieDetails.title}
+                      productionCountries={movieDetails.production_countries}
+                      releaseDate={movieDetails.release_date}
+                      voteAverage={movieDetails.vote_average}
+                      voteCount={movieDetails.vote_count}
+                      overview={movieDetails.overview}
+                    />
+                  )}
+
+                  {(movieDetails && cast.length > 0) && (
+                    <Article
+                      articleHeader="Cast"
+                      body={
+                        <PersonsContent>
+                          {cast.map((castMember, index) => (
+                            <PersonTile
+                              key={`${castMember.id}-${index}`}
+                              showSubtitle={true}
+                              profilePath={castMember.profile_path}
+                              name={castMember.name}
+                              character={castMember.character}
+                            />
+                          ))}
+                        </PersonsContent>
+                      }
+                    />
+                  )}
+
+                  {(movieDetails && crew.length > 0) && (
+                    <Article
+                      articleHeader="Crew"
+                      body={
+                        <PersonsContent>
+                          {crew.map((crewMember, index) => (
+                            <PersonTile
+                              key={`${crewMember.id}-${index}`}
+                              profilePath={crewMember.profile_path}
+                              name={crewMember.name}
+                              job={crewMember.job}
+                            />
+                          ))}
+                        </PersonsContent>
+                      }
+                    />
+                  )}
+                </>
               }
             />
-            {movieDetails && cast.length > 0 ? (
-              <MainContent
-                mainHeader="Cast"
-                body={
-                  <PersonsContent>
-                    {cast.map((castMember, index) => (
-                      <PersonTile
-                        key={`${castMember.id}-${index}`}
-                        showSubtitle={true}
-                        profilePath={castMember.profile_path}
-                        name={castMember.name}
-                        character={castMember.character}
-                      />
-                    ))}
-                  </PersonsContent>
-                }
-              />
-            ) : null}
-            {movieDetails && crew.length > 0 ? (
-              <MainContent
-                mainHeader="Crew"
-                body={
-                  <PersonsContent>
-                    {crew.map((crewMember, index) => (
-                      <PersonTile
-                        key={`${crewMember.id}-${index}`}
-                        profilePath={crewMember.profile_path}
-                        name={crewMember.name}
-                        job={crewMember.job}
-                      />
-                    ))}
-                  </PersonsContent>
-                }
-              />
-            ) : null}
           </Wrapper>
         </>
       )}

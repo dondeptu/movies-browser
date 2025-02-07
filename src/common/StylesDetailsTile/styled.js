@@ -11,10 +11,9 @@ export const Wrapper = styled.article`
     margin-bottom: 64px;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-        margin-top: 24px;
         padding: 16px;
         column-gap: 16px;
-        margin-bottom: -3px;
+        margin-bottom: ${({ personDetailsSize }) => personDetailsSize ? '24px' : '0px'};
     }
 `;
 

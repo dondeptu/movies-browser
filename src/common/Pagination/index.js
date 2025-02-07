@@ -1,6 +1,3 @@
-import { useSelector, useDispatch } from "react-redux";
-import { selectCurrentPage, setCurrentPage } from "./paginationSlice.js";
-import { useTotalPages } from "./useTotalPages.js";
 import {
   Wrapper,
   ButtonWrapper,
@@ -13,9 +10,8 @@ import {
   PageNumber,
 } from "./styled.js";
 import { theme } from "../../theme.js";
-import { startFetch } from "../../features/Movies/movieSlice.js";
-import { startFetchPeople } from "../../features/People/peopleSlice.js"
-import { useEffect } from "react";
+import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom.min.js";
+import { pageQueryParamName } from "../../common/QueryParamName.js";
 
 const PaginationButton = ({ onClick, disabled, children, direction }) => (
   <Button disabled={disabled} onClick={onClick}>
@@ -43,27 +39,18 @@ const PaginationButton = ({ onClick, disabled, children, direction }) => (
   </Button>
 );
 
-export const Pagination = () => {
-  const currentPage = useSelector(selectCurrentPage);
-
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "instant",
-    });
-  }, [currentPage]);
-
-  const dispatch = useDispatch();
-  const totalPages = useTotalPages();
+export const Pagination = ({ page, totalPages }) => {
+  const location = useLocation();
+  const history = useHistory();
 
   const isMobile = window.innerWidth <= theme.breakpoint.mobileMax;
 
   const handleSetCurrentPage = (page) => {
     if (page >= 1 && page <= totalPages) {
-      dispatch(setCurrentPage(page));
-      dispatch(startFetch());
-      dispatch(startFetchPeople());
+      const params = new URLSearchParams(location.search);
+      params.set(pageQueryParamName, page);
       
+      history.push(`${location.pathname}?${params.toString()}`);
     }
   };
 
@@ -71,7 +58,7 @@ export const Pagination = () => {
     <Wrapper>
       <ButtonWrapper>
         <PaginationButton
-          disabled={currentPage === 1}
+          disabled={page === 1}
           onClick={() => handleSetCurrentPage(1)}
           direction="left"
           isMobile={isMobile}
@@ -79,8 +66,8 @@ export const Pagination = () => {
           First
         </PaginationButton>
         <PaginationButton
-          disabled={currentPage === 1}
-          onClick={() => handleSetCurrentPage(currentPage - 1)}
+          disabled={page === 1}
+          onClick={() => handleSetCurrentPage(page - 1)}
           direction="left"
           isMobile={isMobile}
         >
@@ -89,21 +76,21 @@ export const Pagination = () => {
       </ButtonWrapper>
       <TextWrapper>
         <PageLabel>Page</PageLabel>
-        <PageNumber>{currentPage}</PageNumber>
+        <PageNumber>{page}</PageNumber>
         <PageLabel>of</PageLabel>
         <PageNumber>{totalPages}</PageNumber>
       </TextWrapper>
       <ButtonWrapper>
         <PaginationButton
-          disabled={currentPage === totalPages}
-          onClick={() => handleSetCurrentPage(currentPage + 1)}
+          disabled={page === totalPages}
+          onClick={() => handleSetCurrentPage(page + 1)}
           direction="right"
           isMobile={isMobile}
         >
           Next
         </PaginationButton>
         <PaginationButton
-          disabled={currentPage === totalPages}
+          disabled={page === totalPages}
           onClick={() => handleSetCurrentPage(totalPages)}
           direction="right"
           isMobile={isMobile}
