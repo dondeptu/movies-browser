@@ -1,4 +1,4 @@
-import { Poster, Wrapper, TileTitle, ReleaseDate, TileContent, PosterWrapper } from './styled.js';
+import { Poster, Wrapper, TileTitle, ReleaseDate, TileContent, PosterWrapper } from '../../StylesDetailsTile/styled.js';
 import { ProductionInfo } from './ProductionInfo/index.js';
 import { Ratings } from './Ratings/index.js';
 import { MovieDescription } from './Description/index.js';

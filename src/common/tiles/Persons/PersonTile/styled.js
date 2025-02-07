@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const PersonTileWrapper = styled.a`
+export const PersonTileWrapper = styled(Link)`
     background:  ${({ theme }) => theme.color.white};    
     box-shadow: ${({ theme }) => theme.shadow.elevation};
+    color: ${({ theme }) => theme.color.black};
     width: 100%;
     aspect-ratio: auto;
     height: 100%;

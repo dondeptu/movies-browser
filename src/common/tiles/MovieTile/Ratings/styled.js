@@ -9,6 +9,8 @@ export const Wrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     line-height: 1.3;
+    flex-wrap: wrap;
+    row-gap: 4px;
   }
 `;
 
