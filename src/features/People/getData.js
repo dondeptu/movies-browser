@@ -1,9 +1,9 @@
-import { apiKey } from "../../api";
+import { apiKey, apiUrl } from "../../api";
 
 export const getPopularPeople = async (page) => {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/person/popular?language=en-US&page=${page}&api_key=${apiKey}`
+      `${apiUrl}/person/popular?language=en-US&page=${page}&api_key=${apiKey}`
     );
     if (!response.ok) {
       throw new Error(`Failed to fetch popular people: ${response.statusText}`);
