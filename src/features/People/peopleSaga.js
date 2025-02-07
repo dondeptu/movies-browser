@@ -1,5 +1,5 @@
 import { call, delay, put, takeLatest } from "redux-saga/effects";
-import { getPopularPeople } from "./getData";
+import { getPopularPeople } from "./PeopleList/getData";
 import {
   startFetch,
   setPeople,
@@ -8,7 +8,7 @@ import {
   fetchPopularPeople,
   setPeopleDetails,
   fetchPeopleDetails,
-  fetchSearchPeopleResults
+  fetchSearchPeopleResults,
 } from "../People/peopleSlice";
 import { getPeopleDetails } from "./PeoplePage/getData";
 import { getSearchResults } from "../getSearchResultsData";
@@ -43,22 +43,34 @@ function* fetchPeopleDetailsHandler({ payload: peopleId }) {
   }
 }
 
-function* fetchSearchPeopleResultsHandler({ payload: { page, searchQuery, searchType } }) {
+function* fetchSearchPeopleResultsHandler({
+  payload: { page, searchQuery, searchType },
+}) {
   try {
     yield put(startFetch());
-    const { results, total_pages, total_results } = yield call(getSearchResults, page, searchQuery, searchType);
+    const { results, total_pages, total_results } = yield call(
+      getSearchResults,
+      page,
+      searchQuery,
+      searchType
+    );
     yield put(setPeople({ page, results, total_pages, total_results }));
 
     yield delay(800);
     yield put(setPeopleSuccess());
   } catch (error) {
     console.error("Error fetching people search results: ", error);
-    yield put(setPeopleError(`Error fetching people search results: ${error.message}`))
+    yield put(
+      setPeopleError(`Error fetching people search results: ${error.message}`)
+    );
   }
 }
 
 export function* peopleSaga() {
   yield takeLatest(fetchPopularPeople.type, fetchPopularPeopleHandler);
   yield takeLatest(fetchPeopleDetails.type, fetchPeopleDetailsHandler);
-  yield takeLatest(fetchSearchPeopleResults.type, fetchSearchPeopleResultsHandler);
+  yield takeLatest(
+    fetchSearchPeopleResults.type,
+    fetchSearchPeopleResultsHandler
+  );
 }
