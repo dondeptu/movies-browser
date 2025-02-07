@@ -8,7 +8,7 @@ export const getCredits = async (movieId) => {
     );
     return response.data;
   } catch (error) {
-    console.error(`Failed to fetch people details: ${error.message}`);
+    console.error(`Failed to fetch credits: ${error.message}`);
     throw error;
   }
 };
