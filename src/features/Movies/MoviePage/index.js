@@ -91,7 +91,7 @@ function MoviePage() {
                         castLoading ? (
                           <Loading />
                         ) : castError || !cast || cast.length === 0 ? (
-                          <NoResults />
+                          <p>No cast available</p>
                         ) : (
                           <PersonsContent>
                             {cast.map((castMember, index) => (
@@ -116,7 +116,7 @@ function MoviePage() {
                         crewLoading ? (
                           <Loading />
                         ) : crewError || !crew || crew.length === 0 ? (
-                          <NoResults />
+                          <p>No crew available</p>
                         ) : (
                           <PersonsContent>
                             {crew.map((crewMember, index) => (

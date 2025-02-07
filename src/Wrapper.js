@@ -8,4 +8,8 @@ export const Wrapper = styled.main`
   flex-direction: column;
   min-height: calc(100vh - 94px);
   overflow-y: auto;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    min-height: calc(100vh - 142px);
+  }
 `;
