@@ -26,7 +26,6 @@ import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
 import { Article } from "../../../common/Article";
 import { selectGenresError } from "../genresSlice";
-import { NoResults } from "../../../common/NoResults";
 
 function MoviePage() {
   const dispatch = useDispatch();
