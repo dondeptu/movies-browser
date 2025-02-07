@@ -16,8 +16,7 @@ import {
   setCastError,
   setCrewStart,
 } from "./movieSlice";
-import { getCast } from "./MoviePage/getCast";
-import { getCrew } from "./MoviePage/getCrew";
+import { getCredits } from "./MoviePage/getCredits";
 import { getMovieDetails } from "./MoviePage/getData";
 import { getGenres } from "./getGenres";
 import { setGenres, setGenresError } from "./genresSlice";
@@ -60,7 +59,7 @@ function* fetchMovieDetailsHandler({ payload: movieId }) {
 
     yield put(setCastStart());
     try {
-      const cast = yield call(getCast, movieId);
+      const cast = yield call(getCredits, movieId);
       yield put(setCast(cast));
     } catch (error) {
       yield put(setCastError(`Error fetching cast: ${error.message}`));
@@ -68,7 +67,7 @@ function* fetchMovieDetailsHandler({ payload: movieId }) {
 
     yield put(setCrewStart());
     try {
-      const crew = yield call(getCrew, movieId);
+      const crew = yield call(getCredits, movieId);
       yield put(setCrew(crew));
     } catch (error) {
       yield put(setCrewError(`Error fetching crew: ${error.message}`));
