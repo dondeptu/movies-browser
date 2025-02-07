@@ -10,7 +10,7 @@ import {
   fetchPeopleDetails,
   fetchSearchPeopleResults
 } from "../People/peopleSlice";
-import { getPeopleDetails } from "./PeoplePage/getPeopleData";
+import { getPeopleDetails } from "./PeoplePage/getData";
 import { getSearchResults } from "../getSearchResultsData";
 
 function* fetchPopularPeopleHandler({ payload: page }) {

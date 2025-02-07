@@ -10,11 +10,12 @@ import {
 export const PersonTile = ({
   profilePath,
   name,
-  character,
   extraMargin,
-  job,
   showSubtitle = true,
+  character,
+  jobs = [],
 }) => {
+  const jobText = jobs.join(", ");
   return (
     <PersonTileWrapper>
       {profilePath ? (
@@ -23,11 +24,13 @@ export const PersonTile = ({
           alt={`poster of ${name}`}
         />
       ) : (
-        <MissingPersonPoster/>
+        <MissingPersonPoster />
       )}
       <ContentPerson $extraMargin={extraMargin}>
         {name && <PersonName>{name}</PersonName>}
-        {showSubtitle && <PersonSubtitle>{character || job}</PersonSubtitle>}
+        {showSubtitle && (
+          <PersonSubtitle>{character || jobText}</PersonSubtitle>
+        )}
       </ContentPerson>
     </PersonTileWrapper>
   );
