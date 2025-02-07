@@ -85,13 +85,13 @@ function MoviePage() {
 
                   {movieDetails && (
                     <Article
-                      articleHeader="Cast"
+                      articleHeader={
+                        cast && cast.length > 0 ? "Cast" : "No cast available"
+                      }
                       body={
                         castLoading ? (
                           <Loading />
-                        ) : castError || !cast || cast.length === 0 ? (
-                          <p>No cast available</p>
-                        ) : (
+                        ) : castError || !cast || cast.length === 0 ? null : (
                           <PersonsContent>
                             {cast.map((castMember, index) => (
                               <PersonTile
@@ -110,13 +110,13 @@ function MoviePage() {
 
                   {movieDetails && (
                     <Article
-                      articleHeader="Crew"
+                      articleHeader={
+                        crew && crew.length > 0 ? "Crew" : "No crew available"
+                      }
                       body={
                         crewLoading ? (
                           <Loading />
-                        ) : crewError || !crew || crew.length === 0 ? (
-                          <p>No crew available</p>
-                        ) : (
+                        ) : crewError || !crew || crew.length === 0 ? null : (
                           <PersonsContent>
                             {crew.map((crewMember, index) => (
                               <PersonTile
