@@ -12,11 +12,12 @@ export const PersonTile = ({
   id,
   profilePath,
   name,
-  character,
   extraMargin,
-  job,
   showSubtitle = true,
+  character,
+  jobs = [],
 }) => {
+  const jobText = jobs.join(", ");
   return (
     <PersonTileWrapper to={toPeoplePage({ id: id })}>
       {profilePath ? (
@@ -29,7 +30,9 @@ export const PersonTile = ({
       )}
       <ContentPerson $extraMargin={extraMargin}>
         {name && <PersonName>{name}</PersonName>}
-        {showSubtitle && <PersonSubtitle>{character || job}</PersonSubtitle>}
+        {showSubtitle && (
+          <PersonSubtitle>{character || jobText}</PersonSubtitle>
+        )}
       </ContentPerson>
     </PersonTileWrapper>
   );
