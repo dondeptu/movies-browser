@@ -13,6 +13,8 @@ This is a group design of the film search engine combined with a public API base
  https://namerafal.github.io/movies-browser/
 
  <br/>
+## OG Image
+![MoviesBrowser png](https://github.com/namerafal/movies-browser/raw/master/public/assets/ogMoviesBrowser.png?raw=true)
 
 ## Technologies in the project
 
