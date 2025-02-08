@@ -12,6 +12,11 @@ import {
 } from "../People/peopleSlice";
 import { getPeopleDetails } from "./PeoplePage/getData";
 import { getSearchResults } from "../getSearchResultsData";
+import { setCast, setCastError, setCastStart, setCrew, setCrewError, setCrewStart } from "../Movies/MoviePage/creditsSlice";
+import { setGenres, setGenresError } from "../Movies/genresSlice";
+import { getGenres } from "../Movies/getGenres";
+import { getCredits } from "../Movies/MoviePage/getCredits";
+import { getMovieCredits } from "./PeoplePage/getMovieCredits";
 
 function* fetchPopularPeopleHandler({ payload: page }) {
   try {
@@ -32,6 +37,29 @@ function* fetchPeopleDetailsHandler({ payload: peopleId }) {
     yield put(startFetch());
     const peopleDetails = yield call(getPeopleDetails, peopleId);
     yield put(setPeopleDetails(peopleDetails));
+
+    try {
+      const { genres } = yield call(getGenres);
+      yield put(setGenres(genres));
+    } catch (error) {
+      yield put(setGenresError(`Error fetching genres: ${error.message}`));
+    }
+
+    yield put(setCastStart());
+    try {
+      const cast = yield call(getMovieCredits, peopleId);
+      yield put(setCast(cast));
+    } catch (error) {
+      yield put(setCastError(`Error fetching cast: ${error.message}`));
+    }
+
+    yield put(setCrewStart());
+    try {
+      const crew = yield call(getMovieCredits, peopleId);
+      yield put(setCrew(crew));
+    } catch (error) {
+      yield put(setCrewError(`Error fetching crew: ${error.message}`));
+    }
 
     yield delay(500);
     yield put(setPeopleSuccess());
