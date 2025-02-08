@@ -1,3 +1,4 @@
+import { toPeoplePage } from "../../../../routes";
 import { MissingPersonPoster } from "../MissingPersonPoster";
 import {
   ContentPerson,
@@ -8,6 +9,7 @@ import {
 } from "./styled";
 
 export const PersonTile = ({
+  id,
   profilePath,
   name,
   extraMargin,
@@ -17,7 +19,7 @@ export const PersonTile = ({
 }) => {
   const jobText = jobs.join(", ");
   return (
-    <PersonTileWrapper>
+    <PersonTileWrapper to={toPeoplePage({ id: id })}>
       {profilePath ? (
         <PersonImage
           src={`https://image.tmdb.org/t/p/w500${profilePath}`}
