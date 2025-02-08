@@ -1,10 +1,10 @@
 import axios from "axios";
-import { apiKey } from "../../../api";
+import { apiKey, apiUrl } from "../../../api";
 
 export const getMovieDetails = async (movieId) => {
   try {
     const response = await axios.get(
-      `https://api.themoviedb.org/3/movie/${movieId}?language=en-US&api_key=${apiKey}`
+      `${apiUrl}/movie/${movieId}?language=en-US&api_key=${apiKey}`
     );
     return response.data;
   } catch (error) {

@@ -1,10 +1,10 @@
 import axios from "axios";
-import { apiKey } from "../../api";
+import { apiKey, apiUrl } from "../../api";
 
 export const getGenres = async () => {
   try {
     const response = await axios.get(
-      `https://api.themoviedb.org/3/genre/movie/list?language=en&api_key=${apiKey}`
+      `${apiUrl}/genre/movie/list?language=en&api_key=${apiKey}`
     );
     return response.data;
   } catch (error) {
