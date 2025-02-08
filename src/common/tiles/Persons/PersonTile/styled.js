@@ -1,24 +1,26 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const PersonTileWrapper = styled.a`
-  background: ${({ theme }) => theme.color.white};
-  box-shadow: ${({ theme }) => theme.shadow.elevation};
-  width: 100%;
-  aspect-ratio: auto;
-  height: 100%;
-  padding: 16px;
-  border-radius: 5px;
-  text-decoration: none;
-  display: grid;
-  gap: 12px;
-  grid-template-columns: auto;
-  grid-template-rows: auto 1fr;
-  cursor: pointer;
-  transition: 0.3s;
-
-  &:hover {
-    transform: scale(1.03);
-  }
+export const PersonTileWrapper = styled(Link)`
+    background:  ${({ theme }) => theme.color.white};    
+    box-shadow: ${({ theme }) => theme.shadow.elevation};
+    color: ${({ theme }) => theme.color.black};
+    width: 100%;
+    aspect-ratio: auto;
+    height: 100%;
+    padding: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: grid;
+    gap: 12px;
+    grid-template-columns: auto;
+    grid-template-rows: auto 1fr;    
+    cursor: pointer;
+    transition: 0.3s;
+    
+    &:hover{        
+        transform: scale(1.03);
+    }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     padding: 8px;

@@ -6,40 +6,31 @@ export const Wrapper = styled.article`
   box-shadow: ${({ theme }) => theme.shadow.elevation};
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto;
+  grid-template-rows: auto 1fr;
   column-gap: 40px;
   margin-bottom: 64px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     padding: 16px;
     column-gap: 16px;
-    margin-bottom: -3px;
+    margin-bottom: ${({ $personDetailsSize }) =>
+        $personDetailsSize ? "24px" : "0px"};
   }
 `;
 
 export const PosterWrapper = styled.div`
-  width: 312px;
-  height: 464px;
+  width: ${({ $personDetailsSize }) => ($personDetailsSize ? "399px" : "312px")};
+  height: ${({ $personDetailsSize }) => ($personDetailsSize ? "564px" : "464px")};
   grid-row-end: span 2;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  @media (max-width: ${({ theme }) =>
-      theme.breakpointDescription.laptopMax}px) {
-    width: 220px;
-    height: 320px;
-  }
-
-  @media (max-width: ${({ theme }) =>
-      theme.breakpointDescription.mobileMax}px) {
-    width: 150px;
-    height: 230px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpointDescription.mobileS}px) {
-    width: 114px;
-    height: 169px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    width: ${({ $personDetailsSize }) =>
+        $personDetailsSize ? "116px" : "114px"};
+    height: ${({ $personDetailsSize }) =>
+        $personDetailsSize ? "163px" : "169px"};
   }
 `;
 
@@ -54,22 +45,12 @@ export const Poster = styled.img`
   mix-blend-mode: multiply;
 `;
 
-export const TileContent = styled.section`
+export const TileContent = styled.div`
   display: grid;
   grid-area: 1 / 2;
   gap: 24px;
 
-  @media (max-width: ${({ theme }) =>
-      theme.breakpointDescription.laptopMax}px) {
-    grid-row-gap: 28px;
-  }
-
-  @media (max-width: ${({ theme }) =>
-      theme.breakpointDescription.mobileMax}px) {
-    grid-row-gap: 16px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpointDescription.mobileS}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     grid-row-gap: 8px;
   }
 `;
@@ -81,10 +62,12 @@ export const TileTitle = styled.h1`
   margin: 8px 0px -4px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    font-size: clamp(16px, 3vw, 36px);
-    line-height: 1.3;
-    margin: 0px;
     font-weight: 500;
+    font-size: ${({ $personDetailsSize }) =>
+        $personDetailsSize ? "14px" : "16px"};
+    margin: ${({ $personDetailsSize }) =>
+        $personDetailsSize ? "0px 0px 8px 0px" : "0px 0px -4px 0px"};
+    line-height: 1.3;
   }
 `;
 
@@ -97,7 +80,7 @@ export const ReleaseDate = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     color: ${({ theme }) => theme.color.darkergrey};
-    font-size: clamp(13px, 3vw, 20px);
+    font-size: 13px;
     line-height: 1.3;
     margin: 0px;
   }

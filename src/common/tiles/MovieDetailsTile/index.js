@@ -5,7 +5,7 @@ import {
   ReleaseDate,
   TileContent,
   PosterWrapper,
-} from "./styled.js";
+} from "../../StylesDetailsTile/styled.js";
 import { ProductionInfo } from "./ProductionInfo/index.js";
 import { Ratings } from "./Ratings/index.js";
 import { MovieDescription } from "./Description/index.js";

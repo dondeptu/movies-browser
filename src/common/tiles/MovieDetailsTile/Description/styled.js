@@ -20,3 +20,13 @@ export const TileDescription = styled.p`
     outline: none;
   }
 `;
+
+export const PersonDescriptionWrapper = styled(TileDescription)`
+  font-size: 20px;
+  max-height: 284px;
+
+  @media (max-width: ${({ theme }) =>
+      theme.breakpointDescription.mobileMax}px) {
+    font-size: clamp(14px, 3vw, 16px);
+  }
+`;

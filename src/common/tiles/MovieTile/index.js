@@ -20,6 +20,8 @@ export const MovieTile = ({
   genreIds,
   voteAverage,
   voteCount,
+  castCharacter = undefined,
+  crewJob = undefined,
   genresError,
 }) => (
   <StyledLink to={toMoviePage({ id: id })}>
@@ -36,7 +38,15 @@ export const MovieTile = ({
     <InfoContent>
       <Details>
         {title && <Title>{title}</Title>}
-        {releaseDate && <ReleaseDate>{releaseDate.slice(0, 4)}</ReleaseDate>}
+        {releaseDate && (
+          <ReleaseDate>
+            {castCharacter
+              ? `${castCharacter} (${releaseDate.slice(0, 4)})`
+              : crewJob
+                ? `${crewJob} (${releaseDate.slice(0, 4)})`
+                : releaseDate.slice(0, 4)}
+          </ReleaseDate>
+        )}
         <Genre genreIds={genreIds} genresError={genresError} />
       </Details>
       <Ratings ratings={{ rate: voteAverage, votes: voteCount }} />

@@ -25,6 +25,7 @@ import {
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
 import { Article } from "../../../common/Article";
+import { groupCrew } from "./groupedCrew";
 import { selectGenresError } from "../genresSlice";
 
 function MoviePage() {
@@ -43,6 +44,8 @@ function MoviePage() {
   useEffect(() => {
     dispatch(fetchMovieDetails(id));
   }, [dispatch, id]);
+
+  const groupedCrew = groupCrew(crew);
 
   return (
     <>
@@ -111,19 +114,23 @@ function MoviePage() {
                   {movieDetails && (
                     <Article
                       articleHeader={
-                        crew && crew.length > 0 ? "Crew" : "No crew available"
+                        groupedCrew && groupedCrew.length > 0
+                          ? "Crew"
+                          : "No crew available"
                       }
                       body={
                         crewLoading ? (
                           <Loading />
-                        ) : crewError || !crew || crew.length === 0 ? null : (
+                        ) : crewError ||
+                          !groupedCrew ||
+                          groupedCrew.length === 0 ? null : (
                           <PersonsContent>
-                            {crew.map((crewMember, index) => (
+                            {groupedCrew.map((crewMember, index) => (
                               <PersonTile
                                 key={`${crewMember.id}-${index}`}
                                 profilePath={crewMember.profile_path}
                                 name={crewMember.name}
-                                job={crewMember.job}
+                                jobs={crewMember.jobs}
                               />
                             ))}
                           </PersonsContent>
