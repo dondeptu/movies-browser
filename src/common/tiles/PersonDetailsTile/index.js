@@ -10,8 +10,8 @@ export const PersonDetailsTile = ({ personDetailsSize }) => {
   const personDescriptionText = "Liu Yifei was born in Wuhan, Hubei, Province of China on August 25th, 1987. She began modeling at the age of 8 and was trained in singing, dancing and the piano. Moving to the United States at 10 with her mother, Liu lived there for four years.";
 
   return (
-    <Wrapper personDetailsSize={personDetailsSize}>
-      <PosterWrapper personDetailsSize={personDetailsSize}>
+    <Wrapper $personDetailsSize={personDetailsSize}>
+      <PosterWrapper $personDetailsSize={personDetailsSize}>
         <Poster src={posterLiu} alt="poster of Liu" />
         {/* {Poster ? (
           <Poster src={`https://image.tmdb.org/t/p/w500${posterPath}`} alt={`poster of ${title}`} />
@@ -21,13 +21,13 @@ export const PersonDetailsTile = ({ personDetailsSize }) => {
       </PosterWrapper>
       <TileContent>
         {personName ?
-          <TileTitle personDetailsSize={personDetailsSize}>
+          <TileTitle $personDetailsSize={personDetailsSize}>
             {personName}
           </TileTitle>
           :
           <TileTitle>Person name not available</TileTitle>
         }
-        <InfoAboutBirth personDetailsSize info={{ dateOfBirth: "25.08.1987", placeOfBirth: "Wuhan, Hubei, China" }} />
+        <InfoAboutBirth $personDetailsSize info={{ dateOfBirth: "25.08.1987", placeOfBirth: "Wuhan, Hubei, China" }} />
       </TileContent>
       <PersonDescription personDescription={personDescriptionText} />
     </Wrapper >

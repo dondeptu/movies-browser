@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import movieSlice from "./features/Movies/movieSlice";
 import peopleSlice from "./features/People/peopleSlice";
 import genresSlice from "./features/Movies/genresSlice";
+import creditsSlice from "./features/Movies/MoviePage/creditsSlice";
 import createSagaMiddleware from "redux-saga";
 import saga from "./saga";
 
@@ -12,6 +13,7 @@ export const store = configureStore({
     movies: movieSlice,
     people: peopleSlice,
     genres: genresSlice,
+    credits: creditsSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(sagaMiddleware),

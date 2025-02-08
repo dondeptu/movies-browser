@@ -21,7 +21,8 @@ export const MovieTile = ({
   voteAverage,
   voteCount,
   castCharacter = undefined,
-  crewJob = undefined
+  crewJob = undefined,
+  genresError,
 }) => (
   <StyledLink to={toMoviePage({ id: id })}>
     <PosterWrapper>
@@ -46,7 +47,7 @@ export const MovieTile = ({
                 : releaseDate.slice(0, 4)}
           </ReleaseDate>
         )}
-        <Genre genreIds={genreIds} />
+        <Genre genreIds={genreIds} genresError={genresError} />
       </Details>
       <Ratings ratings={{ rate: voteAverage, votes: voteCount }} />
     </InfoContent>

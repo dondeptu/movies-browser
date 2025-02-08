@@ -1,9 +1,9 @@
 import { DetailsTileContainer, DetailsTileGenreItem } from "./styled";
 
-export const Genre = ({ genres }) => {
+export const Genre = ({ genres, genresError }) => {
 
-    if (!Array.isArray(genres)) {
-        return null;
+    if (!Array.isArray(genres)|| genresError) {
+        return <p> No genres available</p>;
     }
 
     return (

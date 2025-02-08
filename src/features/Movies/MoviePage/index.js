@@ -11,15 +11,22 @@ import { SectionBanner } from "../../../common/tiles/MovieDetailsTile/banner/Sec
 import { Wrapper } from "../../../Wrapper";
 import {
   fetchMovieDetails,
-  selectCast,
-  selectCrew,
   selectMovieDetails,
   selectMoviesState,
 } from "../movieSlice";
+import {
+  selectCastError,
+  selectCast,
+  selectCastLoading,
+  selectCrew,
+  selectCrewError,
+  selectCrewLoading,
+} from "./creditsSlice";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
 import { Article } from "../../../common/Article";
 import { groupCrew } from "./groupedCrew";
+import { selectGenresError } from "../genresSlice";
 
 function MoviePage() {
   const dispatch = useDispatch();
@@ -28,12 +35,17 @@ function MoviePage() {
   const cast = useSelector(selectCast);
   const crew = useSelector(selectCrew);
   const { loading, error } = useSelector(selectMoviesState);
+  const genresError = useSelector(selectGenresError);
+  const castError = useSelector(selectCastError);
+  const crewError = useSelector(selectCrewError);
+  const castLoading = useSelector(selectCastLoading);
+  const crewLoading = useSelector(selectCrewLoading);
 
   useEffect(() => {
     dispatch(fetchMovieDetails(id));
   }, [dispatch, id]);
 
-  const groupedCrew = groupCrew(crew); 
+  const groupedCrew = groupCrew(crew);
 
   return (
     <>
@@ -69,42 +81,60 @@ function MoviePage() {
                       voteAverage={movieDetails.vote_average}
                       voteCount={movieDetails.vote_count}
                       overview={movieDetails.overview}
+                      genres={movieDetails.genres}
+                      genresError={genresError}
                     />
                   )}
 
-                  {(movieDetails && cast.length > 0) && (
+                  {movieDetails && (
                     <Article
-                      articleHeader="Cast"
+                      articleHeader={
+                        cast && cast.length > 0 ? "Cast" : "No cast available"
+                      }
                       body={
-                        <PersonsContent>
-                          {cast.map((castMember, index) => (
-                            <PersonTile
-                              key={`${castMember.id}-${index}`}
-                              showSubtitle={true}
-                              profilePath={castMember.profile_path}
-                              name={castMember.name}
-                              character={castMember.character}
-                            />
-                          ))}
-                        </PersonsContent>
+                        castLoading ? (
+                          <Loading />
+                        ) : castError || !cast || cast.length === 0 ? null : (
+                          <PersonsContent>
+                            {cast.map((castMember, index) => (
+                              <PersonTile
+                                key={`${castMember.id}-${index}`}
+                                showSubtitle={true}
+                                profilePath={castMember.profile_path}
+                                name={castMember.name}
+                                character={castMember.character}
+                              />
+                            ))}
+                          </PersonsContent>
+                        )
                       }
                     />
                   )}
 
-                  {(movieDetails && groupedCrew.length > 0) && (
+                  {movieDetails && (
                     <Article
-                      articleHeader="Crew"
+                      articleHeader={
+                        groupedCrew && groupedCrew.length > 0
+                          ? "Crew"
+                          : "No crew available"
+                      }
                       body={
-                        <PersonsContent>
-                          {groupedCrew.map((crewMember, index) => (
-                            <PersonTile
-                              key={`${crewMember.id}-${index}`}
-                              profilePath={crewMember.profile_path}
-                              name={crewMember.name}
-                              jobs={crewMember.jobs}
-                            />
-                          ))}
-                        </PersonsContent>
+                        crewLoading ? (
+                          <Loading />
+                        ) : crewError ||
+                          !groupedCrew ||
+                          groupedCrew.length === 0 ? null : (
+                          <PersonsContent>
+                            {groupedCrew.map((crewMember, index) => (
+                              <PersonTile
+                                key={`${crewMember.id}-${index}`}
+                                profilePath={crewMember.profile_path}
+                                name={crewMember.name}
+                                jobs={crewMember.jobs}
+                              />
+                            ))}
+                          </PersonsContent>
+                        )
                       }
                     />
                   )}

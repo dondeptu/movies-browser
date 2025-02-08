@@ -3,7 +3,9 @@ export const theme = {
     mobileMax: 767,
   },
   breakpointDescription: {
-    mobileMax: 776,
+    mobileS: 510,
+    mobileMax: 761,
+    laptopMax: 1389,
   },
   breakpointBanner: {
     mobileS: 510,

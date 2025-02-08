@@ -9,14 +9,19 @@ import {
   fetchMovieDetails,
   fetchSearchResults,
   fetchPopularMovies,
+} from "./movieSlice";
+import {
   setCast,
   setCrew,
-} from "./movieSlice";
-import { getCast } from "./MoviePage/getCast";
-import { getCrew } from "./MoviePage/getCrew";
+  setCastStart,
+  setCrewError,
+  setCastError,
+  setCrewStart,
+} from "./MoviePage/creditsSlice";
+import { getCredits } from "./MoviePage/getCredits";
 import { getMovieDetails } from "./MoviePage/getData";
 import { getGenres } from "./getGenres";
-import { setGenres } from "./genresSlice";
+import { setGenres, setGenresError } from "./genresSlice";
 import { getSearchResults } from "../getSearchResultsData";
 
 function* fetchPopularMoviesHandler({ payload: page }) {
@@ -25,8 +30,12 @@ function* fetchPopularMoviesHandler({ payload: page }) {
     const { results, total_results } = yield call(getPopularMovies, page);
     yield put(setMovies({ page, results, total_pages: 500, total_results }));
 
-    const { genres } = yield call(getGenres);
-    yield put(setGenres(genres));
+    try {
+      const { genres } = yield call(getGenres);
+      yield put(setGenres(genres));
+    } catch (error) {
+      yield put(setGenresError(`Error fetching genres: ${error.message}`));
+    }
 
     yield delay(500);
     yield put(setMovieSuccess());
@@ -43,35 +52,66 @@ function* fetchMovieDetailsHandler({ payload: movieId }) {
 
     yield put(setMovieDetails(movieDetails));
 
-    const cast = yield call(getCast, movieId);
-    const crew = yield call(getCrew, movieId);
-    yield put(setCast(cast));
-    yield put(setCrew(crew));
+    try {
+      const { genres } = yield call(getGenres);
+      yield put(setGenres(genres));
+    } catch (error) {
+      yield put(setGenresError(`Error fetching genres: ${error.message}`));
+    }
+
+    yield put(setCastStart());
+    try {
+      const cast = yield call(getCredits, movieId);
+      yield put(setCast(cast));
+    } catch (error) {
+      yield put(setCastError(`Error fetching cast: ${error.message}`));
+    }
+
+    yield put(setCrewStart());
+    try {
+      const crew = yield call(getCredits, movieId);
+      yield put(setCrew(crew));
+    } catch (error) {
+      yield put(setCrewError(`Error fetching crew: ${error.message}`));
+    }
 
     yield delay(500);
     yield put(setMovieSuccess());
-
   } catch (error) {
     yield delay(800);
     yield put(setMovieError(`Error fetching movie details: ${error.message}`));
   }
 }
 
-function* fetchSearchResultsHandler({ payload: { page, searchQuery, searchType } }) {
+function* fetchSearchResultsHandler({
+  payload: { page, searchQuery, searchType },
+}) {
   try {
     yield put(startFetch());
 
-    const { results, total_pages, total_results } = yield call(getSearchResults, page, searchQuery, searchType);
-    const { genres } = yield call(getGenres);
+    const { results, total_pages, total_results } = yield call(
+      getSearchResults,
+      page,
+      searchQuery,
+      searchType
+    );
 
     yield put(setMovies({ page, results, total_pages, total_results }));
-    yield put(setGenres(genres));
+
+    try {
+      const { genres } = yield call(getGenres);
+      yield put(setGenres(genres));
+    } catch (error) {
+      yield put(setGenresError(`Error fetching genres: ${error.message}`));
+    }
 
     yield delay(800);
     yield put(setMovieSuccess());
   } catch (error) {
     console.error("Error fetching movie search results or genres:", error);
-    yield put(setMovieError(`Error fetching movie search results: ${error.message}`))
+    yield put(
+      setMovieError(`Error fetching movie search results: ${error.message}`)
+    );
   }
 }
 

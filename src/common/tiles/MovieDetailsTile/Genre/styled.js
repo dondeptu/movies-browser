@@ -10,5 +10,5 @@ export const DetailsTileContainer = styled(Container)`
 `;
 
 export const DetailsTileGenreItem = styled(GenreItem)`
-    line-height: 1;
+  line-height: 1;
 `;

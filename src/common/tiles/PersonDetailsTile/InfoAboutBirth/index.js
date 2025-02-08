@@ -10,13 +10,13 @@ export const InfoAboutBirth = ({ info, personDetailsSize }) => {
                 <NameItemDisplay>
                     {isMobile ? 'Birth:' : 'Date of birth:'}
                 </NameItemDisplay>
-                <ContentItem personDetailsSize={personDetailsSize} >
+                <ContentItem $personDetailsSize={personDetailsSize} >
                     {info.dateOfBirth || "Unknown"}
                 </ContentItem>
             </Content>
             <Content>
                 <NameItemDisplay>Place of birth:</NameItemDisplay>
-                <ContentItem personDetailsSize={personDetailsSize}>
+                <ContentItem $personDetailsSize={personDetailsSize}>
                     {info.placeOfBirth || "Unknown"}
                 </ContentItem>
             </Content>
