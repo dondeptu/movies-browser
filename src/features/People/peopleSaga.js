@@ -15,7 +15,6 @@ import { getSearchResults } from "../getSearchResultsData";
 import { setCast, setCastError, setCastStart, setCrew, setCrewError, setCrewStart } from "../Movies/MoviePage/creditsSlice";
 import { setGenres, setGenresError } from "../Movies/genresSlice";
 import { getGenres } from "../Movies/getGenres";
-import { getCredits } from "../Movies/MoviePage/getCredits";
 import { getMovieCredits } from "./PeoplePage/getMovieCredits";
 
 function* fetchPopularPeopleHandler({ payload: page }) {
