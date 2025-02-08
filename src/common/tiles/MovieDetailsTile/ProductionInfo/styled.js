@@ -12,11 +12,14 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const ProductionItem = styled.div`
-    line-height: 1.2;
+export const Content = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        gap: 4px;
+    }
 `;
 
 export const NameItem = styled.p`
@@ -28,10 +31,19 @@ export const NameItem = styled.p`
     }
 `;
 
+export const NameItemDisplay = styled(NameItem)`
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        display: block;
+        font-size: 12px;
+        line-height: 1.2;
+    }
+`;
+
 export const ContentItem = styled.span`
+    line-height: 1.2;
 
     @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        line-height: ${({ personDetailsSize }) => personDetailsSize ? '1.2' : '1.3'};  
         font-size: 12px;
-        line-height: 1.3;
     }
 `;

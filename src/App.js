@@ -10,7 +10,8 @@ import { Navigation } from "./common/Navigation";
 import MovieList from "./features/Movies/MovieList";
 import MoviePage from "./features/Movies/MoviePage";
 import PeopleList from "./features/People/PeopleList";
-import { toMovieList, toMoviePage, toPeople } from "./routes";
+import PeoplePage from "./features/People/PeoplePage";
+import { toMovieList, toMoviePage, toPeople, toPeoplePage } from "./routes";
 import ScrollToTop from "./common/ScrollToTop";
 
 export const App = () => (
@@ -21,6 +22,9 @@ export const App = () => (
       <Switch>
         <Route path={toMoviePage()}>
           <MoviePage />
+        </Route>
+        <Route path={toPeoplePage()}>
+          <PeoplePage />
         </Route>
         <Route path={toMovieList()}>
           <MovieList />

@@ -19,6 +19,7 @@ import {
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
 import { Article } from "../../../common/Article";
+import { groupCrew } from "./groupedCrew";
 
 function MoviePage() {
   const dispatch = useDispatch();
@@ -31,6 +32,8 @@ function MoviePage() {
   useEffect(() => {
     dispatch(fetchMovieDetails(id));
   }, [dispatch, id]);
+
+  const groupedCrew = groupCrew(crew); 
 
   return (
     <>
@@ -88,17 +91,17 @@ function MoviePage() {
                     />
                   )}
 
-                  {(movieDetails && crew.length > 0) && (
+                  {(movieDetails && groupedCrew.length > 0) && (
                     <Article
                       articleHeader="Crew"
                       body={
                         <PersonsContent>
-                          {crew.map((crewMember, index) => (
+                          {groupedCrew.map((crewMember, index) => (
                             <PersonTile
                               key={`${crewMember.id}-${index}`}
                               profilePath={crewMember.profile_path}
                               name={crewMember.name}
-                              job={crewMember.job}
+                              jobs={crewMember.jobs}
                             />
                           ))}
                         </PersonsContent>

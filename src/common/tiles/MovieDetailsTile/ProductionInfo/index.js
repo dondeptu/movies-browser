@@ -1,17 +1,17 @@
-import { ContentItem, NameItem, Wrapper, ProductionItem } from "./styled";
+import { ContentItem, NameItem, Wrapper, Content } from "./styled";
 
 export const ProductionInfo = ({ info }) => {
 
     return (
         <Wrapper>
-            <ProductionItem>
+            <Content>
                 <NameItem>Production:</NameItem>
                 <ContentItem>{info.productionCountries}</ContentItem>
-            </ProductionItem>
-            <ProductionItem>
+            </Content>
+            <Content>
                 <NameItem>Release date:</NameItem>
                 <ContentItem>{info.date}</ContentItem>
-            </ProductionItem>
+            </Content>
         </Wrapper>
     )
 };
