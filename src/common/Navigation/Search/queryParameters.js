@@ -21,9 +21,10 @@ export const useUpdateQueryParameter = setSearchQuery => {
     return ((newQuery) => {
         clearTimeout(timeout.current);
         setSearchQuery(newQuery);
+        const trimmedQuery = newQuery.trim();
 
-        if (newQuery) {
-            params.set(searchQueryParamName, newQuery);
+        if (trimmedQuery) {
+            params.set(searchQueryParamName, trimmedQuery);
         } else {
             params.delete(searchQueryParamName);
         }
@@ -35,8 +36,12 @@ export const useUpdateQueryParameter = setSearchQuery => {
             } else if (path.startsWith(`${toPeople()}/`) && path !== toPeople()) {
                 path = toPeople();
             }
+            const currentHistory = `${history.location.pathname}${history.location.search}`;
+            const newHistory = params.toString() ? `${path}?${params.toString()}` : `${path}`;
 
-            history.push(`${path}?${params.toString()}`);
+            if (currentHistory !== newHistory) {
+                history.push(newHistory);
+            };
         }, searchDelay);
     });
 };
