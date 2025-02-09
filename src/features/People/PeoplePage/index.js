@@ -7,7 +7,7 @@ import { Content } from "../../Movies/MovieList/styled";
 import { PersonDetailsTile } from "../../../common/tiles/PersonDetailsTile";
 import { MovieTile } from "../../../common/tiles/MovieTile";
 import { selectMovies } from "../../Movies/movieSlice";
-import { fetchPeopleDetails, selectPeopleDetails } from "../peopleSlice";
+import { fetchPeopleDetails } from "../peopleSlice";
 import { Article } from "../../../common/Article";
 import { useIsMobile } from "../../../useIsMobile";
 
@@ -16,7 +16,7 @@ function PeoplePage() {
   const { id } = useParams();
   const movies = useSelector(selectMovies);
   const movieCount = movies?.results?.length || 0;
-  const peopleDetails = useSelector(selectPeopleDetails);
+  //const peopleDetails = useSelector(selectPeopleDetails);
 
   useEffect(() => {
     dispatch(fetchPeopleDetails(id));
