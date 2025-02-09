@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from "react";
-import { useQueryParameter } from "./queryParameters";
+import { useEffect, useState } from "react";
+import { useQueryParameter, useUpdateQueryParameter } from "./queryParameters";
 import { Input, SearchContainer, SearchIcon } from "./styled";
-import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom.min";
-import { pageQueryParamName, searchQueryParamName } from "../../QueryParamName";
-import { toMovieList, toPeople } from "../../../routes";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { searchQueryParamName } from "../../QueryParamName";
 
 export const Search = () => {
     const location = useLocation();
@@ -13,38 +12,6 @@ export const Search = () => {
     useEffect(() => {
         setSearchQuery(query);
     }, [query]);
-
-
-    const useUpdateQueryParameter = setSearchQuery => {
-        const searchDelay = 500;
-        const history = useHistory();
-        const timeout = useRef();
-        let path = location.pathname;
-
-        const params = new URLSearchParams(location.search);
-
-        return ((newQuery) => {
-            clearTimeout(timeout.current);
-            setSearchQuery(newQuery);
-
-            if (newQuery) {
-                params.set(searchQueryParamName, newQuery);
-            } else {
-                params.delete(searchQueryParamName);
-            }
-            params.delete(pageQueryParamName);
-
-            timeout.current = setTimeout(() => {
-                if (path.startsWith(`${toMovieList()}/`) && path !== toMovieList()) {
-                    path = toMovieList();
-                } else if (path.startsWith(`${toPeople()}/`) && path !== toPeople()) {
-                    path = toPeople();
-                }
-
-                history.push(`${path}?${params.toString()}`);
-            }, searchDelay);
-        });
-    };
 
     const updateQueryParameter = useUpdateQueryParameter(setSearchQuery);
 
