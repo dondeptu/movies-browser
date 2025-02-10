@@ -1,6 +1,7 @@
 import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom.min";
-import { useState, useEffect } from "react";
-import { searchQueryParamName } from "../../QueryParamName";
+import { pageQueryParamName, searchQueryParamName } from "../../QueryParamName";
+import { useRef } from "react";
+import { toMovieList, toPeople } from "../../../routes";
 
 export const useQueryParameter = key => {
     const location = useLocation();
@@ -8,18 +9,42 @@ export const useQueryParameter = key => {
     return searchParams.get(key);
 };
 
-export const useSearchQuery = () => {
-    const location = useLocation();
+export const useUpdateQueryParameter = setSearchQuery => {
+    const searchDelay = 500;
     const history = useHistory();
-    const searchParams = new URLSearchParams(location.search);
+    const location = useLocation();
+    const timeout = useRef();
+    let path = location.pathname;
 
-    const [searchQuery, setSearchQuery] = useState(searchParams.get(searchQueryParamName) || "");
+    const params = new URLSearchParams(location.search);
 
-    useEffect(() => {
-        const newSearchParams = new URLSearchParams(location.search);
-        newSearchParams.set(searchQueryParamName, searchQuery);
-        history.replace({ search: newSearchParams.toString() });
-    }, [searchQuery, history, location.search]);
+    return ((newQuery) => {
+        clearTimeout(timeout.current);
+        setSearchQuery(newQuery);
+        const trimmedQuery = newQuery.trim();
 
-    return [searchQuery, setSearchQuery];
+        if (trimmedQuery) {
+            params.set(searchQueryParamName, trimmedQuery);
+        } else {
+            params.delete(searchQueryParamName);
+        }
+        params.delete(pageQueryParamName);
+
+        timeout.current = setTimeout(() => {
+            if (path.startsWith(`${toMovieList()}/`) && path !== toMovieList()) {
+                path = toMovieList();
+            } else if (path.startsWith(`${toPeople()}/`) && path !== toPeople()) {
+                path = toPeople();
+            }
+            const currentHistory = `${history.location.pathname}${history.location.search}`;
+            const newHistory = params.toString() ? `${path}?${params.toString()}` : `${path}`;
+
+            if (currentHistory !== newHistory) {
+                history.push(newHistory);
+            };
+            if (currentHistory !== newHistory) {
+                history.push(newHistory);
+            };
+        }, searchDelay);
+    });
 };

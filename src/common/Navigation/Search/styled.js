@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as IconSearch } from "../../../images/iconSearch.svg";
 
-export const SearchContainer = styled.form`
+export const SearchContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 16px;
