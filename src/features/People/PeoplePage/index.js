@@ -81,18 +81,21 @@ function PeoplePage() {
                       ) : (
                         <Content>
                           {cast.map(
-                            ({
-                              id,
-                              poster_path,
-                              title,
-                              release_date,
-                              genre_ids,
-                              vote_average,
-                              vote_count,
-                              character,
-                            }) => (
+                            (
+                              {
+                                id,
+                                poster_path,
+                                title,
+                                release_date,
+                                genre_ids,
+                                vote_average,
+                                vote_count,
+                                character,
+                              },
+                              index
+                            ) => (
                               <MovieTile
-                                key={id}
+                                key={`${id}-${character}-${index}`}
                                 id={id}
                                 posterPath={poster_path}
                                 title={title}
@@ -125,19 +128,22 @@ function PeoplePage() {
                       ) : (
                         <Content>
                           {groupedCrewList.map(
-                            ({
-                              id,
-                              poster_path,
-                              title,
-                              release_date,
-                              genre_ids,
-                              vote_average,
-                              vote_count,
-                              jobs,
-                            }) => (
+                            (
+                              {
+                                credit_id,
+                                poster_path,
+                                title,
+                                release_date,
+                                genre_ids,
+                                vote_average,
+                                vote_count,
+                                jobs,
+                              },
+                              index
+                            ) => (
                               <MovieTile
-                                key={id}
-                                id={id}
+                                key={`${id}-${jobs.join(", ")}-${index}`}
+                                id={credit_id}
                                 posterPath={poster_path}
                                 title={title}
                                 crewJob={isMobile ? undefined : jobs.join(", ")}
