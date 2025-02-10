@@ -60,23 +60,30 @@ export const Background = styled.div`
 `;
 
 export const BannerContainer = styled.div`
+  max-width: 1368px;
+  max-height: 769px;
   display: flex;
   flex-direction: column;
   position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; 
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    min-width: 288px;
+    padding-bottom: 75%; 
+  }
+
 `;
 
 export const BannerImage = styled.img`
   width: 100%;
-  max-width: 1368px;
-  height: auto;
-  max-height: 769px;
+  height: 100%;
   object-fit: cover;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 0;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    min-width: 288px;
-  }
 `;
 
 export const BannerContent = styled.div`
