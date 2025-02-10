@@ -1,5 +1,5 @@
 import { call, delay, put, takeLatest } from "redux-saga/effects";
-import { getPopularPeople } from "./PeopleList/getData";
+import { getPopularPeople } from "./PeopleList/getPeopleData";
 import {
   startFetch,
   setPeople,
@@ -10,7 +10,7 @@ import {
   fetchPeopleDetails,
   fetchSearchPeopleResults,
 } from "../People/peopleSlice";
-import { getPeopleDetails } from "./PeoplePage/getData";
+import { getPeopleDetails } from "./PeoplePage/getPeopleDetails";
 import { getSearchResults } from "../getSearchResultsData";
 import { setCast, setCastError, setCastStart, setCrew, setCrewError, setCrewStart } from "../Movies/MoviePage/creditsSlice";
 import { setGenres, setGenresError } from "../Movies/genresSlice";
