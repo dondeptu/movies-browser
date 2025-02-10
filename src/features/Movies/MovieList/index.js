@@ -32,7 +32,7 @@ function MovieList() {
 
   const searchQuery = (
     useQueryParameter(searchQueryParamName) || ""
-  ).toLowerCase();
+  ).trim().toLowerCase();
   const page = Number(useQueryParameter(pageQueryParamName)) || 1;
 
   const totalPages = useSelector(selectTotalPages);
