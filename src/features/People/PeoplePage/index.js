@@ -44,6 +44,9 @@ function PeoplePage() {
   const isMobile = useIsMobile();
   const groupedCrewList = groupCrewMovies(crew);
 
+  const castCount = cast ? cast.length : 0;
+  const crewCount = crew ? crew.length : 0;
+
   return (
     <>
       {loading ? (
@@ -69,7 +72,7 @@ function PeoplePage() {
 
                 {peopleDetails && (
                   <Article
-                    articleHeader="Movies - cast"
+                    articleHeader={`Movies - cast (${castCount})`}
                     body={
                       castLoading ? (
                         <Loading />
@@ -113,7 +116,7 @@ function PeoplePage() {
 
                 {peopleDetails && (
                   <Article
-                    articleHeader="Movies - crew"
+                    articleHeader={`Movies - crew (${crewCount})`}
                     body={
                       crewLoading ? (
                         <Loading />
