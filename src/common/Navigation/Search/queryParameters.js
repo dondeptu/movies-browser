@@ -38,8 +38,6 @@ export const useUpdateQueryParameter = setSearchQuery => {
             }
             const currentHistory = `${history.location.pathname}${history.location.search}`;
             const newHistory = params.toString() ? `${path}?${params.toString()}` : `${path}`;
-            const currentHistory = `${history.location.pathname}${history.location.search}`;
-            const newHistory = params.toString() ? `${path}?${params.toString()}` : `${path}`;
 
             if (currentHistory !== newHistory) {
                 history.push(newHistory);
