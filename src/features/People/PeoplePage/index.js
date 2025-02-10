@@ -23,6 +23,7 @@ import {
 } from "../../Movies/MoviePage/creditsSlice";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
+import { groupCrewMovies } from "../../Movies/MoviePage/groupedCrew";
 
 function PeoplePage() {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ function PeoplePage() {
   }, [dispatch, id]);
 
   const isMobile = useIsMobile();
+  const groupedCrewList = groupCrewMovies(crew);
 
   return (
     <>
@@ -119,7 +121,7 @@ function PeoplePage() {
                         <p>No movies available</p>
                       ) : (
                         <Content>
-                          {crew.map(
+                          {groupedCrewList.map(
                             ({
                               id,
                               poster_path,
@@ -128,14 +130,14 @@ function PeoplePage() {
                               genre_ids,
                               vote_average,
                               vote_count,
-                              job,
+                              jobs,
                             }) => (
                               <MovieTile
                                 key={id}
                                 id={id}
                                 posterPath={poster_path}
                                 title={title}
-                                crewJob={isMobile ? undefined : job}
+                                crewJob={isMobile ? undefined : jobs.join(", ")}
                                 releaseDate={
                                   isMobile
                                     ? release_date?.slice(0, 4)

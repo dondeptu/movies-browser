@@ -24,7 +24,7 @@ export const MovieTile = ({
   crewJob = undefined,
   genresError,
 }) => {
-  const displayCrewJob = Array.isArray(crewJob) ? crewJob.join(", ") : crewJob;
+  const displayCrewJob = crewJob;
 
   return (
     <StyledLink to={toMoviePage({ id: id })}>

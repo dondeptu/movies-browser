@@ -1,17 +1,17 @@
-export const groupCrew = (crew) => {
-  const groupedCrew = crew.reduce((groupedCrew, crewMember) => {
-    const { name, job, profile_path } = crewMember;
+export const groupCrewPeople = (crew) =>
+  Object.values(
+    crew.reduce((acc, { name, job, profile_path }) => {
+      acc[name] ??= { name, profile_path, jobs: [] };
+      acc[name].jobs.push(job);
+      return acc;
+    }, {})
+  );
 
-    if (groupedCrew[name]) {
-      groupedCrew[name].jobs.push(job);
-    } else {
-      groupedCrew[name] = {
-        name,
-        profile_path,
-        jobs: [job],
-      };
-    }
-    return groupedCrew;
-  }, {});
-  return Object.values(groupedCrew);
-};
+export const groupCrewMovies = (crew) =>
+  Object.values(
+    crew.reduce((acc, { id, job, ...movie }) => {
+      acc[id] ??= { ...movie, jobs: [] };
+      acc[id].jobs.push(job);
+      return acc;
+    }, {})
+  );
