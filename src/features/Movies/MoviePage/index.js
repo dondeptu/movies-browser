@@ -98,7 +98,7 @@ function MoviePage() {
                           <PersonsContent>
                             {cast.map((castMember, index) => (
                               <PersonTile
-                                key={`${castMember.id}-${index}`}
+                                key={`${castMember.id}-${castMember.character}-${index}`}
                                 showSubtitle={true}
                                 profilePath={castMember.profile_path}
                                 name={castMember.name}
@@ -127,7 +127,7 @@ function MoviePage() {
                           <PersonsContent>
                             {groupedCrew.map((crewMember, index) => (
                               <PersonTile
-                                key={`${crewMember.id}-${index}`}
+                                key={`${crewMember.id}-${crewMember.jobs}-${index}`}
                                 profilePath={crewMember.profile_path}
                                 name={crewMember.name}
                                 jobs={crewMember.jobs}
