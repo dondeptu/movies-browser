@@ -20,10 +20,10 @@ import {
   selectCrew,
   selectCrewError,
   selectCrewLoading,
-} from "../../Movies/MoviePage/creditsSlice";
+} from "../../creditsSlice";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
-import { groupCrewMovies } from "../../Movies/MoviePage/groupedCrew";
+import { groupCrewMovies } from "../../groupedCrew";
 
 function PeoplePage() {
   const dispatch = useDispatch();

@@ -21,11 +21,11 @@ import {
   selectCrew,
   selectCrewError,
   selectCrewLoading,
-} from "./creditsSlice";
+} from "../../creditsSlice";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
 import { Article } from "../../../common/Article";
-import { groupCrewPeople } from "./groupedCrew";
+import { groupCrewPeople } from "../../groupedCrew";
 import { selectGenresError } from "../genresSlice";
 
 function MoviePage() {

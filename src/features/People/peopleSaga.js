@@ -12,7 +12,14 @@ import {
 } from "../People/peopleSlice";
 import { getPeopleDetails } from "./PeoplePage/getPeopleDetails";
 import { getSearchResults } from "../getSearchResultsData";
-import { setCast, setCastError, setCastStart, setCrew, setCrewError, setCrewStart } from "../Movies/MoviePage/creditsSlice";
+import {
+  setCast,
+  setCastError,
+  setCastStart,
+  setCrew,
+  setCrewError,
+  setCrewStart,
+} from "../creditsSlice";
 import { setGenres, setGenresError } from "../Movies/genresSlice";
 import { getGenres } from "../Movies/getGenres";
 import { getMovieCredits } from "./PeoplePage/getMovieCredits";
