@@ -22,7 +22,7 @@ import {
 } from "../creditsSlice";
 import { setGenres, setGenresError } from "../Movies/genresSlice";
 import { getGenres } from "../Movies/getGenres";
-import { getMovieCredits } from "./PeoplePage/getMovieCredits";
+import { getPeopleCredits } from "./PeoplePage/getPeopleCredits";
 
 function* fetchPopularPeopleHandler({ payload: page }) {
   try {
@@ -53,7 +53,7 @@ function* fetchPeopleDetailsHandler({ payload: peopleId }) {
 
     yield put(setCastStart());
     try {
-      const cast = yield call(getMovieCredits, peopleId);
+      const cast = yield call(getPeopleCredits, peopleId);
       yield put(setCast(cast));
     } catch (error) {
       yield put(setCastError(`Error fetching cast: ${error.message}`));
@@ -61,7 +61,7 @@ function* fetchPeopleDetailsHandler({ payload: peopleId }) {
 
     yield put(setCrewStart());
     try {
-      const crew = yield call(getMovieCredits, peopleId);
+      const crew = yield call(getPeopleCredits, peopleId);
       yield put(setCrew(crew));
     } catch (error) {
       yield put(setCrewError(`Error fetching crew: ${error.message}`));
