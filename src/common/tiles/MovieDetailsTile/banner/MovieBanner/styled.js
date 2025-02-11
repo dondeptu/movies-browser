@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   position: relative;
-  height: auto;
   background-color: ${({ theme }) => theme.color.black};
   display: flex;
   justify-content: center;
@@ -60,30 +59,31 @@ export const Background = styled.div`
 `;
 
 export const BannerContainer = styled.div`
-  max-width: 1368px;
-  max-height: 769px;
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%; 
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    min-width: 288px;
-    padding-bottom: 75%; 
-  }
-
 `;
 
 export const BannerImage = styled.img`
   width: 100%;
-  height: 100%;
+  max-width: 1368px;
+  height: auto;
+  max-height: 769px;
   object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   z-index: 0;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+
+  &.loaded {
+    opacity: 1;
+    transform: scale(1);    
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    min-width: 288px;   
+  }
 `;
 
 export const BannerContent = styled.div`

@@ -7,14 +7,20 @@ import {
   Title,
 } from "./styled.js";
 import { Ratings } from "../MovieBanner/Ratings";
+import { useState } from "react";
 
 export const MovieBanner = ({ backdropPath, title, voteAverage, voteCount }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <Wrapper>
       <Background />
       <BannerContainer>
         {backdropPath &&
-          <BannerImage src={`https://image.tmdb.org/t/p/original${backdropPath}`} alt={`poster of ${title}`} />
+          <BannerImage src={`https://image.tmdb.org/t/p/original${backdropPath}`} alt={`poster of ${title}`}
+            className={imageLoaded ? "loaded" : ""}
+            onLoad={() => setImageLoaded(true)}
+          />
         }
         <BannerContent>
           {title ? <Title>{title}</Title> : <Title>Title not available</Title>}

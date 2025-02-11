@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.header`
-  padding-bottom: 8px;
+  max-height:760px;
+  max-width: 100%;
+  margin-bottom: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     padding-bottom: 0;
