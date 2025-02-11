@@ -1,3 +1,4 @@
+import { formatDate } from "../../../features/utils.js";
 import { InfoAboutBirth } from "./InfoAboutBirth/index.js";
 import { PersonDescription } from "../MovieDetailsTile/Description/index.js";
 import {
@@ -17,14 +18,6 @@ export const PersonDetailsTile = ({
   placeOfBirth,
   biography,
 }) => {
-  const formatDate = (date) => {
-    if (date) {
-      const [year, month, day] = date.split("-");
-      return `${day}.${month}.${year}`;
-    }
-    return "Unknown";
-  };
-
   return (
     <Wrapper $personDetailsSize={personDetailsSize}>
       <PosterWrapper $personDetailsSize={personDetailsSize}>
