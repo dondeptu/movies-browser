@@ -96,7 +96,7 @@ function MoviePage() {
                           <Loading />
                         ) : castError || !cast || cast.length === 0 ? null : (
                           <PersonsContent>
-                            {cast.map((castMember) => (
+                            {cast.map((castMember, index) => (
                               <PersonTile
                                 key={`${castMember.id}-${castMember.character}-${index}`}
                                 id={castMember.id}
@@ -126,7 +126,7 @@ function MoviePage() {
                           !groupedCrew ||
                           groupedCrew.length === 0 ? null : (
                           <PersonsContent>
-                            {groupedCrew.map((crewMember) => (
+                            {groupedCrew.map((crewMember, index) => (
                               <PersonTile
                                 key={`${crewMember.id}-${crewMember.jobs}-${index}`}
                                 id={crewMember.id}
