@@ -1,3 +1,4 @@
+import { formatDate } from "../../../features/utils.js";
 import {
   Poster,
   Wrapper,
@@ -25,14 +26,6 @@ export const MovieDetailsTile = ({
   overview,
   genresError,
 }) => {
-  const formatDate = (date) => {
-    if (date) {
-      const [year, month, day] = date.split("-");
-      return `${day}.${month}.${year}`;
-    }
-    return "Unknown";
-  };
-
   const [isMobile, setIsMobile] = useState(
     window.innerWidth <= theme.breakpoint.mobileMax
   );

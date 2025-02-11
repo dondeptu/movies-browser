@@ -17,7 +17,7 @@ import {
   setCrewError,
   setCastError,
   setCrewStart,
-} from "./MoviePage/creditsSlice";
+} from "../creditsSlice";
 import { getCredits } from "./MoviePage/getCredits";
 import { getMovieDetails } from "./MoviePage/getData";
 import { getGenres } from "./getGenres";

@@ -8,7 +8,7 @@ export const getPeopleDetails = async (peopleId) => {
     );
     return response.data;
   } catch (error) {
-    console.error(`Failed to fetch movie details: ${error.message}`);
+    console.error(`Failed to fetch people details: ${error.message}`);
     throw error;
   }
 };

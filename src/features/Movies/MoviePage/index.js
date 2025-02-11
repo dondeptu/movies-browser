@@ -21,11 +21,11 @@ import {
   selectCrew,
   selectCrewError,
   selectCrewLoading,
-} from "./creditsSlice";
+} from "../../creditsSlice";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
 import { Article } from "../../../common/Article";
-import { groupCrew } from "./groupedCrew";
+import { groupCrewPeople } from "../../groupedCrew";
 import { selectGenresError } from "../genresSlice";
 
 function MoviePage() {
@@ -45,7 +45,7 @@ function MoviePage() {
     dispatch(fetchMovieDetails(id));
   }, [dispatch, id]);
 
-  const groupedCrew = groupCrew(crew);
+  const groupedCrew = groupCrewPeople(crew);
 
   return (
     <>
@@ -98,7 +98,8 @@ function MoviePage() {
                           <PersonsContent>
                             {cast.map((castMember, index) => (
                               <PersonTile
-                                key={`${castMember.id}-${index}`}
+                                key={`${castMember.id}-${castMember.character}-${index}`}
+                                id={castMember.id}
                                 showSubtitle={true}
                                 profilePath={castMember.profile_path}
                                 name={castMember.name}
@@ -127,7 +128,8 @@ function MoviePage() {
                           <PersonsContent>
                             {groupedCrew.map((crewMember, index) => (
                               <PersonTile
-                                key={`${crewMember.id}-${index}`}
+                                key={`${crewMember.id}-${crewMember.jobs}-${index}`}
+                                id={crewMember.id}
                                 profilePath={crewMember.profile_path}
                                 name={crewMember.name}
                                 jobs={crewMember.jobs}

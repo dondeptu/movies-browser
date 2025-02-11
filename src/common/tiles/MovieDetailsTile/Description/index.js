@@ -10,6 +10,6 @@ export const MovieDescription = ({ movieDescription }) => {
 export const PersonDescription = ({ personDescription }) => {
 
     return (
-        <PersonDescriptionWrapper>{personDescription || "No description available."}</PersonDescriptionWrapper>
+        <PersonDescriptionWrapper>{personDescription.biography || "No description available."}</PersonDescriptionWrapper>
     )
 };
