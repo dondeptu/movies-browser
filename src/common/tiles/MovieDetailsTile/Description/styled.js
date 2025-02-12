@@ -6,6 +6,7 @@ export const TileDescription = styled.p`
   resize: none;
   font-size: 20px;
   line-height: 1.6;
+  text-align: justify;
 
   @media (max-width: ${({ theme }) => theme.breakpointDescription.laptopMax}px) {
     display: grid;
@@ -22,7 +23,7 @@ export const TileDescription = styled.p`
 
 export const PersonDescriptionWrapper = styled(TileDescription)`
   font-size: 20px;
-  max-height: 284px;
+  max-height: none;
 
   @media (max-width: ${({ theme }) => theme.breakpointDescription.mobileMax}px) {
     font-size: clamp(14px, 3vw, 16px);

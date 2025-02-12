@@ -23,33 +23,37 @@ export const MovieTile = ({
   castCharacter = undefined,
   crewJob = undefined,
   genresError,
-}) => (
-  <StyledLink to={toMoviePage({ id: id })}>
-    <PosterWrapper>
-      {posterPath ? (
-        <Poster
-          src={`https://image.tmdb.org/t/p/w500${posterPath}`}
-          alt={`poster of ${title}`}
-        />
-      ) : (
-        <MissingPoster />
-      )}
-    </PosterWrapper>
-    <InfoContent>
-      <Details>
-        {title && <Title>{title}</Title>}
-        {releaseDate && (
-          <ReleaseDate>
-            {castCharacter
-              ? `${castCharacter} (${releaseDate.slice(0, 4)})`
-              : crewJob
-                ? `${crewJob} (${releaseDate.slice(0, 4)})`
-                : releaseDate.slice(0, 4)}
-          </ReleaseDate>
+}) => {
+  const displayCrewJob = crewJob;
+
+  return (
+    <StyledLink to={toMoviePage({ id: id })}>
+      <PosterWrapper>
+        {posterPath ? (
+          <Poster
+            src={`https://image.tmdb.org/t/p/w500${posterPath}`}
+            alt={`poster of ${title}`}
+          />
+        ) : (
+          <MissingPoster />
         )}
-        <Genre genreIds={genreIds} genresError={genresError} />
-      </Details>
-      <Ratings ratings={{ rate: voteAverage, votes: voteCount }} />
-    </InfoContent>
-  </StyledLink>
-);
+      </PosterWrapper>
+      <InfoContent>
+        <Details>
+          {title && <Title>{title}</Title>}
+          {releaseDate && (
+            <ReleaseDate>
+              {castCharacter
+                ? `${castCharacter} (${releaseDate.slice(0, 4)})`
+                : crewJob
+                ? `${displayCrewJob}(${releaseDate.slice(0, 4)})`
+                : releaseDate.slice(0, 4)}
+            </ReleaseDate>
+          )}
+          <Genre genreIds={genreIds} genresError={genresError} />
+        </Details>
+        <Ratings ratings={{ rate: voteAverage, votes: voteCount }} />
+      </InfoContent>
+    </StyledLink>
+  );
+};
