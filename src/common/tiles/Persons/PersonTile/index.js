@@ -22,7 +22,7 @@ export const PersonTile = ({
     <PersonTileWrapper to={toPeoplePage({ id: id })}>
       {profilePath ? (
         <PersonImage
-          src={`https://image.tmdb.org/t/p/w500${profilePath}`}
+          src={`https://image.tmdb.org/t/p/w185${profilePath}`}
           alt={`poster of ${name}`}
         />
       ) : (
