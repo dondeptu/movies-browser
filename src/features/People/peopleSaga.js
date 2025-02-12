@@ -12,14 +12,7 @@ import {
 } from "./peopleSlice";
 import { getPersonDetails } from "./PersonPage/getPersonDetails";
 import { getSearchResults } from "../getSearchResultsData";
-import {
-  setCast,
-  setCastError,
-  setCastStart,
-  setCrew,
-  setCrewError,
-  setCrewStart,
-} from "../creditsSlice";
+import { setCreditsStart, setCredits, setCreditsError } from "../creditsSlice";
 import { setGenres, setGenresError } from "../movies/genresSlice";
 import { getGenres } from "../movies/getGenres";
 import { getPersonCredits } from "./PersonPage/getPersonCredits";
@@ -34,7 +27,9 @@ function* fetchPopularPeopleHandler({ payload: page }) {
     yield put(setPeopleSuccess());
   } catch (error) {
     yield delay(800);
-    yield put(setPeopleError(`Error fetching popular people: ${error.message}`));
+    yield put(
+      setPeopleError(`Error fetching popular people: ${error.message}`)
+    );
   }
 }
 
@@ -48,23 +43,19 @@ function* fetchPersonDetailsHandler({ payload: personId }) {
       const { genres } = yield call(getGenres);
       yield put(setGenres(genres));
     } catch (error) {
-      yield put(setGenresError(`Error fetching movie genres: ${error.message}`));
+      yield put(
+        setGenresError(`Error fetching movie genres: ${error.message}`)
+      );
     }
 
-    yield put(setCastStart());
+    yield put(setCreditsStart());
     try {
-      const cast = yield call(getPersonCredits, personId);
-      yield put(setCast(cast));
+      const creditsData = yield call(getPersonCredits, personId);
+      yield put(setCredits(creditsData));
     } catch (error) {
-      yield put(setCastError(`Error fetching movie cast: ${error.message}`));
-    }
-
-    yield put(setCrewStart());
-    try {
-      const crew = yield call(getPersonCredits, personId);
-      yield put(setCrew(crew));
-    } catch (error) {
-      yield put(setCrewError(`Error fetching movie crew: ${error.message}`));
+      yield put(
+        setCreditsError(`Error fetching movie credits: ${error.message}`)
+      );
     }
 
     yield delay(500);

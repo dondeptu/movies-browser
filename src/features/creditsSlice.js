@@ -12,30 +12,22 @@ const creditsSlice = createSlice({
   },
 
   reducers: {
-    setCastStart: (state) => {
+    setCreditsStart: (state) => {
       state.castLoading = true;
-      state.castError = null;
-    },
-    setCast: (state, { payload }) => {
-      state.castLoading = false;
-      const { cast } = payload;
-      state.cast = cast;
-    },
-    setCastError: (state, { payload: error }) => {
-      state.castLoading = false;
-      state.castError = error;
-    },
-    setCrewStart: (state) => {
       state.crewLoading = true;
+      state.castError = null;
       state.crewError = null;
     },
-    setCrew: (state, { payload }) => {
+    setCredits: (state, { payload }) => {
+      state.castLoading = false;
       state.crewLoading = false;
-      const { crew } = payload;
-      state.crew = crew;
+      state.cast = payload.cast;
+      state.crew = payload.crew;
     },
-    setCrewError: (state, { payload: error }) => {
+    setCreditsError: (state, { payload: error }) => {
+      state.castLoading = false;
       state.crewLoading = false;
+      state.castError = error;
       state.crewError = error;
     },
   },
@@ -51,13 +43,7 @@ export const selectCrewLoading = (state) =>
 export const selectCastError = (state) => selectCreditsState(state).castError;
 export const selectCrewError = (state) => selectCreditsState(state).crewError;
 
-export const {
-  setCastStart,
-  setCrewStart,
-  setCast,
-  setCrew,
-  setCastError,
-  setCrewError,
-} = creditsSlice.actions;
+export const { setCreditsStart, setCredits, setCreditsError } =
+  creditsSlice.actions;
 
 export default creditsSlice.reducer;
