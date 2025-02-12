@@ -7,11 +7,11 @@ import {
 import { Provider } from "react-redux";
 import { store } from "./store";
 import { Navigation } from "./common/Navigation";
-import MovieList from "./features/Movies/MovieList";
-import MoviePage from "./features/Movies/MoviePage";
-import PeopleList from "./features/People/PeopleList";
-import PeoplePage from "./features/People/PeoplePage";
-import { toMovieList, toMoviePage, toPeople, toPeoplePage } from "./routes";
+import MovieList from "./features/movies/MovieList/index";
+import MoviePage from "./features/movies/MoviePage";
+import PeopleList from "./features/people/PeopleList";
+import PersonPage from "./features/people/PersonPage";
+import { toMovieList, toMoviePage, toPeopleList, toPersonPage } from "./routes";
 import ScrollToTop from "./common/ScrollToTop";
 
 export const App = () => (
@@ -23,13 +23,13 @@ export const App = () => (
         <Route path={toMoviePage()}>
           <MoviePage />
         </Route>
-        <Route path={toPeoplePage()}>
-          <PeoplePage />
+        <Route path={toPersonPage()}>
+          <PersonPage />
         </Route>
         <Route path={toMovieList()}>
           <MovieList />
         </Route>
-        <Route path={toPeople()}>
+        <Route path={toPeopleList()}>
           <PeopleList />
         </Route>
         <Route path="/">

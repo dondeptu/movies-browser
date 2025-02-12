@@ -9,8 +9,8 @@ import {
   StyledLink,
   PosterWrapper,
 } from "./styled";
-import { toMoviePage } from "../../../routes";
-import { MissingPoster } from "../MissingPoster";
+import { toMoviePage } from "../../../../routes";
+import { MovieMissingPoster } from "../../movies/MovieMissingPoster";
 
 export const MovieTile = ({
   id,
@@ -35,7 +35,7 @@ export const MovieTile = ({
             alt={`poster of ${title}`}
           />
         ) : (
-          <MissingPoster />
+          <MovieMissingPoster />
         )}
       </PosterWrapper>
       <InfoContent>

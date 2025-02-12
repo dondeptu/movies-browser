@@ -21,7 +21,7 @@ export const getPopularMovies = async (page) => {
       total_results: data.total_results,
     };
   } catch (error) {
-    console.error("Error fetching movies:", error);
-    throw new Error(`Error fetching movies: ${error.message}`);
+    console.error("Error fetching popular movies:", error);
+    throw new Error(`Error fetching popular movies: ${error.message}`);
   }
 };

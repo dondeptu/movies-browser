@@ -6,11 +6,11 @@ import {
   setPeopleSuccess,
   setPeopleError,
   fetchPopularPeople,
-  setPeopleDetails,
-  fetchPeopleDetails,
+  setPersonDetails,
+  fetchPersonDetails,
   fetchSearchPeopleResults,
-} from "../People/peopleSlice";
-import { getPeopleDetails } from "./PeoplePage/getPeopleDetails";
+} from "./peopleSlice";
+import { getPersonDetails } from "./PersonPage/getPersonDetails";
 import { getSearchResults } from "../getSearchResultsData";
 import {
   setCast,
@@ -20,9 +20,9 @@ import {
   setCrewError,
   setCrewStart,
 } from "../creditsSlice";
-import { setGenres, setGenresError } from "../Movies/genresSlice";
-import { getGenres } from "../Movies/getGenres";
-import { getPeopleCredits } from "./PeoplePage/getPeopleCredits";
+import { setGenres, setGenresError } from "../movies/genresSlice";
+import { getGenres } from "../movies/getGenres";
+import { getPersonCredits } from "./PersonPage/getPersonCredits";
 
 function* fetchPopularPeopleHandler({ payload: page }) {
   try {
@@ -34,37 +34,37 @@ function* fetchPopularPeopleHandler({ payload: page }) {
     yield put(setPeopleSuccess());
   } catch (error) {
     yield delay(800);
-    yield put(setPeopleError(`Error fetching people: ${error.message}`));
+    yield put(setPeopleError(`Error fetching popular people: ${error.message}`));
   }
 }
 
-function* fetchPeopleDetailsHandler({ payload: peopleId }) {
+function* fetchPersonDetailsHandler({ payload: personId }) {
   try {
     yield put(startFetch());
-    const peopleDetails = yield call(getPeopleDetails, peopleId);
-    yield put(setPeopleDetails(peopleDetails));
+    const personDetails = yield call(getPersonDetails, personId);
+    yield put(setPersonDetails(personDetails));
 
     try {
       const { genres } = yield call(getGenres);
       yield put(setGenres(genres));
     } catch (error) {
-      yield put(setGenresError(`Error fetching genres: ${error.message}`));
+      yield put(setGenresError(`Error fetching movie genres: ${error.message}`));
     }
 
     yield put(setCastStart());
     try {
-      const cast = yield call(getPeopleCredits, peopleId);
+      const cast = yield call(getPersonCredits, personId);
       yield put(setCast(cast));
     } catch (error) {
-      yield put(setCastError(`Error fetching cast: ${error.message}`));
+      yield put(setCastError(`Error fetching movie cast: ${error.message}`));
     }
 
     yield put(setCrewStart());
     try {
-      const crew = yield call(getPeopleCredits, peopleId);
+      const crew = yield call(getPersonCredits, personId);
       yield put(setCrew(crew));
     } catch (error) {
-      yield put(setCrewError(`Error fetching crew: ${error.message}`));
+      yield put(setCrewError(`Error fetching movie crew: ${error.message}`));
     }
 
     yield delay(500);
@@ -72,7 +72,7 @@ function* fetchPeopleDetailsHandler({ payload: peopleId }) {
   } catch (error) {
     yield delay(800);
     yield put(
-      setPeopleError(`Error fetching people details: ${error.message}`)
+      setPeopleError(`Error fetching person details: ${error.message}`)
     );
   }
 }
@@ -102,7 +102,7 @@ function* fetchSearchPeopleResultsHandler({
 
 export function* peopleSaga() {
   yield takeLatest(fetchPopularPeople.type, fetchPopularPeopleHandler);
-  yield takeLatest(fetchPeopleDetails.type, fetchPeopleDetailsHandler);
+  yield takeLatest(fetchPersonDetails.type, fetchPersonDetailsHandler);
   yield takeLatest(
     fetchSearchPeopleResults.type,
     fetchSearchPeopleResultsHandler

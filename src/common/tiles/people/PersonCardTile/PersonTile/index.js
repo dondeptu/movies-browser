@@ -1,5 +1,5 @@
-import { toPeoplePage } from "../../../../routes";
-import { MissingPersonPoster } from "../MissingPersonPoster";
+import { toPersonPage } from "../../../../../routes";
+import { PersonMissingPoster } from "../../PersonMissingPoster";
 import {
   ContentPerson,
   PersonImage,
@@ -19,14 +19,14 @@ export const PersonTile = ({
 }) => {
   const jobText = jobs.join(", ");
   return (
-    <PersonTileWrapper to={toPeoplePage({ id: id })}>
+    <PersonTileWrapper to={toPersonPage({ id: id })}>
       {profilePath ? (
         <PersonImage
           src={`https://image.tmdb.org/t/p/w500${profilePath}`}
           alt={`poster of ${name}`}
         />
       ) : (
-        <MissingPersonPoster />
+        <PersonMissingPoster />
       )}
       <ContentPerson $extraMargin={extraMargin}>
         {name && <PersonName>{name}</PersonName>}

@@ -1,6 +1,6 @@
 import { Wrapper, StyledIconCamera } from "./styled";
 
-export const MissingPoster = () => (
+export const MovieMissingPoster = () => (
     <Wrapper>
         <StyledIconCamera />
     </Wrapper>

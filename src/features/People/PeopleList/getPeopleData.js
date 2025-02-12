@@ -20,7 +20,7 @@ export const getPopularPeople = async (page) => {
       total_pages: data.total_pages,
     };
   } catch (error) {
-    console.error("Error fetching people:", error);
-    throw new Error(`Error fetching people: ${error.message}`);
+    console.error("Error fetching popular people:", error);
+    throw new Error(`Error fetching popular people: ${error.message}`);
   }
 };

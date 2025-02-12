@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PersonsContent = styled.div`
+export const PersonContent = styled.div`
   margin-top: 32px;
   margin-bottom: 64px;
   display: grid;

@@ -1,10 +1,10 @@
 import axios from "axios";
 import { apiKey, apiUrl } from "../../../api";
 
-export const getPeopleCredits = async (peopleId) => {
+export const getPersonCredits = async (personId) => {
   try {
     const response = await axios.get(
-      `${apiUrl}/person/${peopleId}/movie_credits?language=en-US&api_key=${apiKey}`
+      `${apiUrl}/person/${personId}/movie_credits?language=en-US&api_key=${apiKey}`
     );
     return response.data;
   } catch (error) {

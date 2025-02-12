@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Section } from "../../../common/Section";
 import { Wrapper } from "../../../Wrapper";
 import { Content } from "./styled";
-import { MovieTile } from "../../../common/tiles/MovieTile";
+import { MovieTile } from "../../../common/tiles/movies/MovieTile";
 import {
   selectMovies,
   selectMoviesState,
@@ -11,7 +11,7 @@ import {
   fetchPopularMovies,
   selectTotalPages,
   selectTotalResults,
-} from "../movieSlice";
+} from "../moviesSlice";
 import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
 import { useQueryParameter } from "../../../common/Navigation/Search/queryParameters";
@@ -30,9 +30,9 @@ function MovieList() {
   const { loading, error } = useSelector(selectMoviesState);
   const genresError = useSelector(selectGenresError);
 
-  const searchQuery = (
-    useQueryParameter(searchQueryParamName) || ""
-  ).trim().toLowerCase();
+  const searchQuery = (useQueryParameter(searchQueryParamName) || "")
+    .trim()
+    .toLowerCase();
   const page = Number(useQueryParameter(pageQueryParamName)) || 1;
 
   const totalPages = useSelector(selectTotalPages);

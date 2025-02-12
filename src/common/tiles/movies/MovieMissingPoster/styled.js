@@ -1,23 +1,23 @@
 import styled from "styled-components";
-import { ReactComponent as missingPerson } from "../../../../images/iconMissingPerson.svg";
+import { ReactComponent as iconCamera } from "../../../../images/iconCamera.svg";
 
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: auto;
+  height: 100%;
   border-radius: 5px;
-  aspect-ratio: 2/3;
   background-color: ${({ theme }) => theme.color.postergrey};
 `;
 
-export const StyledMissingPerson = styled(missingPerson)`
+export const StyledIconCamera = styled(iconCamera)`
   width: 72px;
   height: auto;
+  opacity: 50%;
 
   path {
-    stroke-width: 1.5px;
+    stroke-width: 1.69px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
