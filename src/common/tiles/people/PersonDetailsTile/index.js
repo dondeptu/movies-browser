@@ -1,5 +1,5 @@
 import { formatDate } from "../../../../features/utils.js";
-import { InfoAboutBirth } from "./InfoAboutBirth/index.js";
+import { BirthInfo } from "./BirthInfo/index.js";
 import { PersonDescription } from "../../movies/MovieDetailsTile/Description";
 import {
   Poster,
@@ -36,7 +36,7 @@ export const PersonDetailsTile = ({
         ) : (
           <TileTitle>Title not available</TileTitle>
         )}
-        <InfoAboutBirth
+        <BirthInfo
           $personDetailsSize={personDetailsSize}
           info={{
             dateOfBirth: formatDate(birthday),

@@ -6,7 +6,7 @@ import {
 } from "../../../movies/MovieDetailsTile/ProductionInfo/styled";
 import { useIsMobile } from "../../../../../useIsMobile";
 
-export const InfoAboutBirth = ({ info, personDetailsSize }) => {
+export const BirthInfo = ({ info, personDetailsSize }) => {
   const isMobile = useIsMobile();
 
   return (
