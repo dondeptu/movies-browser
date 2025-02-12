@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     min-width: 320px;
-    min-height: 148px;
+    max-height: 148px;
   }
 `;
 
@@ -67,22 +67,14 @@ export const BannerContainer = styled.div`
 export const BannerImage = styled.img`
   width: 100%;
   max-width: 1368px;
-  height: auto;
-  max-height: 769px;
+  height: 769px; 
   object-fit: cover;
   position: relative;
-  z-index: 0;
-  opacity: 0;
-  transform: scale(0);
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-
-  &.loaded {
-    opacity: 1;
-    transform: scale(1);    
-  }
-
+  z-index: 0; 
+  
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    min-width: 288px;   
+    min-width: 288px;
+    max-height: 148px;
   }
 `;
 
