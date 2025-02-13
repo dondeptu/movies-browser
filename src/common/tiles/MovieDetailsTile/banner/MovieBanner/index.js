@@ -1,6 +1,5 @@
 import {
-  Wrapper,
-  Background,
+  Wrapper,  
   BannerContainer,
   BannerImage,
   BannerContent,
@@ -14,8 +13,7 @@ export const MovieBanner = ({ backdropPath, title, voteAverage, voteCount }) => 
 
   return (
     <Wrapper>
-      <Background />
-      <BannerContainer>
+      <BannerContainer >
         {backdropPath &&
           <BannerImage src={`https://image.tmdb.org/t/p/original${backdropPath}`} alt={`poster of ${title}`}
             className={imageLoaded ? "loaded" : ""}

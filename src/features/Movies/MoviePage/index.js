@@ -56,7 +56,7 @@ function MoviePage() {
       ) : (
         <>
           {movieDetails && (
-            <SectionBanner
+            <SectionBanner as Section
               body={
                 movieDetails.backdrop_path ? (
                   <MovieBanner

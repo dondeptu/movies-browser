@@ -1,28 +1,15 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-  position: relative;
-  background-color: ${({ theme }) => theme.color.black};
+export const BannerContainer = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column; 
+  max-width: 100%;
+  margin-bottom: 8px;
   overflow: hidden;
-  height: auto;
+  background-color: ${({ theme }) => theme.color.black};
+  justify-content: center;  
+  height: clamp(34vh, 49vw, 105vh);
   padding: 0 16px 0 16px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    min-width: 320px;
-    max-height: 148px;
-  }
-`;
-
-export const Background = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
 
   &::before {
     content: "";
@@ -34,9 +21,13 @@ export const Background = styled.div`
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-
     background: ${({ theme }) => theme.gradient.desktop};
     z-index: 1;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    padding-bottom: 0;
+    margin-bottom: -8px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpointBanner.DesktopMax}px) {
@@ -58,23 +49,36 @@ export const Background = styled.div`
   }
 `;
 
-export const BannerContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+export const Wrapper = styled.div`
   position: relative;
+  background-color: ${({ theme }) => theme.color.black};
+  display: flex;  
+  align-items: center;
+  overflow: hidden;
+  max-width: 1368px;
+  height: auto;
+  margin: auto;
+  padding: 0 16px 0 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    min-width: 320px;    
+  }
 `;
 
 export const BannerImage = styled.img`
-  width: 100%;
-  max-width: 1368px;
-  height: 769px; 
+  width: 95%; 
+  height: 100%;
+  height: clamp(33vh, 48vw, 105vh);
   object-fit: cover;
-  position: relative;
+  object-position: center;  
   z-index: 0; 
+  position: absolute;
+  top: 0;
+  left: 0; 
   
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    min-width: 288px;
-    max-height: 148px;
+    min-width: 288px;    
+    height: clamp(17vh, 56vw, 105vh);
   }
 `;
 
