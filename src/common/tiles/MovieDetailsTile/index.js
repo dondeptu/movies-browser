@@ -59,7 +59,7 @@ export const MovieDetailsTile = ({
       <PosterWrapper>
         {posterPath ? (
           <Poster
-            src={`https://image.tmdb.org/t/p/w342${posterPath}`}
+            src={`https://image.tmdb.org/t/p/w500${posterPath}`}
             alt={`poster of ${title}`}
           />
         ) : (
