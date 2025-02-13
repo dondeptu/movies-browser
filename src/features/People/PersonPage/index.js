@@ -72,13 +72,15 @@ function PersonPage() {
 
                 {personDetails && (
                   <Article
-                    articleHeader={`Movies - cast (${castCount})`}
+                    articleHeader={
+                      cast && cast.length > 0
+                        ? `Movies - cast (${castCount})`
+                        : null
+                    }
                     body={
                       castLoading ? (
                         <Loading />
-                      ) : castError || !cast || cast.length === 0 ? (
-                        <p>No movies available</p>
-                      ) : (
+                      ) : castError || !cast || cast.length === 0 ? null : (
                         <Content>
                           {cast.map(
                             (
@@ -119,13 +121,15 @@ function PersonPage() {
 
                 {personDetails && (
                   <Article
-                    articleHeader={`Movies - crew (${crewCount})`}
+                    articleHeader={
+                      crew && crew.length > 0
+                        ? `Movies - crew (${crewCount})`
+                        : null
+                    }
                     body={
                       crewLoading ? (
                         <Loading />
-                      ) : crewError || !crew || crew.length === 0 ? (
-                        <p>No movies available</p>
-                      ) : (
+                      ) : crewError || !crew || crew.length === 0 ? null : (
                         <Content>
                           {groupedCrewList.map(
                             (
