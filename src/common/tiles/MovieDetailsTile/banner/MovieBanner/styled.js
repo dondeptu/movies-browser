@@ -17,7 +17,8 @@ export const BannerContainer = styled.div`
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 103%;
+    margin-left: -9px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -33,18 +34,23 @@ export const BannerContainer = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpointBanner.DesktopMax}px) {
     &::before {
       background: ${({ theme }) => theme.gradient.desktopMax};
+      width: 114%;
+      margin-left: -104px;
     }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpointBanner.laptopMax}px) {
     &::before {
       background: ${({ theme }) => theme.gradient.laptopMax};
+      width: 103%;
+      margin-left: -6px;
     }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpointBanner.mobileS}px) {
     &::before {
       background: ${({ theme }) => theme.gradient.mobileS};
+      width: 105%;
     }
   }
 `;
@@ -90,6 +96,9 @@ export const BannerContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  opacity: ${({ imageLoaded }) => (imageLoaded ? 1 : 0)};
+  visibility: ${({ imageLoaded }) => (imageLoaded ? "visible" : "hidden")};
+  transition: opacity 0.0s ease-in-out;
 
   @media (max-width: ${({ theme }) => theme.breakpointBanner.DesktopMax}px) {
     bottom: 28px;
