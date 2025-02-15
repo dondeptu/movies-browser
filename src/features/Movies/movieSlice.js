@@ -35,9 +35,11 @@ const movieSlice = createSlice({
     setMovieDetails: (state, { payload: movieDetails }) => {
       state.movieDetails = movieDetails;
     },
-    fetchPopularMovies: () => {},
-    fetchMovieDetails: () => {},
-    fetchSearchResults: () => {},
+    fetchPopularMovies: () => { },
+    fetchMovieDetails: () => { },
+    fetchSearchResults: (state) => {
+      state.loading = true;
+    },
   },
 });
 
