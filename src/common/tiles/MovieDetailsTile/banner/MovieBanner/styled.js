@@ -52,6 +52,7 @@ export const BannerContainer = styled.div`
       background: ${({ theme }) => theme.gradient.mobileS};
       width: 105%;
     }
+    height: clamp(17vh, 56vw, 105vh);
   }
 `;
 
@@ -69,6 +70,10 @@ export const Wrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     min-width: 320px;    
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpointBanner.mobileS}px) {
+    height: clamp(12vh, 41vw, 105vh);
+  }
 `;
 
 export const BannerImage = styled.img`
@@ -85,6 +90,10 @@ export const BannerImage = styled.img`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     min-width: 288px;    
     height: clamp(17vh, 56vw, 105vh);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpointBanner.mobileS}px) {
+    height: clamp(2vh, 51vw, 105vh);
   }
 `;
 
