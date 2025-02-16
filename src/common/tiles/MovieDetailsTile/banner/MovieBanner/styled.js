@@ -105,8 +105,8 @@ export const BannerContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  opacity: ${({ imageLoaded }) => (imageLoaded ? 1 : 0)};
-  visibility: ${({ imageLoaded }) => (imageLoaded ? "visible" : "hidden")};
+  opacity: ${({ $imageLoaded }) => ($imageLoaded ? 1 : 0)};
+  visibility: ${({ $imageLoaded }) => ($imageLoaded ? "visible" : "hidden")};
   transition: opacity 0.0s ease-in-out;
 
   @media (max-width: ${({ theme }) => theme.breakpointBanner.DesktopMax}px) {

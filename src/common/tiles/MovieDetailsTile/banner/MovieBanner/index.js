@@ -1,5 +1,5 @@
 import {
-  Wrapper,  
+  Wrapper,
   BannerContainer,
   BannerImage,
   BannerContent,
@@ -20,7 +20,7 @@ export const MovieBanner = ({ backdropPath, title, voteAverage, voteCount }) => 
             onLoad={() => setImageLoaded(true)}
           />
         }
-        <BannerContent imageLoaded={imageLoaded}>
+        <BannerContent $imageLoaded={imageLoaded}>
           {title ? <Title>{title}</Title> : <Title>Title not available</Title>}
           <Ratings ratings={{ rate: voteAverage, maxRate: '/ 10', votes: voteCount }} />
         </BannerContent>
