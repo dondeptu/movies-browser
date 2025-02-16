@@ -4,13 +4,13 @@
 
 ## 📌 Table of Contents
 
-1. 🎥 [Features](#-features)
+1. 🌐 [Live Demo](#-live-demo)
 
-2. 🖥️ [Technologies](#️-technologies-used)
+2. 🎥 [Features](#-features)
 
-3. 🚀 [Usage](#-usage)
+3. 🖥️ [Technologies](#️-technologies-used)
 
-4. 🌐 [Live Demo](#-live-demo)
+4. 🚀 [Usage](#-usage)
 
 5. 📸 [Screenshots](#-screenshots)
 
@@ -21,6 +21,12 @@
 8. ⚙️ [Installation](#️-installation)
 
 9. 🛠️ [Getting Started with Create React App](#getting-started-with-create-react-app)
+
+
+## 🌐 Live Demo
+
+🚀 Check out the live version of the app:<br>
+👉 [Movie Browser Live Demo](https://namerafal.github.io/movies-browser/)
 
 
 ## 🎥 Features
@@ -118,7 +124,7 @@
 
 - **Custom Hooks**:
 
-   - [`useUpdateQueryParameter`](src/common/Navigation/Search/queryParameters.js#12): Updates the search query parameter in the URL and handles navigation based on the updated query. It includes a debounce mechanism to avoid triggering too many updates.
+   - [`useUpdateQueryParameter`](src/common/Navigation/Search/queryParameters.js#12): Updates the search query parameter in the URL and handles navigation based on the updated query.
 
    - [`useQueryParameter`](src/common/Navigation/Search/queryParameters.js#6): A utility hook that retrieves query parameters from the URL.
 
@@ -157,10 +163,6 @@
 
    - From movie credits, you can click on a movie to view its detailed information.
 
-## 🌐 Live Demo
-
-🚀 Check out the live version of the app:<br>
-👉 [Movie Browser Live Demo](https://namerafal.github.io/movies-browser/)
 
 ## 📸 Screenshots
 
@@ -196,6 +198,11 @@ Here are some **gif demos** and **screenshots** showcasing the app:
 
 **Search Functionality**
 
+<div style="display: flex; justify-content: space-around; gap: 10px; margin: 10px 0 20px 0">
+   <img src="forREADME/searcher.gif" alt="Searcher Preview" width="500" />
+   <img src="forREADME//searcher-mobile.gif" alt="Searcher Mobile Preview" width="200" />
+</div>
+
 **Seamless Navigation**
 
 <div style="display: flex; justify-content: space-around; gap: 10px; margin: 10px 0 20px 0">
@@ -204,6 +211,11 @@ Here are some **gif demos** and **screenshots** showcasing the app:
 </div>
 
 **No Results View**
+
+<div style="display: flex; justify-content: space-around; gap: 10px; margin: 10px 0 20px 0">
+   <img src="forREADME/no-results.gif" alt="No Results Preview" width="500" />
+   <img src="forREADME/no-results-mobile.gif" alt="No Results Mobile Preview" width="200" />
+</div>
 
 **Error**
 
