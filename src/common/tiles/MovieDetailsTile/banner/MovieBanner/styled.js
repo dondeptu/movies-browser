@@ -79,7 +79,7 @@ export const Wrapper = styled.div`
 export const BannerImage = styled.img`
   width: 95%; 
   height: 100%;
-  height: clamp(33vh, 48vw, 105vh);
+  height: clamp(33vh, 50vw, 105vh);
   object-fit: cover;
   object-position: center;  
   z-index: 0; 

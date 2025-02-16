@@ -27,7 +27,7 @@ export const theme = {
   },
   gradient: {
     desktop: `linear-gradient(
-      185.44deg,
+      182deg,
       rgba(0, 0, 0, 0) 58.48%,
       rgba(0, 0, 0, 0.106473) 63.17%,
       rgba(0, 0, 0, 0.235359) 68.85%,
@@ -62,7 +62,7 @@ export const theme = {
       rgba(0, 0, 0, 0) 26.64%
     )`,
     desktopMax: `linear-gradient(
-      185.44deg,
+      183deg,
       rgba(0, 0, 0, 0) 58.48%,
       rgba(0, 0, 0, 0.106473) 63.17%,
       rgba(0, 0, 0, 0.235359) 68.85%,
@@ -98,7 +98,7 @@ export const theme = {
     )`,
     laptopMax: `
     linear-gradient(
-          185.44deg,
+          183deg,
           rgba(0, 0, 0, 0) 58.48%,
           rgba(0, 0, 0, 0.106473) 63.17%,
           rgba(0, 0, 0, 0.235359) 68.85%,
