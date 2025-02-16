@@ -170,56 +170,56 @@ Here are some **gif demos** and **screenshots** showcasing the app:
 
 **Movies List Page**
 
-<div style="display: flex; justify-content: space-around; gap: 10px; margin: 10px 0 20px 0">
+<div>
    <img src="forREADME/movie-list.gif" alt="Movie List Preview" width="500" />
    <img src="forREADME/movie-list-mobile.gif" alt="Movie List Mobile Preview" width="200" />
 </div>
 
 **Movie Details Page**
 
-<div style="display: flex; justify-content: space-around; gap: 10px; margin: 10px 0 20px 0">
+<div>
    <img src="forREADME/movie-details.gif" alt="Movie Details Preview" width="500" />
    <img src="forREADME/movie-details-mobile.gif" alt="Movie Details Mobile Preview" width="200" />
 </div>
 
 **People List Page**
 
-<div style="display: flex; justify-content: space-around; gap: 10px; margin: 10px 0 20px 0">
+<div>
    <img src="forREADME/people-list.gif" alt="People List Preview" width="500" />
    <img src="forREADME/people-list-mobile.gif" alt="People List Mobile Preview" width="200" />
 </div>
 
 **Person Profile Page**
 
-<div style="display: flex; justify-content: space-around; gap: 10px; margin: 10px 0 20px 0">
+<div>
    <img src="forREADME/person-profile.gif" alt="Person Profile Preview" width="500" />
    <img src="forREADME/person-profile-mobile.gif" alt="Person Profile Mobile Preview" width="200" />
 </div>
 
 **Search Functionality**
 
-<div style="display: flex; justify-content: space-around; gap: 10px; margin: 10px 0 20px 0">
+<div>
    <img src="forREADME/searcher.gif" alt="Searcher Preview" width="500" />
    <img src="forREADME//searcher-mobile.gif" alt="Searcher Mobile Preview" width="200" />
 </div>
 
 **Seamless Navigation**
 
-<div style="display: flex; justify-content: space-around; gap: 10px; margin: 10px 0 20px 0">
+<div>
    <img src="forREADME/seamless-navigation.gif" alt="Seamless Navigation Preview" width="500" />
    <img src="forREADME/seamless-navigation-mobile.gif" alt="Seamless Navigation Mobile Preview" width="200" />
 </div>
 
 **No Results View**
 
-<div style="display: flex; justify-content: space-around; gap: 10px; margin: 10px 0 20px 0">
+<div>
    <img src="forREADME/no-results.gif" alt="No Results Preview" width="500" />
    <img src="forREADME/no-results-mobile.gif" alt="No Results Mobile Preview" width="200" />
 </div>
 
 **Error**
 
-<div style="display: flex; justify-content: space-around; gap: 10px; margin: 10px 0 20px 0">
+<div>
    <img src="forREADME/error.png" alt="Error Preview" width="500" />
    <img src="forREADME/error-mobile.png" alt="Error Mobile Preview" width="200" />
 </div>
