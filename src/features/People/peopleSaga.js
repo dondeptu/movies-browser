@@ -9,7 +9,7 @@ import {
   setPeopleDetails,
   fetchPeopleDetails,
   fetchSearchPeopleResults,
-} from "../People/peopleSlice";
+} from "./peopleSlice";
 import { getPeopleDetails } from "./PeoplePage/getPeopleDetails";
 import { getSearchResults } from "../getSearchResultsData";
 import {
