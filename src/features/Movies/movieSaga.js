@@ -1,4 +1,4 @@
-import { call, delay, put, takeLatest } from "redux-saga/effects";
+import { call, debounce, delay, put, takeLatest } from "redux-saga/effects";
 import { getPopularMovies } from "./MovieList/getData";
 import {
   startFetch,
@@ -87,15 +87,17 @@ function* fetchSearchResultsHandler({
   payload: { page, searchQuery, searchType },
 }) {
   try {
-    yield put(startFetch());
-
     const { results, total_pages, total_results } = yield call(
       getSearchResults,
       page,
       searchQuery,
       searchType
     );
-
+    // Zostawiam komentarz na czas review, zebyscie mogli zobaczyc, 
+    // ze mimo, ze we wtyczce Redux pokazuje wywołanie 
+    // `fetchSearchResults` na kazda literke , to samo zawolanie do api 
+    // wykonało sie raz przez, ustawiony debounce.
+    console.log("Pobrałem wyniki z api");
     yield put(setMovies({ page, results, total_pages, total_results }));
 
     try {
@@ -118,5 +120,5 @@ function* fetchSearchResultsHandler({
 export function* movieSaga() {
   yield takeLatest(fetchPopularMovies.type, fetchPopularMoviesHandler);
   yield takeLatest(fetchMovieDetails.type, fetchMovieDetailsHandler);
-  yield takeLatest(fetchSearchResults.type, fetchSearchResultsHandler);
+  yield debounce(500, fetchSearchResults.type, fetchSearchResultsHandler);
 }
