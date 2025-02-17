@@ -16,11 +16,11 @@
 
 6. 🤝 [Contributors](#-contributors)
 
-7. 🧑‍💻 [Project Management & Development Workflow](#️-project-management--development-workflow)
+7. 🧑‍💻 [Project Management & Development Workflow](#-project-management--development-workflow)
 
 8. ⚙️ [Installation](#️-installation)
 
-9. 🛠️ [Getting Started with Create React App](#getting-started-with-create-react-app)
+9. 🛠️ [Getting Started with Create React App](#️-getting-started-with-create-react-app)
 
 
 ## 🌐 Live Demo
