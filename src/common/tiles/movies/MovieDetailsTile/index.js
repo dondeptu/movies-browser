@@ -41,14 +41,14 @@ export const MovieDetailsTile = ({
   }, []);
 
   const getCountries = (countries) => {
-    if (!countries) return "Unknown";
+    if (!countries|| countries.length === 0) return "N/A";
 
     return countries
       .map((country) => {
         if (isMobile && country.name?.includes(" ")) {
           return country.iso_3166_1;
         } else {
-          return country.name || "Unknown";
+          return country.name || "N/A";
         }
       })
       .join(", ");
@@ -70,12 +70,12 @@ export const MovieDetailsTile = ({
         {title ? (
           <TileTitle>{title}</TileTitle>
         ) : (
-          <TileTitle>Title not available</TileTitle>
+          <TileTitle>N/A</TileTitle>
         )}
         {releaseDate ? (
           <ReleaseDate>{releaseDate.slice(0, 4)}</ReleaseDate>
         ) : (
-          <ReleaseDate>Unknown release date</ReleaseDate>
+          <ReleaseDate>N/A</ReleaseDate>
         )}
         <ProductionInfo
           info={{

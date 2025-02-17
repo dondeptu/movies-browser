@@ -6,12 +6,12 @@ export const Genre = ({ genreIds, genresError }) => {
   const genresList = useSelector(selectGenres);
 
   if (genresError || !Array.isArray(genresList) || !Array.isArray(genreIds)) {
-    return <p> No genres available</p>;
+    return <p>N/A</p>;
   }
   const movieGenres = genresList.filter((genre) => genreIds.includes(genre.id));
 
   if (movieGenres.length === 0) {
-    return <p> No genres available</p>;
+    return <p>N/A</p>;
   }
 
   return (
