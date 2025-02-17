@@ -55,18 +55,20 @@ function MoviePage() {
         <Error />
       ) : (
         <>
-          <SectionBanner
-            body={
-              movieDetails ? (
-                <MovieBanner
-                  backdropPath={movieDetails.backdrop_path}
-                  title={movieDetails.title}
-                  voteAverage={movieDetails.vote_average}
-                  voteCount={movieDetails.vote_count}
-                />
-              ) : null
-            }
-          />
+          {movieDetails && (
+            <SectionBanner as Section
+              body={
+                movieDetails.backdrop_path ? (
+                  <MovieBanner
+                    backdropPath={movieDetails.backdrop_path}
+                    title={movieDetails.title}
+                    voteAverage={movieDetails.vote_average}
+                    voteCount={movieDetails.vote_count}
+                  />
+                ) : null
+              }
+            />
+          )}
           <Wrapper>
             <Section
               sectionHeader=""
