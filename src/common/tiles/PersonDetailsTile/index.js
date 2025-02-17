@@ -23,7 +23,7 @@ export const PersonDetailsTile = ({
       <PosterWrapper $personDetailsSize={personDetailsSize}>
         {profilePath ? (
           <Poster
-            src={`https://image.tmdb.org/t/p/w500${profilePath}`}
+            src={`https://image.tmdb.org/t/p/h632${profilePath}`}
             alt={`poster of ${name}`}
           />
         ) : (
