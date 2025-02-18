@@ -34,7 +34,9 @@ function* fetchPopularMoviesHandler({ payload: page }) {
       const { genres } = yield call(getGenres);
       yield put(setGenres(genres));
     } catch (error) {
-      yield put(setGenresError(`Error fetching movie genres: ${error.message}`));
+      yield put(
+        setGenresError(`Error fetching movie genres: ${error.message}`)
+      );
     }
 
     yield delay(500);
@@ -56,7 +58,9 @@ function* fetchMovieDetailsHandler({ payload: movieId }) {
       const { genres } = yield call(getGenres);
       yield put(setGenres(genres));
     } catch (error) {
-      yield put(setGenresError(`Error fetching movie genres: ${error.message}`));
+      yield put(
+        setGenresError(`Error fetching movie genres: ${error.message}`)
+      );
     }
 
     yield put(setCastStart());
@@ -93,10 +97,6 @@ function* fetchSearchResultsHandler({
       searchQuery,
       searchType
     );
-    // Zostawiam komentarz na czas review, zebyscie mogli zobaczyc, 
-    // ze mimo, ze we wtyczce Redux pokazuje wywołanie 
-    // `fetchSearchResults` na kazda literke , to samo zawolanie do api 
-    // wykonało sie raz przez, ustawiony debounce.
     console.log("Pobrałem wyniki z api");
     yield put(setMovies({ page, results, total_pages, total_results }));
 
@@ -104,7 +104,9 @@ function* fetchSearchResultsHandler({
       const { genres } = yield call(getGenres);
       yield put(setGenres(genres));
     } catch (error) {
-      yield put(setGenresError(`Error fetching movie genres: ${error.message}`));
+      yield put(
+        setGenresError(`Error fetching movie genres: ${error.message}`)
+      );
     }
 
     yield delay(800);

@@ -37,8 +37,5 @@ export const useUpdateQueryParameter = setSearchQuery => {
             if (currentHistory !== newHistory) {
                 history.push(newHistory);
             };
-            if (currentHistory !== newHistory) {
-                history.push(newHistory);
-            };
     });
 };
