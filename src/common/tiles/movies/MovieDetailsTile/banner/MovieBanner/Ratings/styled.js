@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as Star } from "../../../../../../../images/Shapes/shapeStar.svg";
+import { ReactComponent as Star } from "../../../../../../../images/Star.svg";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     flex-direction: row;
-    align-items: center; /* Align everything in one line */
+    align-items: center; 
     gap: 8px;
   }
 `;

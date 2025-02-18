@@ -1,5 +1,5 @@
 import { formatDate } from "../../../../features/utils.js";
-import { InfoAboutBirth } from "./InfoAboutBirth/index.js";
+import { BirthInfo } from "./BirthInfo/index.js";
 import { PersonDescription } from "../../movies/MovieDetailsTile/Description";
 import {
   Poster,
@@ -23,7 +23,7 @@ export const PersonDetailsTile = ({
       <PosterWrapper $personDetailsSize={personDetailsSize}>
         {profilePath ? (
           <Poster
-            src={`https://image.tmdb.org/t/p/w500${profilePath}`}
+            src={`https://image.tmdb.org/t/p/h632${profilePath}`}
             alt={`poster of ${name}`}
           />
         ) : (
@@ -36,7 +36,7 @@ export const PersonDetailsTile = ({
         ) : (
           <TileTitle>N/A</TileTitle>
         )}
-        <InfoAboutBirth
+        <BirthInfo
           $personDetailsSize={personDetailsSize}
           info={{
             dateOfBirth: formatDate(birthday),
