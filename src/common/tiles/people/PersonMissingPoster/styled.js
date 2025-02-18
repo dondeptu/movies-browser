@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as missingPerson } from "../../../../images/iconMissingPerson.svg";
+import { ReactComponent as missingPerson } from "../../../../images/MissingPerson.svg";
 
 export const Wrapper = styled.div`
   display: flex;

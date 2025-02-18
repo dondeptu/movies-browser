@@ -97,7 +97,6 @@ function* fetchSearchResultsHandler({
       searchQuery,
       searchType
     );
-    console.log("Pobrałem wyniki z api");
     yield put(setMovies({ page, results, total_pages, total_results }));
 
     try {
