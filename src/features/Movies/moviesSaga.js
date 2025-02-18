@@ -10,14 +10,7 @@ import {
   fetchSearchResults,
   fetchPopularMovies,
 } from "./moviesSlice";
-import {
-  setCast,
-  setCrew,
-  setCastStart,
-  setCrewError,
-  setCastError,
-  setCrewStart,
-} from "../creditsSlice";
+import { setCreditsStart, setCredits, setCreditsError } from "../creditsSlice";
 import { getCredits } from "./MoviePage/getCredits";
 import { getMovieDetails } from "./MoviePage/getData";
 import { getGenres } from "./getGenres";
@@ -63,20 +56,14 @@ function* fetchMovieDetailsHandler({ payload: movieId }) {
       );
     }
 
-    yield put(setCastStart());
+    yield put(setCreditsStart());
     try {
-      const cast = yield call(getCredits, movieId);
-      yield put(setCast(cast));
+      const creditsData = yield call(getCredits, movieId);
+      yield put(setCredits(creditsData));
     } catch (error) {
-      yield put(setCastError(`Error fetching movie cast: ${error.message}`));
-    }
-
-    yield put(setCrewStart());
-    try {
-      const crew = yield call(getCredits, movieId);
-      yield put(setCrew(crew));
-    } catch (error) {
-      yield put(setCrewError(`Error fetching movie crew: ${error.message}`));
+      yield put(
+        setCreditsError(`Error fetching movie credits: ${error.message}`)
+      );
     }
 
     yield delay(500);
