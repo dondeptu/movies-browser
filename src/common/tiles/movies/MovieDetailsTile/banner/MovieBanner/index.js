@@ -21,7 +21,7 @@ export const MovieBanner = ({ backdropPath, title, voteAverage, voteCount }) => 
           />
         }
         <BannerContent $imageLoaded={imageLoaded}>
-          {title ? <Title>{title}</Title> : <Title>Title not available</Title>}
+          {title ? <Title>{title}</Title> : <Title>N/A</Title>}
           <Ratings ratings={{ rate: voteAverage, maxRate: '/ 10', votes: voteCount }} />
         </BannerContent>
       </BannerContainer>

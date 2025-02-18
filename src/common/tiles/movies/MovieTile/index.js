@@ -41,15 +41,15 @@ export const MovieTile = ({
       <InfoContent>
         <Details>
           {title && <Title>{title}</Title>}
-          {releaseDate && (
             <ReleaseDate>
-              {castCharacter
+            {releaseDate ? 
+              castCharacter
                 ? `${castCharacter} (${releaseDate.slice(0, 4)})`
                 : crewJob
                 ? `${displayCrewJob}(${releaseDate.slice(0, 4)})`
-                : releaseDate.slice(0, 4)}
+                : releaseDate.slice(0, 4)
+              : "N/A"}
             </ReleaseDate>
-          )}
           <Genre genreIds={genreIds} genresError={genresError} />
         </Details>
         <Ratings ratings={{ rate: voteAverage, votes: voteCount }} />

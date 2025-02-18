@@ -3,13 +3,13 @@ import { PersonDescriptionWrapper, TileDescription } from "./styled";
 export const MovieDescription = ({ movieDescription }) => {
 
     return (
-        <TileDescription>{movieDescription.description || "No description available."}</TileDescription>
+        <TileDescription>{movieDescription.description || "N/A"}</TileDescription>
     )
 };
 
 export const PersonDescription = ({ personDescription }) => {
 
     return (
-        <PersonDescriptionWrapper>{personDescription.biography || "No description available."}</PersonDescriptionWrapper>
+        <PersonDescriptionWrapper>{personDescription.biography || "N/A"}</PersonDescriptionWrapper>
     )
 };

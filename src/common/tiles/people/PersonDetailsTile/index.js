@@ -34,7 +34,7 @@ export const PersonDetailsTile = ({
         {name ? (
           <TileTitle $personDetailsSize={personDetailsSize}>{name}</TileTitle>
         ) : (
-          <TileTitle>Title not available</TileTitle>
+          <TileTitle>N/A</TileTitle>
         )}
         <BirthInfo
           $personDetailsSize={personDetailsSize}

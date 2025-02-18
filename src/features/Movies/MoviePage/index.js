@@ -91,7 +91,7 @@ function MoviePage() {
                   {movieDetails && (
                     <Article
                       articleHeader={
-                        cast && cast.length > 0 ? "Cast" : "No cast available"
+                        cast && cast.length > 0 ? "Cast" : null
                       }
                       body={
                         castLoading ? (
@@ -119,7 +119,7 @@ function MoviePage() {
                       articleHeader={
                         groupedCrew && groupedCrew.length > 0
                           ? "Crew"
-                          : "No crew available"
+                          : null
                       }
                       body={
                         crewLoading ? (
