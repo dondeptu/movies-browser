@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const movieSlice = createSlice({
+const moviesSlice = createSlice({
   name: "movies",
   initialState: {
     movies: {
@@ -60,6 +60,6 @@ export const {
   fetchPopularMovies,
   fetchMovieDetails,
   fetchSearchResults,
-} = movieSlice.actions;
+} = moviesSlice.actions;
 
-export default movieSlice.reducer;
+export default moviesSlice.reducer;

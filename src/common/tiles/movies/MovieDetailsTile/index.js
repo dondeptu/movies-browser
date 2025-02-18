@@ -1,4 +1,4 @@
-import { formatDate } from "../../../features/utils.js";
+import { formatDate } from "../../../../features/utils.js";
 import {
   Poster,
   Wrapper,
@@ -6,14 +6,14 @@ import {
   ReleaseDate,
   TileContent,
   PosterWrapper,
-} from "../../StylesDetailsTile/styled.js";
+} from "../../../StylesDetailsTile/styled.js";
 import { ProductionInfo } from "./ProductionInfo/index.js";
 import { Ratings } from "./Ratings/index.js";
 import { MovieDescription } from "./Description/index.js";
 import { Genre } from "./Genre/index.js";
-import { theme } from "../../../theme.js";
+import { theme } from "../../../../theme.js";
 import { useEffect, useState } from "react";
-import { MissingPoster } from "../MissingPoster/index.js";
+import { MovieMissingPoster } from "../MovieMissingPoster/index.js";
 
 export const MovieDetailsTile = ({
   posterPath,
@@ -63,7 +63,7 @@ export const MovieDetailsTile = ({
             alt={`poster of ${title}`}
           />
         ) : (
-          <MissingPoster />
+          <MovieMissingPoster />
         )}
       </PosterWrapper>
       <TileContent>

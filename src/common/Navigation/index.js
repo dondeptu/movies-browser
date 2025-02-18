@@ -9,7 +9,7 @@ import {
   NavItem,
   StyledNavLink,
 } from "./styled";
-import { toMovieList, toPeople } from "../../routes";
+import { toMovieList, toPeopleList } from "../../routes";
 import { Search } from "./Search";
 
 export const Navigation = () => (
@@ -25,7 +25,7 @@ export const Navigation = () => (
             <StyledNavLink to={toMovieList()}>Movies</StyledNavLink>
           </NavItem>
           <NavItem>
-            <StyledNavLink to={toPeople()}>People</StyledNavLink>
+            <StyledNavLink to={toPeopleList()}>People</StyledNavLink>
           </NavItem>
         </NavItemList>
       </NavGroup>

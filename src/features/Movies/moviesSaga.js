@@ -9,7 +9,7 @@ import {
   fetchMovieDetails,
   fetchSearchResults,
   fetchPopularMovies,
-} from "./movieSlice";
+} from "./moviesSlice";
 import {
   setCast,
   setCrew,
@@ -34,14 +34,16 @@ function* fetchPopularMoviesHandler({ payload: page }) {
       const { genres } = yield call(getGenres);
       yield put(setGenres(genres));
     } catch (error) {
-      yield put(setGenresError(`Error fetching genres: ${error.message}`));
+      yield put(
+        setGenresError(`Error fetching movie genres: ${error.message}`)
+      );
     }
 
     yield delay(500);
     yield put(setMovieSuccess());
   } catch (error) {
     yield delay(800);
-    yield put(setMovieError(`Error fetching movies: ${error.message}`));
+    yield put(setMovieError(`Error fetching popular movies: ${error.message}`));
   }
 }
 
@@ -56,7 +58,9 @@ function* fetchMovieDetailsHandler({ payload: movieId }) {
       const { genres } = yield call(getGenres);
       yield put(setGenres(genres));
     } catch (error) {
-      yield put(setGenresError(`Error fetching genres: ${error.message}`));
+      yield put(
+        setGenresError(`Error fetching movie genres: ${error.message}`)
+      );
     }
 
     yield put(setCastStart());
@@ -64,7 +68,7 @@ function* fetchMovieDetailsHandler({ payload: movieId }) {
       const cast = yield call(getCredits, movieId);
       yield put(setCast(cast));
     } catch (error) {
-      yield put(setCastError(`Error fetching cast: ${error.message}`));
+      yield put(setCastError(`Error fetching movie cast: ${error.message}`));
     }
 
     yield put(setCrewStart());
@@ -72,7 +76,7 @@ function* fetchMovieDetailsHandler({ payload: movieId }) {
       const crew = yield call(getCredits, movieId);
       yield put(setCrew(crew));
     } catch (error) {
-      yield put(setCrewError(`Error fetching crew: ${error.message}`));
+      yield put(setCrewError(`Error fetching movie crew: ${error.message}`));
     }
 
     yield delay(500);
@@ -93,18 +97,15 @@ function* fetchSearchResultsHandler({
       searchQuery,
       searchType
     );
-    // Zostawiam komentarz na czas review, zebyscie mogli zobaczyc, 
-    // ze mimo, ze we wtyczce Redux pokazuje wywołanie 
-    // `fetchSearchResults` na kazda literke , to samo zawolanie do api 
-    // wykonało sie raz przez, ustawiony debounce.
-    console.log("Pobrałem wyniki z api");
     yield put(setMovies({ page, results, total_pages, total_results }));
 
     try {
       const { genres } = yield call(getGenres);
       yield put(setGenres(genres));
     } catch (error) {
-      yield put(setGenresError(`Error fetching genres: ${error.message}`));
+      yield put(
+        setGenresError(`Error fetching movie genres: ${error.message}`)
+      );
     }
 
     yield delay(800);
@@ -117,7 +118,7 @@ function* fetchSearchResultsHandler({
   }
 }
 
-export function* movieSaga() {
+export function* moviesSaga() {
   yield takeLatest(fetchPopularMovies.type, fetchPopularMoviesHandler);
   yield takeLatest(fetchMovieDetails.type, fetchMovieDetailsHandler);
   yield debounce(500, fetchSearchResults.type, fetchSearchResultsHandler);

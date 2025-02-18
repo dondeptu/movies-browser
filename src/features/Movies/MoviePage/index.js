@@ -2,18 +2,18 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useEffect } from "react";
-import { MovieDetailsTile } from "../../../common/tiles/MovieDetailsTile";
-import { PersonTile } from "../../../common/tiles/Persons/PersonTile";
-import { PersonsContent } from "../../../common/tiles/Persons/styled";
+import { MovieDetailsTile } from "../../../common/tiles/movies/MovieDetailsTile";
+import { PersonTile } from "../../../common/tiles/people/PersonCardTile/PersonTile";
+import { PersonContent } from "../../../common/tiles/people/PersonCardTile/styled";
 import { Section } from "../../../common/Section";
-import { MovieBanner } from "../../../common/tiles/MovieDetailsTile/banner/MovieBanner";
-import { SectionBanner } from "../../../common/tiles/MovieDetailsTile/banner/SectionBanner";
+import { MovieBanner } from "../../../common/tiles/movies/MovieDetailsTile/banner/MovieBanner";
+import { SectionBanner } from "../../../common/tiles/movies/MovieDetailsTile/banner/SectionBanner";
 import { Wrapper } from "../../../Wrapper";
 import {
   fetchMovieDetails,
   selectMovieDetails,
   selectMoviesState,
-} from "../movieSlice";
+} from "../moviesSlice";
 import {
   selectCastError,
   selectCast,
@@ -97,7 +97,7 @@ function MoviePage() {
                         castLoading ? (
                           <Loading />
                         ) : castError || !cast || cast.length === 0 ? null : (
-                          <PersonsContent>
+                          <PersonContent>
                             {cast.map((castMember, index) => (
                               <PersonTile
                                 key={`${castMember.id}-${castMember.character}-${index}`}
@@ -108,7 +108,7 @@ function MoviePage() {
                                 character={castMember.character}
                               />
                             ))}
-                          </PersonsContent>
+                          </PersonContent>
                         )
                       }
                     />
@@ -127,7 +127,7 @@ function MoviePage() {
                         ) : crewError ||
                           !groupedCrew ||
                           groupedCrew.length === 0 ? null : (
-                          <PersonsContent>
+                          <PersonContent>
                             {groupedCrew.map((crewMember, index) => (
                               <PersonTile
                                 key={`${crewMember.id}-${crewMember.jobs}-${index}`}
@@ -137,7 +137,7 @@ function MoviePage() {
                                 jobs={crewMember.jobs}
                               />
                             ))}
-                          </PersonsContent>
+                          </PersonContent>
                         )
                       }
                     />

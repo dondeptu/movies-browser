@@ -4,11 +4,11 @@ import { useEffect } from "react";
 import { Wrapper } from "../../../Wrapper";
 import { Section } from "../../../common/Section";
 import { Content } from "../../movies/MovieList/styled";
-import { PersonDetailsTile } from "../../../common/tiles/PersonDetailsTile";
-import { MovieTile } from "../../../common/tiles/MovieTile";
+import { PersonDetailsTile } from "../../../common/tiles/people/PersonDetailsTile";
+import { MovieTile } from "../../../common/tiles/movies/MovieTile";
 import {
-  fetchPeopleDetails,
-  selectPeopleDetails,
+  fetchPersonDetails,
+  selectPersonDetails,
   selectPeopleState,
 } from "../peopleSlice";
 import { Article } from "../../../common/Article";
@@ -25,10 +25,10 @@ import { Loading } from "../../../common/Loading";
 import { Error } from "../../../common/Error";
 import { groupCrewMovies } from "../../groupedCrew";
 
-function PeoplePage() {
+function PersonPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const peopleDetails = useSelector(selectPeopleDetails);
+  const personDetails = useSelector(selectPersonDetails);
   const { loading, error } = useSelector(selectPeopleState);
   const cast = useSelector(selectCast);
   const crew = useSelector(selectCrew);
@@ -38,7 +38,7 @@ function PeoplePage() {
   const crewLoading = useSelector(selectCrewLoading);
 
   useEffect(() => {
-    dispatch(fetchPeopleDetails(id));
+    dispatch(fetchPersonDetails(id));
   }, [dispatch, id]);
 
   const isMobile = useIsMobile();
@@ -59,18 +59,18 @@ function PeoplePage() {
             sectionHeader=""
             body={
               <>
-                {peopleDetails && (
+                {personDetails && (
                   <PersonDetailsTile
                     personDetailsSize
-                    profilePath={peopleDetails.profile_path}
-                    name={peopleDetails.name}
-                    birthday={peopleDetails.birthday}
-                    placeOfBirth={peopleDetails.place_of_birth}
-                    biography={peopleDetails.biography}
+                    profilePath={personDetails.profile_path}
+                    name={personDetails.name}
+                    birthday={personDetails.birthday}
+                    placeOfBirth={personDetails.place_of_birth}
+                    biography={personDetails.biography}
                   />
                 )}
 
-                {peopleDetails && (
+                {personDetails && (
                   <Article
                     articleHeader={`Movies - cast (${castCount})`}
                     body={
@@ -117,7 +117,7 @@ function PeoplePage() {
                   />
                 )}
 
-                {peopleDetails && (
+                {personDetails && (
                   <Article
                     articleHeader={`Movies - crew (${crewCount})`}
                     body={
@@ -172,4 +172,4 @@ function PeoplePage() {
   );
 }
 
-export default PeoplePage;
+export default PersonPage;

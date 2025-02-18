@@ -10,8 +10,8 @@ import {
   selectTotalResults,
   fetchSearchPeopleResults
 } from "../peopleSlice";
-import { PersonsContent } from "../../../common/tiles/Persons/styled";
-import { PersonTile } from "../../../common/tiles/Persons/PersonTile";
+import { PersonContent } from "../../../common/tiles/people/PersonCardTile/styled";
+import { PersonTile } from "../../../common/tiles/people/PersonCardTile/PersonTile";
 import { useQueryParameter } from "../../../common/Navigation/Search/queryParameters";
 
 import { Pagination } from "../../../common/Pagination";
@@ -62,7 +62,7 @@ function PeopleList() {
           <Section
             sectionHeader={searchQuery ? `Search results for "${searchQuery}" (${totalResults})` : "Popular people"}
             body={
-              <PersonsContent>
+              <PersonContent>
                 {people?.results?.map(({ id, profile_path, name }) => (
                   <PersonTile
                     extraMargin={true}
@@ -73,7 +73,7 @@ function PeopleList() {
                     name={name}
                   />
                 ))}
-              </PersonsContent>
+              </PersonContent>
             }
           />
           <Pagination

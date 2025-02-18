@@ -1,14 +1,14 @@
-import { formatDate } from "../../../features/utils.js";
-import { InfoAboutBirth } from "./InfoAboutBirth/index.js";
-import { PersonDescription } from "../MovieDetailsTile/Description/index.js";
+import { formatDate } from "../../../../features/utils.js";
+import { BirthInfo } from "./BirthInfo/index.js";
+import { PersonDescription } from "../../movies/MovieDetailsTile/Description";
 import {
   Poster,
   PosterWrapper,
   TileContent,
   TileTitle,
   Wrapper,
-} from "../../StylesDetailsTile/styled.js";
-import { MissingPersonPoster } from "../Persons/MissingPersonPoster/index.js";
+} from "../../../StylesDetailsTile/styled.js";
+import { PersonMissingPoster } from "../../people/PersonMissingPoster";
 
 export const PersonDetailsTile = ({
   personDetailsSize,
@@ -27,7 +27,7 @@ export const PersonDetailsTile = ({
             alt={`poster of ${name}`}
           />
         ) : (
-          <MissingPersonPoster />
+          <PersonMissingPoster />
         )}
       </PosterWrapper>
       <TileContent>
@@ -36,7 +36,7 @@ export const PersonDetailsTile = ({
         ) : (
           <TileTitle>Title not available</TileTitle>
         )}
-        <InfoAboutBirth
+        <BirthInfo
           $personDetailsSize={personDetailsSize}
           info={{
             dateOfBirth: formatDate(birthday),
