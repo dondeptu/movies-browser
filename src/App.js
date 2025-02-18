@@ -7,8 +7,8 @@ import {
 import { Provider } from "react-redux";
 import { store } from "./store";
 import { Navigation } from "./common/Navigation";
-import MovieList from "./features/Movies/MovieList";
-import MoviePage from "./features/Movies/MoviePage";
+import MovieList from "./features/movies/MovieList";
+import MoviePage from "./features/movies/MoviePage";
 import PeopleList from "./features/people/PeopleList";
 import PeoplePage from "./features/people/PeoplePage";
 import { toMovieList, toMoviePage, toPeople, toPeoplePage } from "./routes";
