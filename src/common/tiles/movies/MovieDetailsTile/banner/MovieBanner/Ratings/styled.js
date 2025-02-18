@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     flex-direction: row;
-    align-items: center; /* Align everything in one line */
+    align-items: center; 
     gap: 8px;
   }
 `;

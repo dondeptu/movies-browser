@@ -27,7 +27,7 @@ export const theme = {
   },
   gradient: {
     desktop: `linear-gradient(
-      185.44deg,
+      182deg,
       rgba(0, 0, 0, 0) 58.48%,
       rgba(0, 0, 0, 0.106473) 63.17%,
       rgba(0, 0, 0, 0.235359) 68.85%,
@@ -44,12 +44,12 @@ export const theme = {
       rgba(0, 0, 0, 0) 24.22%
     ),
     linear-gradient(
-      90deg,
+      84deg,
       #000000 13.6%,
       rgba(0, 0, 0, 0.984059) 14.58%,
       rgba(0, 0, 0, 0.967732) 15.44%,
       rgba(0, 0, 0, 0.865569) 16.3%,
-      rgba(0, 0, 0, 0.230315) 22.87%,
+      rgba(0, 0, 0, 0.05) 22.87%,
       rgba(0, 0, 0, 0) 26.64%
     ),
     linear-gradient(
@@ -62,7 +62,7 @@ export const theme = {
       rgba(0, 0, 0, 0) 26.64%
     )`,
     desktopMax: `linear-gradient(
-      185.44deg,
+      183deg,
       rgba(0, 0, 0, 0) 58.48%,
       rgba(0, 0, 0, 0.106473) 63.17%,
       rgba(0, 0, 0, 0.235359) 68.85%,
@@ -79,12 +79,12 @@ export const theme = {
       rgba(0, 0, 0, 0) 24.22%
     ),
     linear-gradient(
-      90deg,
+      84deg,
       #000000 8.6%,
       rgba(0, 0, 0, 0.984059) 9.58%,
       rgba(0, 0, 0, 0.967732) 10.44%,
       rgba(0, 0, 0, 0.865569) 11.3%,
-      rgba(0, 0, 0, 0.230315) 17.87%,
+      rgba(0, 0, 0, 0.05) 17.87%,
       rgba(0, 0, 0, 0) 21.64%
     ),
     linear-gradient(
@@ -98,7 +98,7 @@ export const theme = {
     )`,
     laptopMax: `
     linear-gradient(
-          185.44deg,
+          183deg,
           rgba(0, 0, 0, 0) 58.48%,
           rgba(0, 0, 0, 0.106473) 63.17%,
           rgba(0, 0, 0, 0.235359) 68.85%,
@@ -115,12 +115,12 @@ export const theme = {
           rgba(0, 0, 0, 0) 24.22%
         ),
         linear-gradient(
-          90deg,
+          84deg,
           #000000 4.6%,
           rgba(0, 0, 0, 0.984059) 5.58%,
           rgba(0, 0, 0, 0.967732) 6.44%,
           rgba(0, 0, 0, 0.865569) 7.3%,
-          rgba(0, 0, 0, 0.230315) 13.87%,
+          rgba(0, 0, 0, 0.05) 13.87%,
           rgba(0, 0, 0, 0) 17.64%
         ),
         linear-gradient(
@@ -134,7 +134,7 @@ export const theme = {
         )`,
     mobileS: `
         linear-gradient(
-          185.44deg,
+          182.44deg,
           rgba(0, 0, 0, 0) 58.48%,
           rgba(0, 0, 0, 0.106473) 63.17%,
           rgba(0, 0, 0, 0.235359) 68.85%,
@@ -151,12 +151,12 @@ export const theme = {
           rgba(0, 0, 0, 0) 24.22%
         ),
         linear-gradient(
-          90deg,
+          84deg,
           #000000 7.6%,
           rgba(0, 0, 0, 0.984059) 8.58%,
           rgba(0, 0, 0, 0.967732) 9.44%,
           rgba(0, 0, 0, 0.865569) 10.3%,
-          rgba(0, 0, 0, 0.230315) 16.87%,
+          rgba(0, 0, 0, 0.05) 16.87%,
           rgba(0, 0, 0, 0) 20.64%
         ),
         linear-gradient(
@@ -165,7 +165,7 @@ export const theme = {
           rgba(0, 0, 0, 0.984059) 8.58%,
           rgba(0, 0, 0, 0.967732) 9.44%,
           rgba(0, 0, 0, 0.865569) 10.3%,
-          rgba(0, 0, 0, 0.230315) 16.87%,
+          rgba(0, 0, 0, 0.14) 16.87%,
           rgba(0, 0, 0, 0) 20.64%
         )`,
   },
