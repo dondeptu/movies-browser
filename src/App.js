@@ -7,10 +7,10 @@ import {
 import { Provider } from "react-redux";
 import { store } from "./store";
 import { Navigation } from "./common/Navigation";
-import MovieList from "./features/Movies/MovieList";
-import MoviePage from "./features/Movies/MoviePage";
-import PeopleList from "./features/People/PeopleList";
-import PeoplePage from "./features/People/PeoplePage";
+import MovieList from "./features/movies/MovieList";
+import MoviePage from "./features/movies/MoviePage";
+import PeopleList from "./features/people/PeopleList";
+import PeoplePage from "./features/people/PeoplePage";
 import { toMovieList, toMoviePage, toPeople, toPeoplePage } from "./routes";
 import ScrollToTop from "./common/ScrollToTop";
 

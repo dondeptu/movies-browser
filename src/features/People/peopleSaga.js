@@ -9,7 +9,7 @@ import {
   setPeopleDetails,
   fetchPeopleDetails,
   fetchSearchPeopleResults,
-} from "../People/peopleSlice";
+} from "./peopleSlice";
 import { getPeopleDetails } from "./PeoplePage/getPeopleDetails";
 import { getSearchResults } from "../getSearchResultsData";
 import {
@@ -20,8 +20,8 @@ import {
   setCrewError,
   setCrewStart,
 } from "../creditsSlice";
-import { setGenres, setGenresError } from "../Movies/genresSlice";
-import { getGenres } from "../Movies/getGenres";
+import { setGenres, setGenresError } from "../movies/genresSlice";
+import { getGenres } from "../movies/getGenres";
 import { getPeopleCredits } from "./PeoplePage/getPeopleCredits";
 
 function* fetchPopularPeopleHandler({ payload: page }) {

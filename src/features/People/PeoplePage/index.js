@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useEffect } from "react";
 import { Wrapper } from "../../../Wrapper";
 import { Section } from "../../../common/Section";
-import { Content } from "../../Movies/MovieList/styled";
+import { Content } from "../../movies/MovieList/styled";
 import { PersonDetailsTile } from "../../../common/tiles/PersonDetailsTile";
 import { MovieTile } from "../../../common/tiles/MovieTile";
 import {

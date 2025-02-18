@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as iconCamera } from "../../../images/iconCamera.svg";
+import { ReactComponent as iconCamera } from "../../../images/Camera.svg";
 
 export const Wrapper = styled.div`
   display: flex;
